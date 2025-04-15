@@ -9,7 +9,7 @@ struct Network {
     listener: Listener
 }
 
-impl Default for Network {
+impl Network {
     async fn default() -> Self {
         let server = Server::get().await;
         Self {
@@ -27,12 +27,11 @@ impl Default for Network {
             ).await.unwrap()
         }
     }
-}
-
-impl Network {
+    
     async fn start(&mut self) -> Result<(), ListenerError> {
         self.listener.start().await
     }
+    
     async fn update(&mut self) {
         let conn: Connection = self.listener.accept().await.unwrap();
         
