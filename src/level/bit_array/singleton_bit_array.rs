@@ -1,4 +1,4 @@
-use crate::level::bit_array::bit_array::BitArray;
+use crate::level::bit_array::bit_array::BitArrayTrait;
 use crate::level::bit_array::bit_array_version::BitArrayVersion;
 
 #[derive(Clone)]
@@ -10,7 +10,7 @@ impl SingletonBitArray {
     }
 }
 
-impl BitArray for SingletonBitArray {
+impl BitArrayTrait for SingletonBitArray {
     fn set(&mut self, _: usize, _: i32) {
         panic!("Unsupported Operation")
     }
@@ -23,8 +23,8 @@ impl BitArray for SingletonBitArray {
         1
     }
 
-    fn get_words(&self) -> &Vec<i32> {
-        &vec![]
+    fn get_words(&self) -> Vec<i32> {
+        vec![]
     }
 
     fn get_version(&self) -> &BitArrayVersion {

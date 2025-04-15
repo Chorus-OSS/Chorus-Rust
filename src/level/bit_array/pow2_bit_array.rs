@@ -1,4 +1,4 @@
-use crate::level::bit_array::bit_array::BitArray;
+use crate::level::bit_array::bit_array::BitArrayTrait;
 use crate::level::bit_array::bit_array_version::BitArrayVersion;
 
 #[derive(Clone)]
@@ -23,7 +23,7 @@ impl Pow2BitArray {
     }
 }
 
-impl BitArray for Pow2BitArray {
+impl BitArrayTrait for Pow2BitArray {
     fn set(&mut self, index: usize, value: i32) {
         let bit_index = index * self.version.bits as usize;
         let vec_index = bit_index >> 5;
@@ -46,8 +46,8 @@ impl BitArray for Pow2BitArray {
         self.size
     }
 
-    fn get_words(&self) -> &Vec<i32> {
-        &self.words
+    fn get_words(&self) -> Vec<i32> {
+        self.words.clone()
     }
 
     fn get_version(&self) -> &BitArrayVersion {

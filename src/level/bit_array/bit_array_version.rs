@@ -1,4 +1,4 @@
-use crate::level::bit_array::bit_array::BitArray;
+use crate::level::bit_array::bit_array::{BitArray, BitArrayTrait};
 use crate::level::bit_array::padded_bit_array::PaddedBitArray;
 use crate::level::bit_array::pow2_bit_array::Pow2BitArray;
 use crate::level::bit_array::singleton_bit_array::SingletonBitArray;
@@ -21,7 +21,7 @@ impl BitArrayVersion {
     pub const V1: BitArrayVersion = BitArrayVersion { bits: 1, entries_per_word: 32, next: Some(&Self::V2) };
     pub const V0: BitArrayVersion = BitArrayVersion { bits: 0, entries_per_word: 2, next: Some(&Self::V1) };
 
-    pub const VALUES: Vec<&'static BitArrayVersion> = vec![
+    pub const VALUES: [&'static BitArrayVersion; 9] = [
         &Self::V16,
         &Self::V8,
         &Self::V6,
@@ -41,30 +41,30 @@ impl BitArrayVersion {
         (1 << self.bits) - 1
     }
 
-    pub fn create_array(&self, size: usize, mut words: Option<Vec<i32>>) -> impl BitArray {
+    pub fn create_array(&self, size: usize, mut words: Option<Vec<i32>>) -> BitArray {
         let words = words.unwrap_or(vec![0; self.get_words_for_size(size) as usize]);
         
         match self {
             &BitArrayVersion::V3 | 
             &BitArrayVersion::V5 | 
             &BitArrayVersion::V6 => {
-                PaddedBitArray::new(
+                BitArray::PaddedBitArray(PaddedBitArray::new(
                     self.clone(),
                     size,
                     words
-                )
+                ))
             }
             
             &BitArrayVersion::V0 => {
-                SingletonBitArray::new()
+                BitArray::SingletonBitArray(SingletonBitArray::new())
             }
             
             _ => {
-                Pow2BitArray::new(
+                BitArray::Pow2BitArray(Pow2BitArray::new(
                     self.clone(),
                     size,
                     words,
-                )
+                ))
             }
         }
     }

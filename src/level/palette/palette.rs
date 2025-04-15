@@ -1,16 +1,16 @@
 use std::io::Cursor;
 use bedrockrs::proto::error::ProtoCodecError;
-use bedrockrs::proto::{ProtoCodec, ProtoCodecBE, ProtoCodecLE, ProtoCodecVAR};
-use crate::level::bit_array::bit_array::BitArray;
+use bedrockrs::proto::{ProtoCodec, ProtoCodecLE, ProtoCodecVAR};
+use crate::level::bit_array::bit_array::{BitArray, BitArrayTrait};
 use crate::level::bit_array::bit_array_version::BitArrayVersion;
 use crate::level::sub_chunk::SubChunk;
 
 pub struct Palette<V : PartialEq> {
     palette: Vec<V>,
-    bit_array: Box<dyn BitArray>,
+    bit_array: BitArray,
 }
 
-impl<V> Palette<V> {
+impl<V : PartialEq + Clone> Palette<V> {
     pub fn new(first: V, palette: Option<Vec<V>>, version: Option<BitArrayVersion>) -> Self {
         let version = version.unwrap_or(BitArrayVersion::V2);
         let mut palette = palette.unwrap_or(vec![]);
@@ -24,19 +24,20 @@ impl<V> Palette<V> {
     }
     
     pub fn get(&self, index: usize) -> &V {
-        let i = self.bit_array[index];
+        let i = self.bit_array.get(index) as usize;
         
         if i >= self.palette.len() { self.palette.first().unwrap() } else { &self.palette[i] }
     }
     
     pub fn set(&mut self, index: usize, value: V) {
-        self.bit_array[index] = self.index_for(value);
+        let bit = self.index_for(&value);
+        self.bit_array.set(index, bit as i32);
     }
     
     pub fn is_empty(&self) -> bool {
-        if (self.palette.len() == 1) {
-            for &word in self.bit_array.get_words() {
-                if (word != 0) {
+        if self.palette.len() == 1 {
+            for word in self.bit_array.get_words() {
+                if word != 0 {
                     return false
                 }
             }
@@ -45,12 +46,12 @@ impl<V> Palette<V> {
     }
 
     fn index_for(&mut self, value: &V) -> usize {
-        if let Some(index) = self.palette.iter().position(|v| *v == value) {
+        if let Some(index) = self.palette.iter().position(|v| *v == *value) {
             return index;
         }
 
         let index = self.palette.len();
-        self.palette.push(value);
+        self.palette.push(value.clone());
 
         let version = &self.bit_array.get_version();
         if index > version.get_max_entry_value() as usize {
@@ -63,9 +64,9 @@ impl<V> Palette<V> {
     }
     
     fn on_resize(&mut self, version: &BitArrayVersion) {
-        let new_bit_array = version.create_array(SubChunk::SIZE, None);
+        let mut new_bit_array = version.create_array(SubChunk::SIZE, None);
         for i in 0..SubChunk::SIZE {
-            new_bit_array[i] = self.bit_array[i]
+            new_bit_array.set(i, self.bit_array.get(i))
         }
         self.bit_array = new_bit_array;
     }
@@ -83,7 +84,7 @@ impl ProtoCodec for Palette<todo!("BlockState")> {
     fn proto_serialize(&self, stream: &mut Vec<u8>) -> Result<(), ProtoCodecError> {
         Self::get_header(self.bit_array.get_version(), true).proto_serialize(stream)?;
         for word in self.bit_array.get_words() {
-            <i32 as ProtoCodecLE>::proto_serialize(word, stream)?;
+            <i32 as ProtoCodecLE>::proto_serialize(&word, stream)?;
         }
 
         <i32 as ProtoCodecVAR>::proto_serialize(&(self.palette.len() as i32), stream)?;
@@ -125,11 +126,11 @@ impl ProtoCodec for Palette<todo!("BlockState")> {
     }
 }
 
-impl<V : ProtoCodec> ProtoCodec for Palette<V> {
+impl<V : ProtoCodec + PartialEq + Clone> ProtoCodec for Palette<V> {
     fn proto_serialize(&self, stream: &mut Vec<u8>) -> Result<(), ProtoCodecError> {
         Self::get_header(self.bit_array.get_version(), true).proto_serialize(stream)?;
         for word in self.bit_array.get_words() {
-            <i32 as ProtoCodecLE>::proto_serialize(word, stream)?;
+            <i32 as ProtoCodecLE>::proto_serialize(&word, stream)?;
         }
         
         <i32 as ProtoCodecVAR>::proto_serialize(&(self.palette.len() as i32), stream)?;

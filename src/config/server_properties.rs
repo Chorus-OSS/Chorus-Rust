@@ -5,6 +5,7 @@ use log::{debug, error};
 use serde::{Deserialize, Serialize};
 
 const SERVER_PROPERTIES_PATH: &str = "server.properties";
+
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(deny_unknown_fields)]
 pub struct ServerProperties {

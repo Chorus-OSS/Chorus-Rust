@@ -1,5 +1,5 @@
 use chrono::format::Pad;
-use crate::level::bit_array::bit_array::BitArray;
+use crate::level::bit_array::bit_array::BitArrayTrait;
 use crate::level::bit_array::bit_array_version::BitArrayVersion;
 
 #[derive(Clone)]
@@ -24,7 +24,7 @@ impl PaddedBitArray {
     }
 }
 
-impl BitArray for PaddedBitArray {
+impl BitArrayTrait for PaddedBitArray {
     fn set(&mut self, index: usize, value: i32) {
         let vec_index = index / self.version.entries_per_word as usize;
         let offset = (vec_index % self.version.entries_per_word as usize) * self.version.bits as usize;
@@ -45,8 +45,8 @@ impl BitArray for PaddedBitArray {
         self.size
     }
 
-    fn get_words(&self) -> &Vec<i32> {
-        &self.words
+    fn get_words(&self) -> Vec<i32> {
+        self.words.clone()
     }
     
     fn get_version(&self) -> &BitArrayVersion {

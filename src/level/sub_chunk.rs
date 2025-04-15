@@ -53,20 +53,20 @@ impl SubChunk {
     }
     
     pub fn get_block_state(&self, x: usize, y: usize, z: usize, layer: Option<usize>) -> &BlockStatePalette {
-        self.block_layers[layer.unwrap_or(0)][Self::index(x, y, z)]
+        self.block_layers[layer.unwrap_or(0)].get(Self::index(x, y, z))
     }
     
     pub fn set_block_state(&mut self, x: usize, y: usize, z: usize, layer: Option<usize>, block_state: BlockState) {
         self.block_changes.fetch_add(1, Ordering::SeqCst);
-        self.block_layers[layer.unwrap_or(0)][Self::index(x, y, z)] = block_state;
+        self.block_layers[layer.unwrap_or(0)].set(Self::index(x, y, z), block_state);
     }
     
     pub fn get_biome(&self, x: usize, y: usize, z: usize) -> i32 {
-        self.biomes[Self::index(x, y, z)]
+        *self.biomes.get(Self::index(x, y, z))
     }
     
     pub fn set_biome(&mut self, x: usize, y: usize, z: usize, biome: i32) {
-        self.biomes[Self::index(x, y, z)] = biome;
+        self.biomes.set(Self::index(x, y, z), biome);
     }
     
     pub fn get_block_light(&self, x: usize, y: usize, z: usize) -> u8 {
@@ -108,7 +108,7 @@ impl ProtoCodec for SubChunk {
         self.index.proto_serialize(stream)?;
         
         for i in 0..num_layers {
-            self.block_layers[i].proto_serialize(stream)?;
+            self.block_layers[i as usize].proto_serialize(stream)?;
         }
         
         Ok(())
