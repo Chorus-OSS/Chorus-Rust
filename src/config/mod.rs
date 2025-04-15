@@ -1,0 +1,95 @@
+pub mod server_properties;
+
+use log::debug;
+use serde::{Deserialize, Serialize};
+use std::fs;
+use std::path::PathBuf;
+use std::process::exit;
+
+const CONFIG_PATH: &str = "chorus.toml";
+
+#[derive(Serialize, Deserialize, Debug)]
+#[serde(deny_unknown_fields)]
+pub struct ChorusConfig {
+    pub display_name: String,
+    pub display_sub_name: String,
+    pub threads: usize,
+    pub log_to_file: bool,
+    pub logs_directory: PathBuf,
+    pub resource_packs_directory: PathBuf,
+    pub behavior_packs_directory: PathBuf,
+    pub level_name: String,
+    pub level_seed: u64,
+}
+
+impl Default for ChorusConfig {
+    fn default() -> Self {
+        Self {
+            display_name: String::from("Dedicated Server"),
+            display_sub_name: String::from("RAstra"),
+            threads: 4,
+            log_to_file: true,
+            logs_directory: PathBuf::from("logs"),
+            resource_packs_directory: PathBuf::from("resource_packs"),
+            behavior_packs_directory: PathBuf::from("behavior_packs"),
+            level_name: String::from("Bedrock Level"),
+            level_seed: 0,
+        }
+    }
+}
+
+pub fn setup_config() -> ChorusConfig {
+    let config = if PathBuf::from(CONFIG_PATH).exists() {
+        let text = fs::read_to_string(CONFIG_PATH).unwrap_or_else(|err| {
+            eprintln!(
+                "An unexpected Error occurred while trying to read {CONFIG_PATH:?}, Err: {err}"
+            );
+            exit(1);
+        });
+
+        toml::from_str(&text).unwrap_or_else(|err| {
+            eprintln!("An unexpected Error occurred while trying to deserialize {CONFIG_PATH:?}, Err: {err}");
+            exit(1);
+        })
+    } else {
+        let config = ChorusConfig::default();
+
+        let text = toml::to_string(&config).unwrap_or_else(|err| {
+            eprintln!(
+                "An unexpected Error occurred while trying to serialize {config:?}, Err: {err}"
+            );
+            exit(1);
+        });
+
+        fs::write(CONFIG_PATH, text).unwrap_or_else(|err| {
+            eprintln!("An unexpected Error occurred while trying to write the missing config to {CONFIG_PATH:?}, Err: {err}");
+        });
+
+        config
+    };
+
+    if !&config.logs_directory.exists() {
+        fs::create_dir(&config.logs_directory).unwrap_or_else(|err| {
+            eprintln!("An unexpected Error occurred while trying to create the logs directory at {:?}, Err: {err}", config.logs_directory);
+            exit(1)
+        });
+    };
+
+    if !&config.resource_packs_directory.exists() {
+        fs::create_dir(&config.resource_packs_directory).unwrap_or_else(|err| {
+            eprintln!("An unexpected Error occurred while trying to create the resource packs directory at {:?}, Err: {err}", config.resource_packs_directory);
+            exit(1)
+        });
+    };
+
+    if !&config.behavior_packs_directory.exists() {
+        fs::create_dir(&config.behavior_packs_directory).unwrap_or_else(|err| {
+            eprintln!("An unexpected Error occurred while trying to create the behavior packs directory at {:?}, Err: {err:?}", config.behavior_packs_directory);
+            exit(1)
+        });
+    };
+
+    debug!("Config read!");
+
+    config
+}
