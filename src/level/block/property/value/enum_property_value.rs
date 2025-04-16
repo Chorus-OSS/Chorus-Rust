@@ -35,6 +35,6 @@ impl BlockPropertyValueTrait for EnumPropertyValue {
     }
 
     fn get_serialized_value(&self) -> String {
-        format!("{:?}", self.value).to_lowercase()
+        self.value.to_lowercase()
     }
 }

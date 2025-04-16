@@ -11,6 +11,20 @@ pub struct EnumPropertyType {
     default_value: String,
 }
 
+impl EnumPropertyType {
+    pub fn str_new(name: &str, variants: &[&str], default_value: &str) -> Self {
+        Self { 
+            name: name.to_string(),
+            variants: variants.iter().map(|s| s.to_string()).collect::<Vec<_>>(),
+            default_value: default_value.to_string(),
+        }
+    }
+    
+    pub fn new(name: String, variants: Vec<String>, default_value: String) -> Self {
+        Self { name, variants, default_value }
+    }
+}
+
 impl BlockPropertyTypeTrait for EnumPropertyType {
     type T = String;
     

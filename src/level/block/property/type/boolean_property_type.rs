@@ -8,6 +8,12 @@ pub struct BooleanPropertyType {
     default_value: bool,
 }
 
+impl BooleanPropertyType {
+    pub fn new(name: String, default_value: bool) -> Self {
+        Self { name, default_value }
+    }
+}
+
 impl BlockPropertyTypeTrait for BooleanPropertyType {
     type T = bool;
     
