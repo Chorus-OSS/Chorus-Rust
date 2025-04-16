@@ -15,7 +15,7 @@ pub trait BlockPropertyValueTrait {
     fn get_serialized_value(&self) -> Self::S;
 }
 
-#[derive(Clone)]
+#[derive(Clone, Debug, PartialEq)]
 pub enum BlockPropertyValue {
     Boolean(BooleanPropertyValue),
     Int(IntPropertyValue),

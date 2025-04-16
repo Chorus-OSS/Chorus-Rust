@@ -3,7 +3,7 @@ use crate::level::block::property::value::enum_property_value::EnumPropertyValue
 use crate::utils::utils;
 use std::fmt::{Debug, Display};
 
-#[derive(Clone)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct EnumPropertyType {
     name: String,
     variants: Vec<String>,

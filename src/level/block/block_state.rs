@@ -2,9 +2,9 @@ use crate::chorus::BLOCK_STATE_VERSION;
 use crate::level::block::property::r#type::block_property_type::BlockPropertyTypeTrait;
 use crate::level::block::property::value::block_property_value::{BlockPropertyValue, BlockPropertyValueTrait};
 use crate::utils::hash_utils::HashUtils;
-use linked_hash_map::LinkedHashMap;
-use std::collections::{BTreeMap, HashMap};
+use std::collections::HashMap;
 
+#[derive(Clone, Debug, PartialEq)]
 pub struct BlockState {
     identifier: String,
     hash: i32,
@@ -54,11 +54,11 @@ impl BlockState {
     }
     
     fn build_block_state_tag(identifier: String, property_values: Vec<BlockPropertyValue>) -> HashMap<String, nbtx::Value> {
-        let mut states: BTreeMap<String, nbtx::Value> = BTreeMap::new();
+        let mut states: HashMap<String, nbtx::Value> = HashMap::new();
         for value in &property_values {
             match value { 
                 BlockPropertyValue::Boolean(v) => {
-                    states.insert(v.get_property_type().get_name(), nbtx::Value::Byte(if v.get_serialized_value() { 1 } else { 0 }));
+                    states.insert(v.get_property_type().get_name(), nbtx::Value::Byte(v.get_serialized_value()));
                 }
                 BlockPropertyValue::Int(v) => {
                     states.insert(v.get_property_type().get_name(), nbtx::Value::Int(v.get_serialized_value()));
@@ -70,7 +70,7 @@ impl BlockState {
         }
         let mut tag: HashMap<String, nbtx::Value> = HashMap::new();
         tag.insert(String::from("name"), nbtx::Value::String(identifier));
-        tag.insert(String::from("states"), nbtx::Value::TreeCompound(states));
+        tag.insert(String::from("states"), nbtx::Value::Compound(states));
         tag.insert(String::from("version"), nbtx::Value::Int(*BLOCK_STATE_VERSION));
         tag
     }

@@ -3,6 +3,7 @@ use bedrockrs::proto::error::ProtoCodecError;
 use bedrockrs::proto::{ProtoCodec, ProtoCodecLE, ProtoCodecVAR};
 use crate::level::bit_array::bit_array::{BitArray, BitArrayTrait};
 use crate::level::bit_array::bit_array_version::BitArrayVersion;
+use crate::level::block::block_state::BlockState;
 use crate::level::sub_chunk::SubChunk;
 
 pub struct Palette<V : PartialEq> {
@@ -80,7 +81,7 @@ impl<V : PartialEq + Clone> Palette<V> {
     }
 }
 
-impl ProtoCodec for Palette<todo!("BlockState")> {
+impl ProtoCodec for Palette<BlockState> {
     fn proto_serialize(&self, stream: &mut Vec<u8>) -> Result<(), ProtoCodecError> {
         Self::get_header(self.bit_array.get_version(), true).proto_serialize(stream)?;
         for word in self.bit_array.get_words() {

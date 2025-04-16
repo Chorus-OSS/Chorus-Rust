@@ -3,7 +3,7 @@ use crate::level::block::property::r#type::block_property_type::BlockPropertyTyp
 use crate::level::block::property::r#type::enum_property_type::EnumPropertyType;
 use crate::level::block::property::value::block_property_value::BlockPropertyValueTrait;
 
-#[derive(Clone)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct EnumPropertyValue {
     property_type: EnumPropertyType,
     value: String,

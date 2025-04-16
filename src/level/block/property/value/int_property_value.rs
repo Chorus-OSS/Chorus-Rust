@@ -1,7 +1,7 @@
 use crate::level::block::property::r#type::int_property_type::IntPropertyType;
 use crate::level::block::property::value::block_property_value::BlockPropertyValueTrait;
 
-#[derive(Clone)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct IntPropertyValue {
     property_type: IntPropertyType,
     value: i32,

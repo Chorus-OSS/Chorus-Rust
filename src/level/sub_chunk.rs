@@ -5,13 +5,11 @@ use bedrockrs::proto::error::ProtoCodecError;
 use bedrockrs::proto::{ProtoCodec, ProtoCodecBE};
 use std::io::Cursor;
 use std::sync::atomic::{AtomicI64, Ordering};
-
-type BlockState = todo!("BlockState");
-type BlockStatePalette = Palette<BlockState>;
+use crate::level::block::block_state::BlockState;
 
 pub struct SubChunk {
     index: u8,
-    block_layers: Vec<BlockStatePalette>,
+    block_layers: Vec<Palette<BlockState>>,
     biomes: Palette<i32>,
     block_lights: Vec<u8>,
     sky_lights: Vec<u8>,
@@ -22,12 +20,12 @@ impl SubChunk {
     pub const SIZE: usize = 16 * 16 * 16;
     pub const VERSION: u8 = 9;
     
-    pub fn new(index: u8, block_layers: Option<Vec<BlockStatePalette>>) -> Self {
+    pub fn new(index: u8, block_layers: Option<Vec<Palette<BlockState>>>) -> Self {
         Self {
             index,
             block_layers: block_layers.unwrap_or(
                 vec![
-                    BlockStatePalette::new(
+                    Palette::new(
                         todo!("BlockAir::default_state"),
                         Some(vec![
                             todo!("BlockAir::default_state");
@@ -35,7 +33,7 @@ impl SubChunk {
                         ]),
                         Some(BitArrayVersion::V2),
                     ),
-                    BlockStatePalette::new(
+                    Palette::new(
                         todo!("BlockAir::default_state"),
                         Some(vec![
                             todo!("BlockAir::default_state");
@@ -52,7 +50,7 @@ impl SubChunk {
         }
     }
     
-    pub fn get_block_state(&self, x: usize, y: usize, z: usize, layer: Option<usize>) -> &BlockStatePalette {
+    pub fn get_block_state(&self, x: usize, y: usize, z: usize, layer: Option<usize>) -> &BlockState {
         self.block_layers[layer.unwrap_or(0)].get(Self::index(x, y, z))
     }
     
@@ -100,7 +98,7 @@ impl SubChunk {
 }
 
 impl ProtoCodec for SubChunk {
-    async fn proto_serialize(&self, stream: &mut Vec<u8>) -> Result<(), ProtoCodecError> {
+    fn proto_serialize(&self, stream: &mut Vec<u8>) -> Result<(), ProtoCodecError> {
         Self::VERSION.proto_serialize(stream)?;
         
         let num_layers = self.block_layers.len().min(u8::MAX as usize) as u8;
@@ -121,7 +119,7 @@ impl ProtoCodec for SubChunk {
         
         let mut layers = Vec::with_capacity(num_layers as usize);
         for _ in 0..num_layers {
-            layers.push(BlockStatePalette::proto_deserialize(stream)?);
+            layers.push(<Palette<BlockState>>::proto_deserialize(stream)?);
         }
         
         Ok(Self::new(index, Some(layers)))

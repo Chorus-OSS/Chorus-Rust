@@ -1,7 +1,7 @@
 use crate::level::block::property::r#type::block_property_type::BlockPropertyTypeTrait;
 use crate::level::block::property::value::boolean_property_value::BooleanPropertyValue;
 
-#[derive(Clone)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct BooleanPropertyType {
     name: String,
     default_value: bool,
