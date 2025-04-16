@@ -3,6 +3,7 @@ use crate::level::block::property::r#type::block_property_type::{BlockPropertyTy
 use crate::level::block::property::value::block_property_value::{BlockPropertyValue, BlockPropertyValueTrait};
 use crate::utils::hash_utils::HashUtils;
 use std::collections::HashMap;
+use crate::level::block::block_properties::BlockProperties;
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct BlockState {
@@ -51,7 +52,7 @@ impl BlockState {
         None
     }
     
-    pub fn set_property_value(&mut self, properties: todo!("BlockProperties"), value: BlockPropertyValue) -> Option<BlockState> {
+    pub fn set_property_value(&self, properties: BlockProperties, value: BlockPropertyValue) -> Option<BlockState> {
         let mut success = false;
         let mut new_property_values: Vec<BlockPropertyValue> = Vec::new();
         for v in self.property_values {
@@ -62,7 +63,28 @@ impl BlockState {
         }
         
         match success {
-            true => Some(todo!("get_new_block_state(properties, new_property_values)")),
+            true => self.get_new_block_state(properties, new_property_values),
+            false => None
+        }
+    }
+    
+    pub fn set_property_values(&self, properties: BlockProperties, values: Vec<BlockPropertyValue>) -> Option<BlockState> {
+        let mut success_count: usize = 0;
+        
+        let mut new_property_values: Vec<BlockPropertyValue> = Vec::new();
+        'f: for v in &self.property_values {
+            for j in &values {
+                if (*v == *j) {
+                    success_count += 1;
+                    new_property_values.push(j.clone());
+                    continue 'f
+                }
+            }
+            new_property_values.push(v.clone());
+        }
+        
+        match success_count == values.len() {
+            true => self.get_new_block_state(properties, new_property_values),
             false => None
         }
     }
@@ -115,7 +137,7 @@ impl BlockState {
         tag
     }
     
-    fn get_new_block_state(&self, properties: todo!("BlockProperties"), values: Vec<BlockPropertyValue>) -> Option<BlockState> {
+    fn get_new_block_state(&self, properties: BlockProperties, values: Vec<BlockPropertyValue>) -> Option<BlockState> {
         let bits: u8 = properties.get_special_value_bits();
         match (bits <= 16) {
             true => properties.get_block_state(Self::compute_special_value(values, Some(bits))),

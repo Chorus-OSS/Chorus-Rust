@@ -2,6 +2,7 @@ use crate::level::block::property::r#type::block_property_type::BlockPropertyTyp
 use crate::level::block::property::value::enum_property_value::EnumPropertyValue;
 use crate::utils::utils;
 use std::fmt::{Debug, Display};
+use crate::level::block::property::value::block_property_value::BlockPropertyValue;
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct EnumPropertyType {
@@ -12,7 +13,6 @@ pub struct EnumPropertyType {
 
 impl BlockPropertyTypeTrait for EnumPropertyType {
     type T = String;
-    type V = EnumPropertyValue;
     
     fn get_name(&self) -> String {
         self.name.clone()
@@ -30,7 +30,7 @@ impl BlockPropertyTypeTrait for EnumPropertyType {
         utils::compute_required_bits(0, (self.variants.len() - 1) as i32)
     }
 
-    fn create_value(&self, value: String) -> EnumPropertyValue {
-        EnumPropertyValue::new(self.clone(), value)
+    fn create_value(&self, value: String) -> BlockPropertyValue {
+        BlockPropertyValue::Enum(EnumPropertyValue::new(self.clone(), value))
     }
 }

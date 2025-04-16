@@ -1,4 +1,5 @@
 use crate::level::block::property::r#type::block_property_type::BlockPropertyTypeTrait;
+use crate::level::block::property::value::block_property_value::BlockPropertyValue;
 use crate::level::block::property::value::int_property_value::IntPropertyValue;
 use crate::utils::utils;
 
@@ -22,7 +23,6 @@ impl IntPropertyType {
 
 impl BlockPropertyTypeTrait for IntPropertyType {
     type T = i32;
-    type V = IntPropertyValue;
     
     fn get_name(&self) -> String {
         self.name.clone()
@@ -40,7 +40,7 @@ impl BlockPropertyTypeTrait for IntPropertyType {
         utils::compute_required_bits(self.min, self.max)
     }
 
-    fn create_value(&self, value: i32) -> IntPropertyValue {
-        IntPropertyValue::new(self.clone(), value)
+    fn create_value(&self, value: i32) -> BlockPropertyValue {
+        BlockPropertyValue::Int(IntPropertyValue::new(self.clone(), value))
     }
 }
