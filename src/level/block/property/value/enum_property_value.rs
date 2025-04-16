@@ -1,7 +1,7 @@
 use std::fmt::Debug;
-use crate::level::block::property::r#type::block_property_type::BlockPropertyTypeTrait;
+use crate::level::block::property::r#type::block_property_type::{BlockPropertyType, BlockPropertyTypeTrait};
 use crate::level::block::property::r#type::enum_property_type::EnumPropertyType;
-use crate::level::block::property::value::block_property_value::BlockPropertyValueTrait;
+use crate::level::block::property::value::block_property_value::{BlockPropertyValue, BlockPropertyValueTrait};
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct EnumPropertyValue {
@@ -20,11 +20,10 @@ impl EnumPropertyValue {
 
 impl BlockPropertyValueTrait for EnumPropertyValue {
     type T = String;
-    type P = EnumPropertyType;
     type S = String;
     
-    fn get_property_type(&self) -> EnumPropertyType {
-        self.property_type.clone()
+    fn get_property_type(&self) -> BlockPropertyType {
+        BlockPropertyType::Enum(self.property_type.clone())
     }
 
     fn get_value(&self) -> String {

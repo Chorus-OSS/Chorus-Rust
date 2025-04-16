@@ -1,5 +1,6 @@
+use crate::level::block::property::r#type::block_property_type::BlockPropertyType;
 use crate::level::block::property::r#type::boolean_property_type::BooleanPropertyType;
-use crate::level::block::property::value::block_property_value::BlockPropertyValueTrait;
+use crate::level::block::property::value::block_property_value::{BlockPropertyValue, BlockPropertyValueTrait};
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct BooleanPropertyValue {
@@ -18,11 +19,10 @@ impl BooleanPropertyValue {
 
 impl BlockPropertyValueTrait for BooleanPropertyValue {
     type T = bool;
-    type P = BooleanPropertyType;
     type S = i8;
     
-    fn get_property_type(&self) -> BooleanPropertyType {
-        self.property_type.clone()
+    fn get_property_type(&self) -> BlockPropertyType {
+        BlockPropertyType::Boolean(self.property_type.clone())
     }
 
     fn get_value(&self) -> bool {

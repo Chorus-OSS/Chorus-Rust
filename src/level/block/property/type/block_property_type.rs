@@ -16,8 +16,27 @@ pub trait BlockPropertyTypeTrait {
     fn create_value(&self, value: Self::T) -> Self::V;
 }
 
+#[derive(Clone, Debug, PartialEq)]
 pub enum BlockPropertyType {
     Boolean(BooleanPropertyType),
     Int(IntPropertyType),
     Enum(EnumPropertyType),
+}
+
+impl BlockPropertyType {
+    pub fn get_bit_size(&self) -> u8 {
+        match self {
+            BlockPropertyType::Boolean(v) => v.get_bit_size(),
+            BlockPropertyType::Int(v) => v.get_bit_size(),
+            BlockPropertyType::Enum(v) => v.get_bit_size()
+        }
+    }
+    
+    pub fn get_name(&self) -> String {
+        match self {
+            BlockPropertyType::Boolean(v) => v.get_name(),
+            BlockPropertyType::Int(v) => v.get_name(),
+            BlockPropertyType::Enum(v) => v.get_name(),
+        }
+    }
 }

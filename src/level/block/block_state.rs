@@ -1,5 +1,5 @@
 use crate::chorus::BLOCK_STATE_VERSION;
-use crate::level::block::property::r#type::block_property_type::BlockPropertyTypeTrait;
+use crate::level::block::property::r#type::block_property_type::{BlockPropertyType, BlockPropertyTypeTrait};
 use crate::level::block::property::value::block_property_value::{BlockPropertyValue, BlockPropertyValueTrait};
 use crate::utils::hash_utils::HashUtils;
 use std::collections::HashMap;
@@ -22,7 +22,7 @@ impl BlockState {
                 HashUtils::compute_block_state_hash(identifier.clone(), property_values.clone())
             }),
             special_value: special_value.unwrap_or_else(|| {
-                Self::compute_special_value(property_values.clone())
+                Self::compute_special_value(property_values.clone(), None)
             }),
             state_tag: state_tag.unwrap_or_else(|| {
                 Self::build_block_state_tag(identifier.clone(), property_values.clone())
@@ -30,15 +30,55 @@ impl BlockState {
         }
     }
     
-    pub fn compute_special_value(property_values: Vec<BlockPropertyValue>) -> i16 {
-        let mut special_value_bits: u8 = 0;
-        for value in &property_values {
-            special_value_bits += match value {
-                BlockPropertyValue::Boolean(v) => v.get_property_type().get_bit_size(),
-                BlockPropertyValue::Int(v) => v.get_property_type().get_bit_size(),
-                BlockPropertyValue::Enum(v) => v.get_property_type().get_bit_size()
+    pub fn get_hash(&self) -> i32 {
+        self.hash
+    }
+    
+    pub fn get_special_value(&self) -> i16 {
+        self.special_value
+    }
+    
+    pub fn get_property_value(&self, property: BlockPropertyType) -> Option<BlockPropertyValue> {
+        for val in &self.property_values {
+            if match val {
+                BlockPropertyValue::Boolean(v) => v.get_property_type(),
+                BlockPropertyValue::Int(v) => v.get_property_type(),
+                BlockPropertyValue::Enum(v) => v.get_property_type(),
+            } == property {
+                return Some(val.clone());
             }
         }
+        None
+    }
+    
+    pub fn set_property_value(&mut self, properties: todo!("BlockProperties"), value: BlockPropertyValue) -> Option<BlockState> {
+        let mut success = false;
+        let mut new_property_values: Vec<BlockPropertyValue> = Vec::new();
+        for v in self.property_values {
+            if (*v == value) {
+                success = true;
+                new_property_values.push(value.clone())
+            } else { new_property_values.push(v.clone()) }
+        }
+        
+        match success {
+            true => Some(todo!("get_new_block_state(properties, new_property_values)")),
+            false => None
+        }
+    }
+    
+    pub fn compute_special_value(property_values: Vec<BlockPropertyValue>, special_value_bits: Option<u8>) -> i16 {
+        let mut special_value_bits = special_value_bits.unwrap_or_else(|| {
+            let mut bits: u8 = 0;
+            for value in &property_values {
+                bits += match value {
+                    BlockPropertyValue::Boolean(v) => v.get_property_type().get_bit_size(),
+                    BlockPropertyValue::Int(v) => v.get_property_type().get_bit_size(),
+                    BlockPropertyValue::Enum(v) => v.get_property_type().get_bit_size()
+                }
+            }
+            bits
+        });
         
         let mut special_value: i16 = 0;
         for value in &property_values {
@@ -73,5 +113,13 @@ impl BlockState {
         tag.insert(String::from("states"), nbtx::Value::Compound(states));
         tag.insert(String::from("version"), nbtx::Value::Int(*BLOCK_STATE_VERSION));
         tag
+    }
+    
+    fn get_new_block_state(&self, properties: todo!("BlockProperties"), values: Vec<BlockPropertyValue>) -> Option<BlockState> {
+        let bits: u8 = properties.get_special_value_bits();
+        match (bits <= 16) {
+            true => properties.get_block_state(Self::compute_special_value(values, Some(bits))),
+            false => None
+        }
     }
 }

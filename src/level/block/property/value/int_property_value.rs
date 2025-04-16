@@ -1,3 +1,4 @@
+use crate::level::block::property::r#type::block_property_type::BlockPropertyType;
 use crate::level::block::property::r#type::int_property_type::IntPropertyType;
 use crate::level::block::property::value::block_property_value::BlockPropertyValueTrait;
 
@@ -18,11 +19,10 @@ impl IntPropertyValue {
 
 impl BlockPropertyValueTrait for IntPropertyValue {
     type T = i32;
-    type P = IntPropertyType;
     type S = i32;
     
-    fn get_property_type(&self) -> IntPropertyType {
-        self.property_type.clone()
+    fn get_property_type(&self) -> BlockPropertyType {
+        BlockPropertyType::Int(self.property_type.clone())
     }
 
     fn get_value(&self) -> i32 {

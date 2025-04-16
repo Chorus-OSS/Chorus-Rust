@@ -90,7 +90,7 @@ impl ProtoCodec for Palette<BlockState> {
 
         <i32 as ProtoCodecVAR>::proto_serialize(&(self.palette.len() as i32), stream)?;
         for value in self.palette.iter() {
-            todo!()
+            <i32 as ProtoCodecVAR>::proto_serialize(&value.get_hash(), stream)?;
         }
 
         Ok(())
@@ -123,7 +123,7 @@ impl ProtoCodec for Palette<BlockState> {
         size_of::<u8>()
             + self.bit_array.get_words().len() * size_of::<i32>()
             + size_of::<i32>()
-            + self.palette.iter().map(|v| todo!()).sum::<usize>()
+            + self.palette.len() * size_of::<i32>()
     }
 }
 
