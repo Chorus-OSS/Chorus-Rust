@@ -8,6 +8,8 @@ mod server;
 mod utils;
 mod network;
 mod level;
+mod math;
+mod error;
 
 fn main() {
     let config = config::setup_config();
