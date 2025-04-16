@@ -17,7 +17,9 @@ pub struct BlockProperties {
 }
 
 impl BlockProperties {
-    pub fn create(identifier: String, properties: Vec<BlockPropertyType>, tags: Option<HashSet<String>>) -> Option<Self> {
+    pub fn create(identifier: &str, properties: Vec<BlockPropertyType>, tags: Option<HashSet<String>>) -> Option<Self> {
+        let identifier = identifier.to_string();
+        
         // TODO: register(identifier, tags);
         
         let mut special_value_bits: u8 = 0;

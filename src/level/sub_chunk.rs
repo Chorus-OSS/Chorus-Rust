@@ -1,11 +1,12 @@
 use crate::level::biome::biome_id::BiomeID;
 use crate::level::bit_array::bit_array_version::BitArrayVersion;
+use crate::level::block::block_state::BlockState;
+use crate::level::block::r#impl::state::air;
 use crate::level::palette::palette::Palette;
 use bedrockrs::proto::error::ProtoCodecError;
-use bedrockrs::proto::{ProtoCodec, ProtoCodecBE};
+use bedrockrs::proto::ProtoCodec;
 use std::io::Cursor;
 use std::sync::atomic::{AtomicI64, Ordering};
-use crate::level::block::block_state::BlockState;
 
 pub struct SubChunk {
     index: u8,
@@ -26,17 +27,17 @@ impl SubChunk {
             block_layers: block_layers.unwrap_or(
                 vec![
                     Palette::new(
-                        todo!("BlockAir::default_state"),
+                        air::PROPERTIES.get_default_state(),
                         Some(vec![
-                            todo!("BlockAir::default_state");
+                            air::PROPERTIES.get_default_state();
                             16
                         ]),
                         Some(BitArrayVersion::V2),
                     ),
                     Palette::new(
-                        todo!("BlockAir::default_state"),
+                        air::PROPERTIES.get_default_state(),
                         Some(vec![
-                            todo!("BlockAir::default_state");
+                            air::PROPERTIES.get_default_state();
                             16
                         ]),
                         Some(BitArrayVersion::V2),
@@ -85,7 +86,7 @@ impl SubChunk {
     
     pub fn is_empty(&self) -> bool {
         for block_layer in self.block_layers.iter() {
-            if (!block_layer.is_empty() || block_layer.get(0) != todo!("BlockAir::default_state")) {
+            if !block_layer.is_empty() || *block_layer.get(0) != air::PROPERTIES.get_default_state() {
                 return false;
             }
         }

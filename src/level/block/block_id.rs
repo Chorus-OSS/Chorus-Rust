@@ -1,0 +1,2371 @@
+pub const ACACIA_BUTTON: &str = "minecraft:acacia_button";
+
+pub const ACACIA_DOOR: &str = "minecraft:acacia_door";
+
+pub const ACACIA_DOUBLE_SLAB: &str = "minecraft:acacia_double_slab";
+
+pub const ACACIA_FENCE: &str = "minecraft:acacia_fence";
+
+pub const ACACIA_FENCE_GATE: &str = "minecraft:acacia_fence_gate";
+
+pub const ACACIA_HANGING_SIGN: &str = "minecraft:acacia_hanging_sign";
+
+pub const ACACIA_LEAVES: &str = "minecraft:acacia_leaves";
+
+pub const ACACIA_LOG: &str = "minecraft:acacia_log";
+
+pub const ACACIA_PLANKS: &str = "minecraft:acacia_planks";
+
+pub const ACACIA_PRESSURE_PLATE: &str = "minecraft:acacia_pressure_plate";
+
+pub const ACACIA_SAPLING: &str = "minecraft:acacia_sapling";
+
+pub const ACACIA_SLAB: &str = "minecraft:acacia_slab";
+
+pub const ACACIA_STAIRS: &str = "minecraft:acacia_stairs";
+
+pub const ACACIA_STANDING_SIGN: &str = "minecraft:acacia_standing_sign";
+
+pub const ACACIA_TRAPDOOR: &str = "minecraft:acacia_trapdoor";
+
+pub const ACACIA_WALL_SIGN: &str = "minecraft:acacia_wall_sign";
+
+pub const ACACIA_WOOD: &str = "minecraft:acacia_wood";
+
+pub const ACTIVATOR_RAIL: &str = "minecraft:activator_rail";
+
+pub const AIR: &str = "minecraft:air";
+
+pub const ALLIUM: &str = "minecraft:allium";
+
+pub const ALLOW: &str = "minecraft:allow";
+
+pub const AMETHYST_BLOCK: &str = "minecraft:amethyst_block";
+
+pub const AMETHYST_CLUSTER: &str = "minecraft:amethyst_cluster";
+
+pub const ANCIENT_DEBRIS: &str = "minecraft:ancient_debris";
+
+pub const ANDESITE: &str = "minecraft:andesite";
+
+pub const ANDESITE_DOUBLE_SLAB: &str = "minecraft:andesite_double_slab";
+
+pub const ANDESITE_SLAB: &str = "minecraft:andesite_slab";
+
+pub const ANDESITE_STAIRS: &str = "minecraft:andesite_stairs";
+
+pub const ANDESITE_WALL: &str = "minecraft:andesite_wall";
+
+pub const ANVIL: &str = "minecraft:anvil";
+
+pub const AZALEA: &str = "minecraft:azalea";
+
+pub const AZALEA_LEAVES: &str = "minecraft:azalea_leaves";
+
+pub const AZALEA_LEAVES_FLOWERED: &str = "minecraft:azalea_leaves_flowered";
+
+pub const AZURE_BLUET: &str = "minecraft:azure_bluet";
+
+pub const BAMBOO: &str = "minecraft:bamboo";
+
+pub const BAMBOO_BLOCK: &str = "minecraft:bamboo_block";
+
+pub const BAMBOO_BUTTON: &str = "minecraft:bamboo_button";
+
+pub const BAMBOO_DOOR: &str = "minecraft:bamboo_door";
+
+pub const BAMBOO_DOUBLE_SLAB: &str = "minecraft:bamboo_double_slab";
+
+pub const BAMBOO_FENCE: &str = "minecraft:bamboo_fence";
+
+pub const BAMBOO_FENCE_GATE: &str = "minecraft:bamboo_fence_gate";
+
+pub const BAMBOO_HANGING_SIGN: &str = "minecraft:bamboo_hanging_sign";
+
+pub const BAMBOO_MOSAIC: &str = "minecraft:bamboo_mosaic";
+
+pub const BAMBOO_MOSAIC_DOUBLE_SLAB: &str = "minecraft:bamboo_mosaic_double_slab";
+
+pub const BAMBOO_MOSAIC_SLAB: &str = "minecraft:bamboo_mosaic_slab";
+
+pub const BAMBOO_MOSAIC_STAIRS: &str = "minecraft:bamboo_mosaic_stairs";
+
+pub const BAMBOO_PLANKS: &str = "minecraft:bamboo_planks";
+
+pub const BAMBOO_PRESSURE_PLATE: &str = "minecraft:bamboo_pressure_plate";
+
+pub const BAMBOO_SAPLING: &str = "minecraft:bamboo_sapling";
+
+pub const BAMBOO_SLAB: &str = "minecraft:bamboo_slab";
+
+pub const BAMBOO_STAIRS: &str = "minecraft:bamboo_stairs";
+
+pub const BAMBOO_STANDING_SIGN: &str = "minecraft:bamboo_standing_sign";
+
+pub const BAMBOO_TRAPDOOR: &str = "minecraft:bamboo_trapdoor";
+
+pub const BAMBOO_WALL_SIGN: &str = "minecraft:bamboo_wall_sign";
+
+pub const BARREL: &str = "minecraft:barrel";
+
+pub const BARRIER: &str = "minecraft:barrier";
+
+pub const BASALT: &str = "minecraft:basalt";
+
+pub const BEACON: &str = "minecraft:beacon";
+
+pub const BED: &str = "minecraft:bed";
+
+pub const BEDROCK: &str = "minecraft:bedrock";
+
+pub const BEE_NEST: &str = "minecraft:bee_nest";
+
+pub const BEEHIVE: &str = "minecraft:beehive";
+
+pub const BEETROOT: &str = "minecraft:beetroot";
+
+pub const BELL: &str = "minecraft:bell";
+
+pub const BIG_DRIPLEAF: &str = "minecraft:big_dripleaf";
+
+pub const BIRCH_BUTTON: &str = "minecraft:birch_button";
+
+pub const BIRCH_DOOR: &str = "minecraft:birch_door";
+
+pub const BIRCH_DOUBLE_SLAB: &str = "minecraft:birch_double_slab";
+
+pub const BIRCH_FENCE: &str = "minecraft:birch_fence";
+
+pub const BIRCH_FENCE_GATE: &str = "minecraft:birch_fence_gate";
+
+pub const BIRCH_HANGING_SIGN: &str = "minecraft:birch_hanging_sign";
+
+pub const BIRCH_LEAVES: &str = "minecraft:birch_leaves";
+
+pub const BIRCH_LOG: &str = "minecraft:birch_log";
+
+pub const BIRCH_PLANKS: &str = "minecraft:birch_planks";
+
+pub const BIRCH_PRESSURE_PLATE: &str = "minecraft:birch_pressure_plate";
+
+pub const BIRCH_SAPLING: &str = "minecraft:birch_sapling";
+
+pub const BIRCH_SLAB: &str = "minecraft:birch_slab";
+
+pub const BIRCH_STAIRS: &str = "minecraft:birch_stairs";
+
+pub const BIRCH_STANDING_SIGN: &str = "minecraft:birch_standing_sign";
+
+pub const BIRCH_TRAPDOOR: &str = "minecraft:birch_trapdoor";
+
+pub const BIRCH_WALL_SIGN: &str = "minecraft:birch_wall_sign";
+
+pub const BIRCH_WOOD: &str = "minecraft:birch_wood";
+
+pub const BLACK_CANDLE: &str = "minecraft:black_candle";
+
+pub const BLACK_CANDLE_CAKE: &str = "minecraft:black_candle_cake";
+
+pub const BLACK_CARPET: &str = "minecraft:black_carpet";
+
+pub const BLACK_CONCRETE: &str = "minecraft:black_concrete";
+
+pub const BLACK_CONCRETE_POWDER: &str = "minecraft:black_concrete_powder";
+
+pub const BLACK_GLAZED_TERRACOTTA: &str = "minecraft:black_glazed_terracotta";
+
+pub const BLACK_SHULKER_BOX: &str = "minecraft:black_shulker_box";
+
+pub const BLACK_STAINED_GLASS: &str = "minecraft:black_stained_glass";
+
+pub const BLACK_STAINED_GLASS_PANE: &str = "minecraft:black_stained_glass_pane";
+
+pub const BLACK_TERRACOTTA: &str = "minecraft:black_terracotta";
+
+pub const BLACK_WOOL: &str = "minecraft:black_wool";
+
+pub const BLACKSTONE: &str = "minecraft:blackstone";
+
+pub const BLACKSTONE_DOUBLE_SLAB: &str = "minecraft:blackstone_double_slab";
+
+pub const BLACKSTONE_SLAB: &str = "minecraft:blackstone_slab";
+
+pub const BLACKSTONE_STAIRS: &str = "minecraft:blackstone_stairs";
+
+pub const BLACKSTONE_WALL: &str = "minecraft:blackstone_wall";
+
+pub const BLAST_FURNACE: &str = "minecraft:blast_furnace";
+
+pub const BLUE_CANDLE: &str = "minecraft:blue_candle";
+
+pub const BLUE_CANDLE_CAKE: &str = "minecraft:blue_candle_cake";
+
+pub const BLUE_CARPET: &str = "minecraft:blue_carpet";
+
+pub const BLUE_CONCRETE: &str = "minecraft:blue_concrete";
+
+pub const BLUE_CONCRETE_POWDER: &str = "minecraft:blue_concrete_powder";
+
+pub const BLUE_GLAZED_TERRACOTTA: &str = "minecraft:blue_glazed_terracotta";
+
+pub const BLUE_ICE: &str = "minecraft:blue_ice";
+
+pub const BLUE_ORCHID: &str = "minecraft:blue_orchid";
+
+pub const BLUE_SHULKER_BOX: &str = "minecraft:blue_shulker_box";
+
+pub const BLUE_STAINED_GLASS: &str = "minecraft:blue_stained_glass";
+
+pub const BLUE_STAINED_GLASS_PANE: &str = "minecraft:blue_stained_glass_pane";
+
+pub const BLUE_TERRACOTTA: &str = "minecraft:blue_terracotta";
+
+pub const BLUE_WOOL: &str = "minecraft:blue_wool";
+
+pub const BONE_BLOCK: &str = "minecraft:bone_block";
+
+pub const BOOKSHELF: &str = "minecraft:bookshelf";
+
+pub const BORDER_BLOCK: &str = "minecraft:border_block";
+
+pub const BRAIN_CORAL: &str = "minecraft:brain_coral";
+
+pub const BRAIN_CORAL_BLOCK: &str = "minecraft:brain_coral_block";
+
+pub const BRAIN_CORAL_FAN: &str = "minecraft:brain_coral_fan";
+
+pub const BRAIN_CORAL_WALL_FAN: &str = "minecraft:brain_coral_wall_fan";
+
+pub const BREWING_STAND: &str = "minecraft:brewing_stand";
+
+pub const BRICK_BLOCK: &str = "minecraft:brick_block";
+
+pub const BRICK_DOUBLE_SLAB: &str = "minecraft:brick_double_slab";
+
+pub const BRICK_SLAB: &str = "minecraft:brick_slab";
+
+pub const BRICK_STAIRS: &str = "minecraft:brick_stairs";
+
+pub const BRICK_WALL: &str = "minecraft:brick_wall";
+
+pub const BROWN_CANDLE: &str = "minecraft:brown_candle";
+
+pub const BROWN_CANDLE_CAKE: &str = "minecraft:brown_candle_cake";
+
+pub const BROWN_CARPET: &str = "minecraft:brown_carpet";
+
+pub const BROWN_CONCRETE: &str = "minecraft:brown_concrete";
+
+pub const BROWN_CONCRETE_POWDER: &str = "minecraft:brown_concrete_powder";
+
+pub const BROWN_GLAZED_TERRACOTTA: &str = "minecraft:brown_glazed_terracotta";
+
+pub const BROWN_MUSHROOM: &str = "minecraft:brown_mushroom";
+
+pub const BROWN_MUSHROOM_BLOCK: &str = "minecraft:brown_mushroom_block";
+
+pub const BROWN_SHULKER_BOX: &str = "minecraft:brown_shulker_box";
+
+pub const BROWN_STAINED_GLASS: &str = "minecraft:brown_stained_glass";
+
+pub const BROWN_STAINED_GLASS_PANE: &str = "minecraft:brown_stained_glass_pane";
+
+pub const BROWN_TERRACOTTA: &str = "minecraft:brown_terracotta";
+
+pub const BROWN_WOOL: &str = "minecraft:brown_wool";
+
+pub const BUBBLE_COLUMN: &str = "minecraft:bubble_column";
+
+pub const BUBBLE_CORAL: &str = "minecraft:bubble_coral";
+
+pub const BUBBLE_CORAL_BLOCK: &str = "minecraft:bubble_coral_block";
+
+pub const BUBBLE_CORAL_FAN: &str = "minecraft:bubble_coral_fan";
+
+pub const BUBBLE_CORAL_WALL_FAN: &str = "minecraft:bubble_coral_wall_fan";
+
+pub const BUDDING_AMETHYST: &str = "minecraft:budding_amethyst";
+
+pub const CACTUS: &str = "minecraft:cactus";
+
+pub const CAKE: &str = "minecraft:cake";
+
+pub const CALCITE: &str = "minecraft:calcite";
+
+pub const CALIBRATED_SCULK_SENSOR: &str = "minecraft:calibrated_sculk_sensor";
+
+pub const CAMERA: &str = "minecraft:camera";
+
+pub const CAMPFIRE: &str = "minecraft:campfire";
+
+pub const CANDLE: &str = "minecraft:candle";
+
+pub const CANDLE_CAKE: &str = "minecraft:candle_cake";
+
+pub const CARROTS: &str = "minecraft:carrots";
+
+pub const CARTOGRAPHY_TABLE: &str = "minecraft:cartography_table";
+
+pub const CARVED_PUMPKIN: &str = "minecraft:carved_pumpkin";
+
+pub const CAULDRON: &str = "minecraft:cauldron";
+
+pub const CAVE_VINES: &str = "minecraft:cave_vines";
+
+pub const CAVE_VINES_BODY_WITH_BERRIES: &str = "minecraft:cave_vines_body_with_berries";
+
+pub const CAVE_VINES_HEAD_WITH_BERRIES: &str = "minecraft:cave_vines_head_with_berries";
+
+pub const CHAIN: &str = "minecraft:chain";
+
+pub const CHAIN_COMMAND_BLOCK: &str = "minecraft:chain_command_block";
+
+pub const CHEMICAL_HEAT: &str = "minecraft:chemical_heat";
+
+pub const CHEMISTRY_TABLE: &str = "minecraft:chemistry_table";
+
+pub const CHERRY_BUTTON: &str = "minecraft:cherry_button";
+
+pub const CHERRY_DOOR: &str = "minecraft:cherry_door";
+
+pub const CHERRY_DOUBLE_SLAB: &str = "minecraft:cherry_double_slab";
+
+pub const CHERRY_FENCE: &str = "minecraft:cherry_fence";
+
+pub const CHERRY_FENCE_GATE: &str = "minecraft:cherry_fence_gate";
+
+pub const CHERRY_HANGING_SIGN: &str = "minecraft:cherry_hanging_sign";
+
+pub const CHERRY_LEAVES: &str = "minecraft:cherry_leaves";
+
+pub const CHERRY_LOG: &str = "minecraft:cherry_log";
+
+pub const CHERRY_PLANKS: &str = "minecraft:cherry_planks";
+
+pub const CHERRY_PRESSURE_PLATE: &str = "minecraft:cherry_pressure_plate";
+
+pub const CHERRY_SAPLING: &str = "minecraft:cherry_sapling";
+
+pub const CHERRY_SLAB: &str = "minecraft:cherry_slab";
+
+pub const CHERRY_STAIRS: &str = "minecraft:cherry_stairs";
+
+pub const CHERRY_STANDING_SIGN: &str = "minecraft:cherry_standing_sign";
+
+pub const CHERRY_TRAPDOOR: &str = "minecraft:cherry_trapdoor";
+
+pub const CHERRY_WALL_SIGN: &str = "minecraft:cherry_wall_sign";
+
+pub const CHERRY_WOOD: &str = "minecraft:cherry_wood";
+
+pub const CHEST: &str = "minecraft:chest";
+
+pub const CHIPPED_ANVIL: &str = "minecraft:chipped_anvil";
+
+pub const CHISELED_BOOKSHELF: &str = "minecraft:chiseled_bookshelf";
+
+pub const CHISELED_COPPER: &str = "minecraft:chiseled_copper";
+
+pub const CHISELED_DEEPSLATE: &str = "minecraft:chiseled_deepslate";
+
+pub const CHISELED_NETHER_BRICKS: &str = "minecraft:chiseled_nether_bricks";
+
+pub const CHISELED_POLISHED_BLACKSTONE: &str = "minecraft:chiseled_polished_blackstone";
+
+pub const CHISELED_QUARTZ_BLOCK: &str = "minecraft:chiseled_quartz_block";
+
+pub const CHISELED_RED_SANDSTONE: &str = "minecraft:chiseled_red_sandstone";
+
+pub const CHISELED_RESIN_BRICKS: &str = "minecraft:chiseled_resin_bricks";
+
+pub const CHISELED_SANDSTONE: &str = "minecraft:chiseled_sandstone";
+
+pub const CHISELED_STONE_BRICKS: &str = "minecraft:chiseled_stone_bricks";
+
+pub const CHISELED_TUFF: &str = "minecraft:chiseled_tuff";
+
+pub const CHISELED_TUFF_BRICKS: &str = "minecraft:chiseled_tuff_bricks";
+
+pub const CHORUS_FLOWER: &str = "minecraft:chorus_flower";
+
+pub const CHORUS_PLANT: &str = "minecraft:chorus_plant";
+
+pub const CLAY: &str = "minecraft:clay";
+
+pub const CLIENT_REQUEST_PLACEHOLDER_BLOCK: &str = "minecraft:client_request_placeholder_block";
+
+pub const CLOSED_EYEBLOSSOM: &str = "minecraft:closed_eyeblossom";
+
+pub const COAL_BLOCK: &str = "minecraft:coal_block";
+
+pub const COAL_ORE: &str = "minecraft:coal_ore";
+
+pub const COARSE_DIRT: &str = "minecraft:coarse_dirt";
+
+pub const COBBLED_DEEPSLATE: &str = "minecraft:cobbled_deepslate";
+
+pub const COBBLED_DEEPSLATE_DOUBLE_SLAB: &str = "minecraft:cobbled_deepslate_double_slab";
+
+pub const COBBLED_DEEPSLATE_SLAB: &str = "minecraft:cobbled_deepslate_slab";
+
+pub const COBBLED_DEEPSLATE_STAIRS: &str = "minecraft:cobbled_deepslate_stairs";
+
+pub const COBBLED_DEEPSLATE_WALL: &str = "minecraft:cobbled_deepslate_wall";
+
+pub const COBBLESTONE: &str = "minecraft:cobblestone";
+
+pub const COBBLESTONE_DOUBLE_SLAB: &str = "minecraft:cobblestone_double_slab";
+
+pub const DARK_OAK_DOOR: &str = "minecraft:dark_oak_door";
+
+pub const DARK_OAK_DOUBLE_SLAB: &str = "minecraft:dark_oak_double_slab";
+
+pub const DARK_OAK_FENCE: &str = "minecraft:dark_oak_fence";
+
+pub const DARK_OAK_FENCE_GATE: &str = "minecraft:dark_oak_fence_gate";
+
+pub const DARK_OAK_HANGING_SIGN: &str = "minecraft:dark_oak_hanging_sign";
+
+pub const DARK_OAK_LEAVES: &str = "minecraft:dark_oak_leaves";
+
+pub const DARK_OAK_LOG: &str = "minecraft:dark_oak_log";
+
+pub const DARK_OAK_PLANKS: &str = "minecraft:dark_oak_planks";
+
+pub const DARK_OAK_PRESSURE_PLATE: &str = "minecraft:dark_oak_pressure_plate";
+
+pub const DARK_OAK_SAPLING: &str = "minecraft:dark_oak_sapling";
+
+pub const DARK_OAK_SLAB: &str = "minecraft:dark_oak_slab";
+
+pub const DARK_OAK_STAIRS: &str = "minecraft:dark_oak_stairs";
+
+pub const DARK_OAK_TRAPDOOR: &str = "minecraft:dark_oak_trapdoor";
+
+pub const DARK_OAK_WOOD: &str = "minecraft:dark_oak_wood";
+
+pub const DARK_PRISMARINE: &str = "minecraft:dark_prismarine";
+
+pub const DARK_PRISMARINE_DOUBLE_SLAB: &str = "minecraft:dark_prismarine_double_slab";
+
+pub const DARK_PRISMARINE_SLAB: &str = "minecraft:dark_prismarine_slab";
+
+pub const DARK_PRISMARINE_STAIRS: &str = "minecraft:dark_prismarine_stairs";
+
+pub const DARKOAK_STANDING_SIGN: &str = "minecraft:darkoak_standing_sign";
+
+pub const DARKOAK_WALL_SIGN: &str = "minecraft:darkoak_wall_sign";
+
+pub const DAYLIGHT_DETECTOR: &str = "minecraft:daylight_detector";
+
+pub const DAYLIGHT_DETECTOR_INVERTED: &str = "minecraft:daylight_detector_inverted";
+
+pub const DEAD_BRAIN_CORAL: &str = "minecraft:dead_brain_coral";
+
+pub const DEAD_BRAIN_CORAL_BLOCK: &str = "minecraft:dead_brain_coral_block";
+
+pub const DEAD_BRAIN_CORAL_FAN: &str = "minecraft:dead_brain_coral_fan";
+
+pub const DEAD_BRAIN_CORAL_WALL_FAN: &str = "minecraft:dead_brain_coral_wall_fan";
+
+pub const DEAD_BUBBLE_CORAL: &str = "minecraft:dead_bubble_coral";
+
+pub const DEAD_BUBBLE_CORAL_BLOCK: &str = "minecraft:dead_bubble_coral_block";
+
+pub const DEAD_BUBBLE_CORAL_FAN: &str = "minecraft:dead_bubble_coral_fan";
+
+pub const DEAD_BUBBLE_CORAL_WALL_FAN: &str = "minecraft:dead_bubble_coral_wall_fan";
+
+pub const DEAD_FIRE_CORAL: &str = "minecraft:dead_fire_coral";
+
+pub const DEAD_FIRE_CORAL_BLOCK: &str = "minecraft:dead_fire_coral_block";
+
+pub const DEAD_FIRE_CORAL_FAN: &str = "minecraft:dead_fire_coral_fan";
+
+pub const DEAD_FIRE_CORAL_WALL_FAN: &str = "minecraft:dead_fire_coral_wall_fan";
+
+pub const DEAD_HORN_CORAL: &str = "minecraft:dead_horn_coral";
+
+pub const DEAD_HORN_CORAL_BLOCK: &str = "minecraft:dead_horn_coral_block";
+
+pub const DEAD_HORN_CORAL_FAN: &str = "minecraft:dead_horn_coral_fan";
+
+pub const DEAD_HORN_CORAL_WALL_FAN: &str = "minecraft:dead_horn_coral_wall_fan";
+
+pub const DEAD_TUBE_CORAL: &str = "minecraft:dead_tube_coral";
+
+pub const DEAD_TUBE_CORAL_BLOCK: &str = "minecraft:dead_tube_coral_block";
+
+pub const DEAD_TUBE_CORAL_FAN: &str = "minecraft:dead_tube_coral_fan";
+
+pub const DEAD_TUBE_CORAL_WALL_FAN: &str = "minecraft:dead_tube_coral_wall_fan";
+
+pub const DEADBUSH: &str = "minecraft:deadbush";
+
+pub const DECORATED_POT: &str = "minecraft:decorated_pot";
+
+pub const DEEPSLATE: &str = "minecraft:deepslate";
+
+pub const DEEPSLATE_BRICK_DOUBLE_SLAB: &str = "minecraft:deepslate_brick_double_slab";
+
+pub const DEEPSLATE_BRICK_SLAB: &str = "minecraft:deepslate_brick_slab";
+
+pub const DEEPSLATE_BRICK_STAIRS: &str = "minecraft:deepslate_brick_stairs";
+
+pub const DEEPSLATE_BRICK_WALL: &str = "minecraft:deepslate_brick_wall";
+
+pub const DEEPSLATE_BRICKS: &str = "minecraft:deepslate_bricks";
+
+pub const DEEPSLATE_COAL_ORE: &str = "minecraft:deepslate_coal_ore";
+
+pub const DEEPSLATE_COPPER_ORE: &str = "minecraft:deepslate_copper_ore";
+
+pub const DEEPSLATE_DIAMOND_ORE: &str = "minecraft:deepslate_diamond_ore";
+
+pub const DEEPSLATE_EMERALD_ORE: &str = "minecraft:deepslate_emerald_ore";
+
+pub const DEEPSLATE_GOLD_ORE: &str = "minecraft:deepslate_gold_ore";
+
+pub const DEEPSLATE_IRON_ORE: &str = "minecraft:deepslate_iron_ore";
+
+pub const DEEPSLATE_LAPIS_ORE: &str = "minecraft:deepslate_lapis_ore";
+
+pub const DEEPSLATE_REDSTONE_ORE: &str = "minecraft:deepslate_redstone_ore";
+
+pub const DEEPSLATE_TILE_DOUBLE_SLAB: &str = "minecraft:deepslate_tile_double_slab";
+
+pub const DEEPSLATE_TILE_SLAB: &str = "minecraft:deepslate_tile_slab";
+
+pub const DEEPSLATE_TILE_STAIRS: &str = "minecraft:deepslate_tile_stairs";
+
+pub const DEEPSLATE_TILE_WALL: &str = "minecraft:deepslate_tile_wall";
+
+pub const DEEPSLATE_TILES: &str = "minecraft:deepslate_tiles";
+
+pub const DENY: &str = "minecraft:deny";
+
+pub const DETECTOR_RAIL: &str = "minecraft:detector_rail";
+
+pub const DIAMOND_BLOCK: &str = "minecraft:diamond_block";
+
+pub const DIAMOND_ORE: &str = "minecraft:diamond_ore";
+
+pub const DIORITE: &str = "minecraft:diorite";
+
+pub const DIORITE_DOUBLE_SLAB: &str = "minecraft:diorite_double_slab";
+
+pub const DIORITE_SLAB: &str = "minecraft:diorite_slab";
+
+pub const DIORITE_STAIRS: &str = "minecraft:diorite_stairs";
+
+pub const DIORITE_WALL: &str = "minecraft:diorite_wall";
+
+pub const DIRT: &str = "minecraft:dirt";
+
+pub const DIRT_WITH_ROOTS: &str = "minecraft:dirt_with_roots";
+
+pub const DISPENSER: &str = "minecraft:dispenser";
+
+pub const DOUBLE_CUT_COPPER_SLAB: &str = "minecraft:double_cut_copper_slab";
+
+pub const DOUBLE_STONE_BLOCK_SLAB: &str = "minecraft:double_stone_block_slab";
+
+pub const DOUBLE_STONE_BLOCK_SLAB2: &str = "minecraft:double_stone_block_slab2";
+
+pub const DOUBLE_STONE_BLOCK_SLAB3: &str = "minecraft:double_stone_block_slab3";
+
+pub const DOUBLE_STONE_BLOCK_SLAB4: &str = "minecraft:double_stone_block_slab4";
+
+pub const DRAGON_EGG: &str = "minecraft:dragon_egg";
+
+pub const DRAGON_HEAD: &str = "minecraft:dragon_head";
+
+pub const DRIED_KELP_BLOCK: &str = "minecraft:dried_kelp_block";
+
+pub const DRIPSTONE_BLOCK: &str = "minecraft:dripstone_block";
+
+pub const DROPPER: &str = "minecraft:dropper";
+
+pub const ELEMENT_0: &str = "minecraft:element_0";
+
+pub const ELEMENT_1: &str = "minecraft:element_1";
+
+pub const ELEMENT_10: &str = "minecraft:element_10";
+
+pub const ELEMENT_100: &str = "minecraft:element_100";
+
+pub const ELEMENT_101: &str = "minecraft:element_101";
+
+pub const ELEMENT_102: &str = "minecraft:element_102";
+
+pub const ELEMENT_103: &str = "minecraft:element_103";
+
+pub const ELEMENT_104: &str = "minecraft:element_104";
+
+pub const ELEMENT_105: &str = "minecraft:element_105";
+
+pub const ELEMENT_106: &str = "minecraft:element_106";
+
+pub const ELEMENT_107: &str = "minecraft:element_107";
+
+pub const ELEMENT_108: &str = "minecraft:element_108";
+
+pub const ELEMENT_109: &str = "minecraft:element_109";
+
+pub const ELEMENT_11: &str = "minecraft:element_11";
+
+pub const ELEMENT_110: &str = "minecraft:element_110";
+
+pub const ELEMENT_111: &str = "minecraft:element_111";
+
+pub const ELEMENT_112: &str = "minecraft:element_112";
+
+pub const ELEMENT_113: &str = "minecraft:element_113";
+
+pub const ELEMENT_114: &str = "minecraft:element_114";
+
+pub const ELEMENT_115: &str = "minecraft:element_115";
+
+pub const ELEMENT_116: &str = "minecraft:element_116";
+
+pub const ELEMENT_117: &str = "minecraft:element_117";
+
+pub const ELEMENT_118: &str = "minecraft:element_118";
+
+pub const ELEMENT_12: &str = "minecraft:element_12";
+
+pub const ELEMENT_13: &str = "minecraft:element_13";
+
+pub const ELEMENT_14: &str = "minecraft:element_14";
+
+pub const ELEMENT_15: &str = "minecraft:element_15";
+
+pub const ELEMENT_16: &str = "minecraft:element_16";
+
+pub const ELEMENT_17: &str = "minecraft:element_17";
+
+pub const ELEMENT_18: &str = "minecraft:element_18";
+
+pub const ELEMENT_19: &str = "minecraft:element_19";
+
+pub const ELEMENT_2: &str = "minecraft:element_2";
+
+pub const ELEMENT_20: &str = "minecraft:element_20";
+
+pub const ELEMENT_21: &str = "minecraft:element_21";
+
+pub const ELEMENT_22: &str = "minecraft:element_22";
+
+pub const ELEMENT_23: &str = "minecraft:element_23";
+
+pub const ELEMENT_24: &str = "minecraft:element_24";
+
+pub const ELEMENT_25: &str = "minecraft:element_25";
+
+pub const ELEMENT_26: &str = "minecraft:element_26";
+
+pub const ELEMENT_27: &str = "minecraft:element_27";
+
+pub const ELEMENT_28: &str = "minecraft:element_28";
+
+pub const ELEMENT_29: &str = "minecraft:element_29";
+
+pub const ELEMENT_3: &str = "minecraft:element_3";
+
+pub const ELEMENT_30: &str = "minecraft:element_30";
+
+pub const ELEMENT_31: &str = "minecraft:element_31";
+
+pub const ELEMENT_32: &str = "minecraft:element_32";
+
+pub const ELEMENT_33: &str = "minecraft:element_33";
+
+pub const ELEMENT_34: &str = "minecraft:element_34";
+
+pub const ELEMENT_35: &str = "minecraft:element_35";
+
+pub const ELEMENT_36: &str = "minecraft:element_36";
+
+pub const ELEMENT_37: &str = "minecraft:element_37";
+
+pub const ELEMENT_38: &str = "minecraft:element_38";
+
+pub const ELEMENT_39: &str = "minecraft:element_39";
+
+pub const ELEMENT_4: &str = "minecraft:element_4";
+
+pub const ELEMENT_40: &str = "minecraft:element_40";
+
+pub const ELEMENT_41: &str = "minecraft:element_41";
+
+pub const ELEMENT_42: &str = "minecraft:element_42";
+
+pub const ELEMENT_43: &str = "minecraft:element_43";
+
+pub const ELEMENT_44: &str = "minecraft:element_44";
+
+pub const ELEMENT_45: &str = "minecraft:element_45";
+
+pub const ELEMENT_46: &str = "minecraft:element_46";
+
+pub const ELEMENT_47: &str = "minecraft:element_47";
+
+pub const ELEMENT_48: &str = "minecraft:element_48";
+
+pub const ELEMENT_49: &str = "minecraft:element_49";
+
+pub const ELEMENT_5: &str = "minecraft:element_5";
+
+pub const ELEMENT_50: &str = "minecraft:element_50";
+
+pub const ELEMENT_51: &str = "minecraft:element_51";
+
+pub const ELEMENT_52: &str = "minecraft:element_52";
+
+pub const ELEMENT_53: &str = "minecraft:element_53";
+
+pub const ELEMENT_54: &str = "minecraft:element_54";
+
+pub const ELEMENT_55: &str = "minecraft:element_55";
+
+pub const ELEMENT_56: &str = "minecraft:element_56";
+
+pub const ELEMENT_57: &str = "minecraft:element_57";
+
+pub const ELEMENT_58: &str = "minecraft:element_58";
+
+pub const ELEMENT_59: &str = "minecraft:element_59";
+
+pub const ELEMENT_6: &str = "minecraft:element_6";
+
+pub const ELEMENT_60: &str = "minecraft:element_60";
+
+pub const ELEMENT_61: &str = "minecraft:element_61";
+
+pub const ELEMENT_62: &str = "minecraft:element_62";
+
+pub const ELEMENT_63: &str = "minecraft:element_63";
+
+pub const ELEMENT_64: &str = "minecraft:element_64";
+
+pub const ELEMENT_65: &str = "minecraft:element_65";
+
+pub const ELEMENT_66: &str = "minecraft:element_66";
+
+pub const ELEMENT_67: &str = "minecraft:element_67";
+
+pub const ELEMENT_68: &str = "minecraft:element_68";
+
+pub const ELEMENT_69: &str = "minecraft:element_69";
+
+pub const ELEMENT_7: &str = "minecraft:element_7";
+
+pub const ELEMENT_70: &str = "minecraft:element_70";
+
+pub const ELEMENT_71: &str = "minecraft:element_71";
+
+pub const ELEMENT_72: &str = "minecraft:element_72";
+
+pub const ELEMENT_73: &str = "minecraft:element_73";
+
+pub const ELEMENT_74: &str = "minecraft:element_74";
+
+pub const ELEMENT_75: &str = "minecraft:element_75";
+
+pub const ELEMENT_76: &str = "minecraft:element_76";
+
+pub const ELEMENT_77: &str = "minecraft:element_77";
+
+pub const ELEMENT_78: &str = "minecraft:element_78";
+
+pub const ELEMENT_79: &str = "minecraft:element_79";
+
+pub const ELEMENT_8: &str = "minecraft:element_8";
+
+pub const ELEMENT_80: &str = "minecraft:element_80";
+
+pub const ELEMENT_81: &str = "minecraft:element_81";
+
+pub const ELEMENT_82: &str = "minecraft:element_82";
+
+pub const ELEMENT_83: &str = "minecraft:element_83";
+
+pub const ELEMENT_84: &str = "minecraft:element_84";
+
+pub const ELEMENT_85: &str = "minecraft:element_85";
+
+pub const ELEMENT_86: &str = "minecraft:element_86";
+
+pub const ELEMENT_87: &str = "minecraft:element_87";
+
+pub const ELEMENT_88: &str = "minecraft:element_88";
+
+pub const ELEMENT_89: &str = "minecraft:element_89";
+
+pub const ELEMENT_9: &str = "minecraft:element_9";
+
+pub const ELEMENT_90: &str = "minecraft:element_90";
+
+pub const ELEMENT_91: &str = "minecraft:element_91";
+
+pub const ELEMENT_92: &str = "minecraft:element_92";
+
+pub const ELEMENT_93: &str = "minecraft:element_93";
+
+pub const ELEMENT_94: &str = "minecraft:element_94";
+
+pub const ELEMENT_95: &str = "minecraft:element_95";
+
+pub const ELEMENT_96: &str = "minecraft:element_96";
+
+pub const ELEMENT_97: &str = "minecraft:element_97";
+
+pub const ELEMENT_98: &str = "minecraft:element_98";
+
+pub const ELEMENT_99: &str = "minecraft:element_99";
+
+pub const EMERALD_BLOCK: &str = "minecraft:emerald_block";
+
+pub const EMERALD_ORE: &str = "minecraft:emerald_ore";
+
+pub const ENCHANTING_TABLE: &str = "minecraft:enchanting_table";
+
+pub const END_BRICK_STAIRS: &str = "minecraft:end_brick_stairs";
+
+pub const END_BRICKS: &str = "minecraft:end_bricks";
+
+pub const END_GATEWAY: &str = "minecraft:end_gateway";
+
+pub const END_PORTAL: &str = "minecraft:end_portal";
+
+pub const END_PORTAL_FRAME: &str = "minecraft:end_portal_frame";
+
+pub const END_ROD: &str = "minecraft:end_rod";
+
+pub const END_STONE: &str = "minecraft:end_stone";
+
+pub const END_STONE_BRICK_DOUBLE_SLAB: &str = "minecraft:end_stone_brick_double_slab";
+
+pub const END_STONE_BRICK_SLAB: &str = "minecraft:end_stone_brick_slab";
+
+pub const END_STONE_BRICK_WALL: &str = "minecraft:end_stone_brick_wall";
+
+pub const ENDER_CHEST: &str = "minecraft:ender_chest";
+
+pub const EXPOSED_CHISELED_COPPER: &str = "minecraft:exposed_chiseled_copper";
+
+pub const EXPOSED_COPPER: &str = "minecraft:exposed_copper";
+
+pub const EXPOSED_COPPER_BULB: &str = "minecraft:exposed_copper_bulb";
+
+pub const EXPOSED_COPPER_DOOR: &str = "minecraft:exposed_copper_door";
+
+pub const EXPOSED_COPPER_GRATE: &str = "minecraft:exposed_copper_grate";
+
+pub const EXPOSED_COPPER_TRAPDOOR: &str = "minecraft:exposed_copper_trapdoor";
+
+pub const EXPOSED_CUT_COPPER: &str = "minecraft:exposed_cut_copper";
+
+pub const EXPOSED_CUT_COPPER_SLAB: &str = "minecraft:exposed_cut_copper_slab";
+
+pub const EXPOSED_CUT_COPPER_STAIRS: &str = "minecraft:exposed_cut_copper_stairs";
+
+pub const EXPOSED_DOUBLE_CUT_COPPER_SLAB: &str = "minecraft:exposed_double_cut_copper_slab";
+
+pub const FARMLAND: &str = "minecraft:farmland";
+
+pub const FENCE_GATE: &str = "minecraft:fence_gate";
+
+pub const FERN: &str = "minecraft:fern";
+
+pub const FIRE: &str = "minecraft:fire";
+
+pub const FIRE_CORAL: &str = "minecraft:fire_coral";
+
+pub const FIRE_CORAL_BLOCK: &str = "minecraft:fire_coral_block";
+
+pub const FIRE_CORAL_FAN: &str = "minecraft:fire_coral_fan";
+
+pub const FIRE_CORAL_WALL_FAN: &str = "minecraft:fire_coral_wall_fan";
+
+pub const FLETCHING_TABLE: &str = "minecraft:fletching_table";
+
+pub const FLOWER_POT: &str = "minecraft:flower_pot";
+
+pub const FLOWERING_AZALEA: &str = "minecraft:flowering_azalea";
+
+pub const FLOWING_LAVA: &str = "minecraft:flowing_lava";
+
+pub const FLOWING_WATER: &str = "minecraft:flowing_water";
+
+pub const FRAME: &str = "minecraft:frame";
+
+pub const FROG_SPAWN: &str = "minecraft:frog_spawn";
+
+pub const FROSTED_ICE: &str = "minecraft:frosted_ice";
+
+pub const FURNACE: &str = "minecraft:furnace";
+
+pub const GILDED_BLACKSTONE: &str = "minecraft:gilded_blackstone";
+
+pub const GLASS: &str = "minecraft:glass";
+
+pub const GLASS_PANE: &str = "minecraft:glass_pane";
+
+pub const GLOW_FRAME: &str = "minecraft:glow_frame";
+
+pub const GLOW_LICHEN: &str = "minecraft:glow_lichen";
+
+pub const GLOWINGOBSIDIAN: &str = "minecraft:glowingobsidian";
+
+pub const GLOWSTONE: &str = "minecraft:glowstone";
+
+pub const GOLD_BLOCK: &str = "minecraft:gold_block";
+
+pub const GOLD_ORE: &str = "minecraft:gold_ore";
+
+pub const GOLDEN_RAIL: &str = "minecraft:golden_rail";
+
+pub const GRANITE: &str = "minecraft:granite";
+
+pub const GRANITE_DOUBLE_SLAB: &str = "minecraft:granite_double_slab";
+
+pub const GRANITE_SLAB: &str = "minecraft:granite_slab";
+
+pub const GRANITE_STAIRS: &str = "minecraft:granite_stairs";
+
+pub const GRANITE_WALL: &str = "minecraft:granite_wall";
+
+pub const GRASS_BLOCK: &str = "minecraft:grass_block";
+
+pub const GRASS_PATH: &str = "minecraft:grass_path";
+
+pub const GRAVEL: &str = "minecraft:gravel";
+
+pub const GRAY_CANDLE: &str = "minecraft:gray_candle";
+
+pub const GRAY_CANDLE_CAKE: &str = "minecraft:gray_candle_cake";
+
+pub const GRAY_CARPET: &str = "minecraft:gray_carpet";
+
+pub const GRAY_CONCRETE: &str = "minecraft:gray_concrete";
+
+pub const GRAY_CONCRETE_POWDER: &str = "minecraft:gray_concrete_powder";
+
+pub const GRAY_GLAZED_TERRACOTTA: &str = "minecraft:gray_glazed_terracotta";
+
+pub const GRAY_SHULKER_BOX: &str = "minecraft:gray_shulker_box";
+
+pub const GRAY_STAINED_GLASS: &str = "minecraft:gray_stained_glass";
+
+pub const GRAY_STAINED_GLASS_PANE: &str = "minecraft:gray_stained_glass_pane";
+
+pub const GRAY_TERRACOTTA: &str = "minecraft:gray_terracotta";
+
+pub const GRAY_WOOL: &str = "minecraft:gray_wool";
+
+pub const GREEN_CANDLE: &str = "minecraft:green_candle";
+
+pub const GREEN_CANDLE_CAKE: &str = "minecraft:green_candle_cake";
+
+pub const GREEN_CARPET: &str = "minecraft:green_carpet";
+
+pub const GREEN_CONCRETE: &str = "minecraft:green_concrete";
+
+pub const GREEN_CONCRETE_POWDER: &str = "minecraft:green_concrete_powder";
+
+pub const GREEN_GLAZED_TERRACOTTA: &str = "minecraft:green_glazed_terracotta";
+
+pub const GREEN_SHULKER_BOX: &str = "minecraft:green_shulker_box";
+
+pub const GREEN_STAINED_GLASS: &str = "minecraft:green_stained_glass";
+
+pub const GREEN_STAINED_GLASS_PANE: &str = "minecraft:green_stained_glass_pane";
+
+pub const GREEN_TERRACOTTA: &str = "minecraft:green_terracotta";
+
+pub const GREEN_WOOL: &str = "minecraft:green_wool";
+
+pub const GRINDSTONE: &str = "minecraft:grindstone";
+
+pub const HANGING_ROOTS: &str = "minecraft:hanging_roots";
+
+pub const HARD_BLACK_STAINED_GLASS: &str = "minecraft:hard_black_stained_glass";
+
+pub const HARD_BLACK_STAINED_GLASS_PANE: &str = "minecraft:hard_black_stained_glass_pane";
+
+pub const HARD_BLUE_STAINED_GLASS: &str = "minecraft:hard_blue_stained_glass";
+
+pub const HARD_BLUE_STAINED_GLASS_PANE: &str = "minecraft:hard_blue_stained_glass_pane";
+
+pub const HARD_BROWN_STAINED_GLASS: &str = "minecraft:hard_brown_stained_glass";
+
+pub const HARD_BROWN_STAINED_GLASS_PANE: &str = "minecraft:hard_brown_stained_glass_pane";
+
+pub const HARD_CYAN_STAINED_GLASS: &str = "minecraft:hard_cyan_stained_glass";
+
+pub const HARD_CYAN_STAINED_GLASS_PANE: &str = "minecraft:hard_cyan_stained_glass_pane";
+
+pub const HARD_GLASS: &str = "minecraft:hard_glass";
+
+pub const HARD_GLASS_PANE: &str = "minecraft:hard_glass_pane";
+
+pub const HARD_GRAY_STAINED_GLASS: &str = "minecraft:hard_gray_stained_glass";
+
+pub const HARD_GRAY_STAINED_GLASS_PANE: &str = "minecraft:hard_gray_stained_glass_pane";
+
+pub const HARD_GREEN_STAINED_GLASS: &str = "minecraft:hard_green_stained_glass";
+
+pub const HARD_GREEN_STAINED_GLASS_PANE: &str = "minecraft:hard_green_stained_glass_pane";
+
+pub const HARD_LIGHT_BLUE_STAINED_GLASS: &str = "minecraft:hard_light_blue_stained_glass";
+
+pub const HARD_LIGHT_BLUE_STAINED_GLASS_PANE: &str = "minecraft:hard_light_blue_stained_glass_pane";
+
+pub const HARD_LIGHT_GRAY_STAINED_GLASS: &str = "minecraft:hard_light_gray_stained_glass";
+
+pub const HARD_LIGHT_GRAY_STAINED_GLASS_PANE: &str = "minecraft:hard_light_gray_stained_glass_pane";
+
+pub const HARD_LIME_STAINED_GLASS: &str = "minecraft:hard_lime_stained_glass";
+
+pub const HARD_LIME_STAINED_GLASS_PANE: &str = "minecraft:hard_lime_stained_glass_pane";
+
+pub const HARD_MAGENTA_STAINED_GLASS: &str = "minecraft:hard_magenta_stained_glass";
+
+pub const HARD_MAGENTA_STAINED_GLASS_PANE: &str = "minecraft:hard_magenta_stained_glass_pane";
+
+pub const HARD_ORANGE_STAINED_GLASS: &str = "minecraft:hard_orange_stained_glass";
+
+pub const HARD_ORANGE_STAINED_GLASS_PANE: &str = "minecraft:hard_orange_stained_glass_pane";
+
+pub const HARD_PINK_STAINED_GLASS: &str = "minecraft:hard_pink_stained_glass";
+
+pub const HARD_PINK_STAINED_GLASS_PANE: &str = "minecraft:hard_pink_stained_glass_pane";
+
+pub const HARD_PURPLE_STAINED_GLASS: &str = "minecraft:hard_purple_stained_glass";
+
+pub const HARD_PURPLE_STAINED_GLASS_PANE: &str = "minecraft:hard_purple_stained_glass_pane";
+
+pub const HARD_RED_STAINED_GLASS: &str = "minecraft:hard_red_stained_glass";
+
+pub const HARD_RED_STAINED_GLASS_PANE: &str = "minecraft:hard_red_stained_glass_pane";
+
+pub const HARD_WHITE_STAINED_GLASS: &str = "minecraft:hard_white_stained_glass";
+
+pub const HARD_WHITE_STAINED_GLASS_PANE: &str = "minecraft:hard_white_stained_glass_pane";
+
+pub const HARD_YELLOW_STAINED_GLASS: &str = "minecraft:hard_yellow_stained_glass";
+
+pub const HARD_YELLOW_STAINED_GLASS_PANE: &str = "minecraft:hard_yellow_stained_glass_pane";
+
+pub const HARDENED_CLAY: &str = "minecraft:hardened_clay";
+
+pub const HAY_BLOCK: &str = "minecraft:hay_block";
+
+pub const HEAVY_CORE: &str = "minecraft:heavy_core";
+
+pub const HEAVY_WEIGHTED_PRESSURE_PLATE: &str = "minecraft:heavy_weighted_pressure_plate";
+
+pub const HONEY_BLOCK: &str = "minecraft:honey_block";
+
+pub const HONEYCOMB_BLOCK: &str = "minecraft:honeycomb_block";
+
+pub const HOPPER: &str = "minecraft:hopper";
+
+pub const HORN_CORAL: &str = "minecraft:horn_coral";
+
+pub const HORN_CORAL_BLOCK: &str = "minecraft:horn_coral_block";
+
+pub const HORN_CORAL_FAN: &str = "minecraft:horn_coral_fan";
+
+pub const HORN_CORAL_WALL_FAN: &str = "minecraft:horn_coral_wall_fan";
+
+pub const ICE: &str = "minecraft:ice";
+
+pub const INFESTED_CHISELED_STONE_BRICKS: &str = "minecraft:infested_chiseled_stone_bricks";
+
+pub const INFESTED_COBBLESTONE: &str = "minecraft:infested_cobblestone";
+
+pub const INFESTED_CRACKED_STONE_BRICKS: &str = "minecraft:infested_cracked_stone_bricks";
+
+pub const INFESTED_DEEPSLATE: &str = "minecraft:infested_deepslate";
+
+pub const INFESTED_MOSSY_STONE_BRICKS: &str = "minecraft:infested_mossy_stone_bricks";
+
+pub const INFESTED_STONE: &str = "minecraft:infested_stone";
+
+pub const INFESTED_STONE_BRICKS: &str = "minecraft:infested_stone_bricks";
+
+pub const INFO_UPDATE: &str = "minecraft:info_update";
+
+pub const INFO_UPDATE2: &str = "minecraft:info_update2";
+
+pub const INVISIBLE_BEDROCK: &str = "minecraft:invisible_bedrock";
+
+pub const IRON_BARS: &str = "minecraft:iron_bars";
+
+pub const IRON_BLOCK: &str = "minecraft:iron_block";
+
+pub const IRON_DOOR: &str = "minecraft:iron_door";
+
+pub const IRON_ORE: &str = "minecraft:iron_ore";
+
+pub const IRON_TRAPDOOR: &str = "minecraft:iron_trapdoor";
+
+pub const JIGSAW: &str = "minecraft:jigsaw";
+
+pub const JUKEBOX: &str = "minecraft:jukebox";
+
+pub const JUNGLE_BUTTON: &str = "minecraft:jungle_button";
+
+pub const JUNGLE_DOOR: &str = "minecraft:jungle_door";
+
+pub const JUNGLE_DOUBLE_SLAB: &str = "minecraft:jungle_double_slab";
+
+pub const JUNGLE_FENCE: &str = "minecraft:jungle_fence";
+
+pub const JUNGLE_FENCE_GATE: &str = "minecraft:jungle_fence_gate";
+
+pub const JUNGLE_HANGING_SIGN: &str = "minecraft:jungle_hanging_sign";
+
+pub const JUNGLE_LEAVES: &str = "minecraft:jungle_leaves";
+
+pub const JUNGLE_LOG: &str = "minecraft:jungle_log";
+
+pub const JUNGLE_PLANKS: &str = "minecraft:jungle_planks";
+
+pub const JUNGLE_PRESSURE_PLATE: &str = "minecraft:jungle_pressure_plate";
+
+pub const JUNGLE_SAPLING: &str = "minecraft:jungle_sapling";
+
+pub const JUNGLE_SLAB: &str = "minecraft:jungle_slab";
+
+pub const JUNGLE_STAIRS: &str = "minecraft:jungle_stairs";
+
+pub const JUNGLE_STANDING_SIGN: &str = "minecraft:jungle_standing_sign";
+
+pub const JUNGLE_TRAPDOOR: &str = "minecraft:jungle_trapdoor";
+
+pub const JUNGLE_WALL_SIGN: &str = "minecraft:jungle_wall_sign";
+
+pub const JUNGLE_WOOD: &str = "minecraft:jungle_wood";
+
+pub const KELP: &str = "minecraft:kelp";
+
+pub const LADDER: &str = "minecraft:ladder";
+
+pub const LANTERN: &str = "minecraft:lantern";
+
+pub const LAPIS_BLOCK: &str = "minecraft:lapis_block";
+
+pub const LAPIS_ORE: &str = "minecraft:lapis_ore";
+
+pub const LARGE_AMETHYST_BUD: &str = "minecraft:large_amethyst_bud";
+
+pub const LARGE_FERN: &str = "minecraft:large_fern";
+
+pub const LAVA: &str = "minecraft:lava";
+
+pub const LECTERN: &str = "minecraft:lectern";
+
+pub const LEVER: &str = "minecraft:lever";
+
+pub const LIGHT_BLOCK_0: &str = "minecraft:light_block_0";
+
+pub const LIGHT_BLOCK_1: &str = "minecraft:light_block_1";
+
+pub const LIGHT_BLOCK_2: &str = "minecraft:light_block_2";
+
+pub const LIGHT_BLOCK_3: &str = "minecraft:light_block_3";
+
+pub const LIGHT_BLOCK_4: &str = "minecraft:light_block_4";
+
+pub const LIGHT_BLOCK_5: &str = "minecraft:light_block_5";
+
+pub const LIGHT_BLOCK_6: &str = "minecraft:light_block_6";
+
+pub const LIGHT_BLOCK_7: &str = "minecraft:light_block_7";
+
+pub const LIGHT_BLOCK_8: &str = "minecraft:light_block_8";
+
+pub const LIGHT_BLOCK_9: &str = "minecraft:light_block_9";
+
+pub const LIGHT_BLOCK_10: &str = "minecraft:light_block_10";
+
+pub const LIGHT_BLOCK_11: &str = "minecraft:light_block_11";
+
+pub const LIGHT_BLOCK_12: &str = "minecraft:light_block_12";
+
+pub const LIGHT_BLOCK_13: &str = "minecraft:light_block_13";
+
+pub const LIGHT_BLOCK_14: &str = "minecraft:light_block_14";
+
+pub const LIGHT_BLOCK_15: &str = "minecraft:light_block_15";
+
+pub const LIGHT_BLUE_CANDLE: &str = "minecraft:light_blue_candle";
+
+pub const LIGHT_BLUE_CANDLE_CAKE: &str = "minecraft:light_blue_candle_cake";
+
+pub const LIGHT_BLUE_CARPET: &str = "minecraft:light_blue_carpet";
+
+pub const LIGHT_BLUE_CONCRETE: &str = "minecraft:light_blue_concrete";
+
+pub const LIGHT_BLUE_CONCRETE_POWDER: &str = "minecraft:light_blue_concrete_powder";
+
+pub const LIGHT_BLUE_GLAZED_TERRACOTTA: &str = "minecraft:light_blue_glazed_terracotta";
+
+pub const LIGHT_BLUE_SHULKER_BOX: &str = "minecraft:light_blue_shulker_box";
+
+pub const LIGHT_BLUE_STAINED_GLASS: &str = "minecraft:light_blue_stained_glass";
+
+pub const LIGHT_BLUE_STAINED_GLASS_PANE: &str = "minecraft:light_blue_stained_glass_pane";
+
+pub const LIGHT_BLUE_TERRACOTTA: &str = "minecraft:light_blue_terracotta";
+
+pub const LIGHT_BLUE_WOOL: &str = "minecraft:light_blue_wool";
+
+pub const LIGHT_GRAY_CANDLE: &str = "minecraft:light_gray_candle";
+
+pub const LIGHT_GRAY_CANDLE_CAKE: &str = "minecraft:light_gray_candle_cake";
+
+pub const LIGHT_GRAY_CARPET: &str = "minecraft:light_gray_carpet";
+
+pub const LIGHT_GRAY_CONCRETE: &str = "minecraft:light_gray_concrete";
+
+pub const LIGHT_GRAY_CONCRETE_POWDER: &str = "minecraft:light_gray_concrete_powder";
+
+pub const LIGHT_GRAY_SHULKER_BOX: &str = "minecraft:light_gray_shulker_box";
+
+pub const LIGHT_GRAY_STAINED_GLASS: &str = "minecraft:light_gray_stained_glass";
+
+pub const LIGHT_GRAY_STAINED_GLASS_PANE: &str = "minecraft:light_gray_stained_glass_pane";
+
+pub const LIGHT_GRAY_TERRACOTTA: &str = "minecraft:light_gray_terracotta";
+
+pub const LIGHT_GRAY_WOOL: &str = "minecraft:light_gray_wool";
+
+pub const LIGHT_WEIGHTED_PRESSURE_PLATE: &str = "minecraft:light_weighted_pressure_plate";
+
+pub const LIGHTNING_ROD: &str = "minecraft:lightning_rod";
+
+pub const LILAC: &str = "minecraft:lilac";
+
+pub const LILY_OF_THE_VALLEY: &str = "minecraft:lily_of_the_valley";
+
+pub const LIME_CANDLE: &str = "minecraft:lime_candle";
+
+pub const LIME_CANDLE_CAKE: &str = "minecraft:lime_candle_cake";
+
+pub const LIME_CARPET: &str = "minecraft:lime_carpet";
+
+pub const LIME_CONCRETE: &str = "minecraft:lime_concrete";
+
+pub const LIME_CONCRETE_POWDER: &str = "minecraft:lime_concrete_powder";
+
+pub const LIME_GLAZED_TERRACOTTA: &str = "minecraft:lime_glazed_terracotta";
+
+pub const LIME_SHULKER_BOX: &str = "minecraft:lime_shulker_box";
+
+pub const LIME_STAINED_GLASS: &str = "minecraft:lime_stained_glass";
+
+pub const LIME_STAINED_GLASS_PANE: &str = "minecraft:lime_stained_glass_pane";
+
+pub const LIME_TERRACOTTA: &str = "minecraft:lime_terracotta";
+
+pub const LIME_WOOL: &str = "minecraft:lime_wool";
+
+pub const LIT_BLAST_FURNACE: &str = "minecraft:lit_blast_furnace";
+
+pub const LIT_DEEPSLATE_REDSTONE_ORE: &str = "minecraft:lit_deepslate_redstone_ore";
+
+pub const LIT_FURNACE: &str = "minecraft:lit_furnace";
+
+pub const LIT_PUMPKIN: &str = "minecraft:lit_pumpkin";
+
+pub const LIT_REDSTONE_LAMP: &str = "minecraft:lit_redstone_lamp";
+
+pub const LIT_REDSTONE_ORE: &str = "minecraft:lit_redstone_ore";
+
+pub const LIT_SMOKER: &str = "minecraft:lit_smoker";
+
+pub const LODESTONE: &str = "minecraft:lodestone";
+
+pub const LOOM: &str = "minecraft:loom";
+
+pub const MAGENTA_CANDLE: &str = "minecraft:magenta_candle";
+
+pub const MAGENTA_CANDLE_CAKE: &str = "minecraft:magenta_candle_cake";
+
+pub const MAGENTA_CARPET: &str = "minecraft:magenta_carpet";
+
+pub const MAGENTA_CONCRETE: &str = "minecraft:magenta_concrete";
+
+pub const MAGENTA_CONCRETE_POWDER: &str = "minecraft:magenta_concrete_powder";
+
+pub const MAGENTA_GLAZED_TERRACOTTA: &str = "minecraft:magenta_glazed_terracotta";
+
+pub const MAGENTA_SHULKER_BOX: &str = "minecraft:magenta_shulker_box";
+
+pub const MAGENTA_STAINED_GLASS: &str = "minecraft:magenta_stained_glass";
+
+pub const MAGENTA_STAINED_GLASS_PANE: &str = "minecraft:magenta_stained_glass_pane";
+
+pub const MAGENTA_TERRACOTTA: &str = "minecraft:magenta_terracotta";
+
+pub const MAGENTA_WOOL: &str = "minecraft:magenta_wool";
+
+pub const MAGMA: &str = "minecraft:magma";
+
+pub const MANGROVE_BUTTON: &str = "minecraft:mangrove_button";
+
+pub const MANGROVE_DOOR: &str = "minecraft:mangrove_door";
+
+pub const MANGROVE_DOUBLE_SLAB: &str = "minecraft:mangrove_double_slab";
+
+pub const MANGROVE_FENCE: &str = "minecraft:mangrove_fence";
+
+pub const MANGROVE_FENCE_GATE: &str = "minecraft:mangrove_fence_gate";
+
+pub const MANGROVE_HANGING_SIGN: &str = "minecraft:mangrove_hanging_sign";
+
+pub const MANGROVE_LEAVES: &str = "minecraft:mangrove_leaves";
+
+pub const MANGROVE_LOG: &str = "minecraft:mangrove_log";
+
+pub const MANGROVE_PLANKS: &str = "minecraft:mangrove_planks";
+
+pub const MANGROVE_PRESSURE_PLATE: &str = "minecraft:mangrove_pressure_plate";
+
+pub const MANGROVE_PROPAGULE: &str = "minecraft:mangrove_propagule";
+
+pub const MANGROVE_ROOTS: &str = "minecraft:mangrove_roots";
+
+pub const MANGROVE_SLAB: &str = "minecraft:mangrove_slab";
+
+pub const MANGROVE_STAIRS: &str = "minecraft:mangrove_stairs";
+
+pub const MANGROVE_STANDING_SIGN: &str = "minecraft:mangrove_standing_sign";
+
+pub const MANGROVE_TRAPDOOR: &str = "minecraft:mangrove_trapdoor";
+
+pub const MANGROVE_WALL_SIGN: &str = "minecraft:mangrove_wall_sign";
+
+pub const MANGROVE_WOOD: &str = "minecraft:mangrove_wood";
+
+pub const MEDIUM_AMETHYST_BUD: &str = "minecraft:medium_amethyst_bud";
+
+pub const MELON_BLOCK: &str = "minecraft:melon_block";
+
+pub const MELON_STEM: &str = "minecraft:melon_stem";
+
+pub const MOB_SPAWNER: &str = "minecraft:mob_spawner";
+
+pub const MONSTER_EGG: &str = "minecraft:monster_egg";
+
+pub const MOSS_BLOCK: &str = "minecraft:moss_block";
+
+pub const MOSS_CARPET: &str = "minecraft:moss_carpet";
+
+pub const MOSSY_COBBLESTONE: &str = "minecraft:mossy_cobblestone";
+
+pub const MOSSY_COBBLESTONE_DOUBLE_SLAB: &str = "minecraft:mossy_cobblestone_double_slab";
+
+pub const MOSSY_COBBLESTONE_SLAB: &str = "minecraft:mossy_cobblestone_slab";
+
+pub const MOSSY_COBBLESTONE_STAIRS: &str = "minecraft:mossy_cobblestone_stairs";
+
+pub const MOSSY_COBBLESTONE_WALL: &str = "minecraft:mossy_cobblestone_wall";
+
+pub const MOSSY_STONE_BRICK_DOUBLE_SLAB: &str = "minecraft:mossy_stone_brick_double_slab";
+
+pub const MOSSY_STONE_BRICK_SLAB: &str = "minecraft:mossy_stone_brick_slab";
+
+pub const MOSSY_STONE_BRICKS: &str = "minecraft:mossy_stone_bricks";
+
+pub const MOSSY_STONE_BRICK_STAIRS: &str = "minecraft:mossy_stone_brick_stairs";
+
+pub const MOSSY_STONE_BRICK_WALL: &str = "minecraft:mossy_stone_brick_wall";
+
+pub const MOVING_BLOCK: &str = "minecraft:moving_block";
+
+pub const MUD: &str = "minecraft:mud";
+
+pub const MUD_BRICK_DOUBLE_SLAB: &str = "minecraft:mud_brick_double_slab";
+
+pub const MUD_BRICK_SLAB: &str = "minecraft:mud_brick_slab";
+
+pub const MUD_BRICK_STAIRS: &str = "minecraft:mud_brick_stairs";
+
+pub const MUD_BRICK_WALL: &str = "minecraft:mud_brick_wall";
+
+pub const MUD_BRICKS: &str = "minecraft:mud_bricks";
+
+pub const MUDDY_MANGROVE_ROOTS: &str = "minecraft:muddy_mangrove_roots";
+
+pub const MUSHROOM_STEM: &str = "minecraft:mushroom_stem";
+
+pub const MYCELIUM: &str = "minecraft:mycelium";
+
+pub const NETHER_BRICK: &str = "minecraft:nether_brick";
+
+pub const NETHER_BRICK_DOUBLE_SLAB: &str = "minecraft:nether_brick_double_slab";
+
+pub const NETHER_BRICK_FENCE: &str = "minecraft:nether_brick_fence";
+
+pub const NETHER_BRICK_SLAB: &str = "minecraft:nether_brick_slab";
+
+pub const NETHER_BRICK_STAIRS: &str = "minecraft:nether_brick_stairs";
+
+pub const NETHER_BRICK_WALL: &str = "minecraft:nether_brick_wall";
+
+pub const NETHER_GOLD_ORE: &str = "minecraft:nether_gold_ore";
+
+pub const NETHER_SPROUTS: &str = "minecraft:nether_sprouts";
+
+pub const NETHER_WART: &str = "minecraft:nether_wart";
+
+pub const NETHER_WART_BLOCK: &str = "minecraft:nether_wart_block";
+
+pub const NETHERITE_BLOCK: &str = "minecraft:netherite_block";
+
+pub const NETHERRACK: &str = "minecraft:netherrack";
+
+pub const NETHERREACTOR: &str = "minecraft:netherreactor";
+
+pub const NORMAL_STONE_DOUBLE_SLAB: &str = "minecraft:normal_stone_double_slab";
+
+pub const NORMAL_STONE_SLAB: &str = "minecraft:normal_stone_slab";
+
+pub const NORMAL_STONE_STAIRS: &str = "minecraft:normal_stone_stairs";
+
+pub const NOTEBLOCK: &str = "minecraft:noteblock";
+
+pub const OAK_DOUBLE_SLAB: &str = "minecraft:oak_double_slab";
+
+pub const OAK_FENCE: &str = "minecraft:oak_fence";
+
+pub const OAK_HANGING_SIGN: &str = "minecraft:oak_hanging_sign";
+
+pub const OAK_LEAVES: &str = "minecraft:oak_leaves";
+
+pub const OAK_LOG: &str = "minecraft:oak_log";
+
+pub const OAK_PLANKS: &str = "minecraft:oak_planks";
+
+pub const OAK_SAPLING: &str = "minecraft:oak_sapling";
+
+pub const OAK_SLAB: &str = "minecraft:oak_slab";
+
+pub const OAK_STAIRS: &str = "minecraft:oak_stairs";
+
+pub const OAK_WOOD: &str = "minecraft:oak_wood";
+
+pub const OBSERVER: &str = "minecraft:observer";
+
+pub const OBSIDIAN: &str = "minecraft:obsidian";
+
+pub const OCHRE_FROGLIGHT: &str = "minecraft:ochre_froglight";
+
+pub const OPEN_EYEBLOSSOM: &str = "minecraft:open_eyeblossom";
+
+pub const ORANGE_CANDLE: &str = "minecraft:orange_candle";
+
+pub const ORANGE_CANDLE_CAKE: &str = "minecraft:orange_candle_cake";
+
+pub const ORANGE_CARPET: &str = "minecraft:orange_carpet";
+
+pub const ORANGE_CONCRETE: &str = "minecraft:orange_concrete";
+
+pub const ORANGE_CONCRETE_POWDER: &str = "minecraft:orange_concrete_powder";
+
+pub const ORANGE_GLAZED_TERRACOTTA: &str = "minecraft:orange_glazed_terracotta";
+
+pub const ORANGE_SHULKER_BOX: &str = "minecraft:orange_shulker_box";
+
+pub const ORANGE_STAINED_GLASS: &str = "minecraft:orange_stained_glass";
+
+pub const ORANGE_STAINED_GLASS_PANE: &str = "minecraft:orange_stained_glass_pane";
+
+pub const ORANGE_TERRACOTTA: &str = "minecraft:orange_terracotta";
+
+pub const ORANGE_TULIP: &str = "minecraft:orange_tulip";
+
+pub const ORANGE_WOOL: &str = "minecraft:orange_wool";
+
+pub const OXEYE_DAISY: &str = "minecraft:oxeye_daisy";
+
+pub const OXIDIZED_CHISELED_COPPER: &str = "minecraft:oxidized_chiseled_copper";
+
+pub const OXIDIZED_COPPER: &str = "minecraft:oxidized_copper";
+
+pub const OXIDIZED_COPPER_BULB: &str = "minecraft:oxidized_copper_bulb";
+
+pub const OXIDIZED_COPPER_DOOR: &str = "minecraft:oxidized_copper_door";
+
+pub const OXIDIZED_COPPER_GRATE: &str = "minecraft:oxidized_copper_grate";
+
+pub const OXIDIZED_COPPER_TRAPDOOR: &str = "minecraft:oxidized_copper_trapdoor";
+
+pub const OXIDIZED_CUT_COPPER: &str = "minecraft:oxidized_cut_copper";
+
+pub const OXIDIZED_CUT_COPPER_SLAB: &str = "minecraft:oxidized_cut_copper_slab";
+
+pub const OXIDIZED_CUT_COPPER_STAIRS: &str = "minecraft:oxidized_cut_copper_stairs";
+
+pub const OXIDIZED_DOUBLE_CUT_COPPER_SLAB: &str = "minecraft:oxidized_double_cut_copper_slab";
+
+pub const PACKED_ICE: &str = "minecraft:packed_ice";
+
+pub const PACKED_MUD: &str = "minecraft:packed_mud";
+
+pub const PALE_OAK_DOUBLE_SLAB: &str = "minecraft:pale_oak_double_slab";
+
+pub const PALE_OAK_PLANKS: &str = "minecraft:pale_oak_planks";
+
+pub const PALE_OAK_FENCE: &str = "minecraft:pale_oak_fence";
+
+pub const PALE_OAK_FENCE_GATE: &str = "minecraft:pale_oak_fence_gate";
+
+pub const PALE_OAK_STAIRS: &str = "minecraft:pale_oak_stairs";
+
+pub const PALE_OAK_WOOD: &str = "minecraft:pale_oak_wood";
+
+pub const PALE_OAK_DOOR: &str = "minecraft:pale_oak_door";
+
+pub const PALE_OAK_TRAPDOOR: &str = "minecraft:pale_oak_trapdoor";
+
+pub const PALE_OAK_SLAB: &str = "minecraft:pale_oak_slab";
+
+pub const PALE_OAK_LOG: &str = "minecraft:pale_oak_log";
+
+pub const PALE_OAK_LEAVES: &str = "minecraft:pale_oak_leaves";
+
+pub const PALE_OAK_SAPLING: &str = "minecraft:pale_oak_sapling";
+
+pub const PALE_OAK_STANDING_SIGN: &str = "minecraft:pale_oak_standing_sign";
+
+pub const PALE_OAK_BUTTON: &str = "minecraft:pale_oak_button";
+
+pub const PALE_OAK_HANGING_SIGN: &str = "minecraft:pale_oak_hanging_sign";
+
+pub const PALE_OAK_PRESSURE_PLATE: &str = "minecraft:pale_oak_pressure_plate";
+
+pub const PALE_OAK_WALL_SIGN: &str = "minecraft:pale_oak_wall_sign";
+
+pub const PALE_MOSS_CARPET: &str = "minecraft:pale_moss_carpet";
+
+pub const PALE_MOSS_BLOCK: &str = "minecraft:pale_moss_block";
+
+pub const PALE_HANGING_MOSS: &str = "minecraft:pale_hanging_moss";
+
+pub const PEARLESCENT_FROGLIGHT: &str = "minecraft:pearlescent_froglight";
+
+pub const PEONY: &str = "minecraft:peony";
+
+pub const PETRIFIED_OAK_DOUBLE_SLAB: &str = "minecraft:petrified_oak_double_slab";
+
+pub const PETRIFIED_OAK_SLAB: &str = "minecraft:petrified_oak_slab";
+
+pub const PIGLIN_HEAD: &str = "minecraft:piglin_head";
+
+pub const PINK_CANDLE: &str = "minecraft:pink_candle";
+
+pub const PINK_CANDLE_CAKE: &str = "minecraft:pink_candle_cake";
+
+pub const PINK_CARPET: &str = "minecraft:pink_carpet";
+
+pub const PINK_CONCRETE: &str = "minecraft:pink_concrete";
+
+pub const PINK_CONCRETE_POWDER: &str = "minecraft:pink_concrete_powder";
+
+pub const PINK_GLAZED_TERRACOTTA: &str = "minecraft:pink_glazed_terracotta";
+
+pub const PINK_PETALS: &str = "minecraft:pink_petals";
+
+pub const PINK_SHULKER_BOX: &str = "minecraft:pink_shulker_box";
+
+pub const PINK_STAINED_GLASS: &str = "minecraft:pink_stained_glass";
+
+pub const PINK_STAINED_GLASS_PANE: &str = "minecraft:pink_stained_glass_pane";
+
+pub const PINK_TERRACOTTA: &str = "minecraft:pink_terracotta";
+
+pub const PINK_TULIP: &str = "minecraft:pink_tulip";
+
+pub const PINK_WOOL: &str = "minecraft:pink_wool";
+
+pub const PISTON: &str = "minecraft:piston";
+
+pub const PISTON_ARM_COLLISION: &str = "minecraft:piston_arm_collision";
+
+pub const PITCHER_CROP: &str = "minecraft:pitcher_crop";
+
+pub const PITCHER_PLANT: &str = "minecraft:pitcher_plant";
+
+pub const PLAYER_HEAD: &str = "minecraft:player_head";
+
+pub const PODZOL: &str = "minecraft:podzol";
+
+pub const POINTED_DRIPSTONE: &str = "minecraft:pointed_dripstone";
+
+pub const POLISHED_ANDESITE: &str = "minecraft:polished_andesite";
+
+pub const POLISHED_ANDESITE_DOUBLE_SLAB: &str = "minecraft:polished_andesite_double_slab";
+
+pub const POLISHED_ANDESITE_SLAB: &str = "minecraft:polished_andesite_slab";
+
+pub const POLISHED_ANDESITE_STAIRS: &str = "minecraft:polished_andesite_stairs";
+
+pub const POLISHED_BASALT: &str = "minecraft:polished_basalt";
+
+pub const POLISHED_BLACKSTONE: &str = "minecraft:polished_blackstone";
+
+pub const POLISHED_BLACKSTONE_BRICK_DOUBLE_SLAB: &str = "minecraft:polished_blackstone_brick_double_slab";
+
+pub const POLISHED_BLACKSTONE_BRICK_SLAB: &str = "minecraft:polished_blackstone_brick_slab";
+
+pub const POLISHED_BLACKSTONE_BRICK_STAIRS: &str = "minecraft:polished_blackstone_brick_stairs";
+
+pub const POLISHED_BLACKSTONE_BRICK_WALL: &str = "minecraft:polished_blackstone_brick_wall";
+
+pub const POLISHED_BLACKSTONE_BRICKS: &str = "minecraft:polished_blackstone_bricks";
+
+pub const POLISHED_BLACKSTONE_BUTTON: &str = "minecraft:polished_blackstone_button";
+
+pub const POLISHED_BLACKSTONE_DOUBLE_SLAB: &str = "minecraft:polished_blackstone_double_slab";
+
+pub const POLISHED_BLACKSTONE_PRESSURE_PLATE: &str = "minecraft:polished_blackstone_pressure_plate";
+
+pub const POLISHED_BLACKSTONE_SLAB: &str = "minecraft:polished_blackstone_slab";
+
+pub const POLISHED_BLACKSTONE_STAIRS: &str = "minecraft:polished_blackstone_stairs";
+
+pub const POLISHED_BLACKSTONE_WALL: &str = "minecraft:polished_blackstone_wall";
+
+pub const POLISHED_DEEPSLATE: &str = "minecraft:polished_deepslate";
+
+pub const POLISHED_DEEPSLATE_DOUBLE_SLAB: &str = "minecraft:polished_deepslate_double_slab";
+
+pub const POLISHED_DEEPSLATE_SLAB: &str = "minecraft:polished_deepslate_slab";
+
+pub const POLISHED_DEEPSLATE_STAIRS: &str = "minecraft:polished_deepslate_stairs";
+
+pub const POLISHED_DEEPSLATE_WALL: &str = "minecraft:polished_deepslate_wall";
+
+pub const POLISHED_DIORITE: &str = "minecraft:polished_diorite";
+
+pub const POLISHED_DIORITE_DOUBLE_SLAB: &str = "minecraft:polished_diorite_double_slab";
+
+pub const POLISHED_DIORITE_SLAB: &str = "minecraft:polished_diorite_slab";
+
+pub const POLISHED_DIORITE_STAIRS: &str = "minecraft:polished_diorite_stairs";
+
+pub const POLISHED_GRANITE: &str = "minecraft:polished_granite";
+
+pub const POLISHED_GRANITE_DOUBLE_SLAB: &str = "minecraft:polished_granite_double_slab";
+
+pub const POLISHED_GRANITE_SLAB: &str = "minecraft:polished_granite_slab";
+
+pub const POLISHED_GRANITE_STAIRS: &str = "minecraft:polished_granite_stairs";
+
+pub const POLISHED_TUFF: &str = "minecraft:polished_tuff";
+
+pub const POLISHED_TUFF_DOUBLE_SLAB: &str = "minecraft:polished_tuff_double_slab";
+
+pub const POLISHED_TUFF_SLAB: &str = "minecraft:polished_tuff_slab";
+
+pub const POLISHED_TUFF_STAIRS: &str = "minecraft:polished_tuff_stairs";
+
+pub const POLISHED_TUFF_WALL: &str = "minecraft:polished_tuff_wall";
+
+pub const POPPY: &str = "minecraft:poppy";
+
+pub const PORTAL: &str = "minecraft:portal";
+
+pub const POTATOES: &str = "minecraft:potatoes";
+
+pub const POWDER_SNOW: &str = "minecraft:powder_snow";
+
+pub const POWERED_COMPARATOR: &str = "minecraft:powered_comparator";
+
+pub const POWERED_REPEATER: &str = "minecraft:powered_repeater";
+
+pub const PRISMARINE: &str = "minecraft:prismarine";
+
+pub const PRISMARINE_BRICK_DOUBLE_SLAB: &str = "minecraft:prismarine_brick_double_slab";
+
+pub const PRISMARINE_BRICK_SLAB: &str = "minecraft:prismarine_brick_slab";
+
+pub const PRISMARINE_BRICKS: &str = "minecraft:prismarine_bricks";
+
+pub const PRISMARINE_BRICKS_STAIRS: &str = "minecraft:prismarine_bricks_stairs";
+
+pub const PRISMARINE_DOUBLE_SLAB: &str = "minecraft:prismarine_double_slab";
+
+pub const PRISMARINE_SLAB: &str = "minecraft:prismarine_slab";
+
+pub const PRISMARINE_STAIRS: &str = "minecraft:prismarine_stairs";
+
+pub const PRISMARINE_WALL: &str = "minecraft:prismarine_wall";
+
+pub const PUMPKIN: &str = "minecraft:pumpkin";
+
+pub const PUMPKIN_STEM: &str = "minecraft:pumpkin_stem";
+
+pub const PURPLE_CANDLE: &str = "minecraft:purple_candle";
+
+pub const PURPLE_CANDLE_CAKE: &str = "minecraft:purple_candle_cake";
+
+pub const PURPLE_CARPET: &str = "minecraft:purple_carpet";
+
+pub const PURPLE_CONCRETE: &str = "minecraft:purple_concrete";
+
+pub const PURPLE_CONCRETE_POWDER: &str = "minecraft:purple_concrete_powder";
+
+pub const PURPLE_GLAZED_TERRACOTTA: &str = "minecraft:purple_glazed_terracotta";
+
+pub const PURPLE_SHULKER_BOX: &str = "minecraft:purple_shulker_box";
+
+pub const PURPLE_STAINED_GLASS: &str = "minecraft:purple_stained_glass";
+
+pub const PURPLE_STAINED_GLASS_PANE: &str = "minecraft:purple_stained_glass_pane";
+
+pub const PURPLE_TERRACOTTA: &str = "minecraft:purple_terracotta";
+
+pub const PURPLE_WOOL: &str = "minecraft:purple_wool";
+
+pub const PURPUR_BLOCK: &str = "minecraft:purpur_block";
+
+pub const PURPUR_DOUBLE_SLAB: &str = "minecraft:purpur_double_slab";
+
+pub const PURPUR_PILLAR: &str = "minecraft:purpur_pillar";
+
+pub const PURPUR_SLAB: &str = "minecraft:purpur_slab";
+
+pub const PURPUR_STAIRS: &str = "minecraft:purpur_stairs";
+
+pub const QUARTZ_BLOCK: &str = "minecraft:quartz_block";
+
+pub const QUARTZ_BRICKS: &str = "minecraft:quartz_bricks";
+
+pub const QUARTZ_DOUBLE_SLAB: &str = "minecraft:quartz_double_slab";
+
+pub const QUARTZ_ORE: &str = "minecraft:quartz_ore";
+
+pub const QUARTZ_PILLAR: &str = "minecraft:quartz_pillar";
+
+pub const QUARTZ_SLAB: &str = "minecraft:quartz_slab";
+
+pub const QUARTZ_STAIRS: &str = "minecraft:quartz_stairs";
+
+pub const RAIL: &str = "minecraft:rail";
+
+pub const RAW_COPPER_BLOCK: &str = "minecraft:raw_copper_block";
+
+pub const RAW_GOLD_BLOCK: &str = "minecraft:raw_gold_block";
+
+pub const RAW_IRON_BLOCK: &str = "minecraft:raw_iron_block";
+
+pub const RED_CANDLE: &str = "minecraft:red_candle";
+
+pub const RED_CANDLE_CAKE: &str = "minecraft:red_candle_cake";
+
+pub const RED_CARPET: &str = "minecraft:red_carpet";
+
+pub const RED_CONCRETE: &str = "minecraft:red_concrete";
+
+pub const RED_CONCRETE_POWDER: &str = "minecraft:red_concrete_powder";
+
+pub const RED_GLAZED_TERRACOTTA: &str = "minecraft:red_glazed_terracotta";
+
+pub const RED_MUSHROOM: &str = "minecraft:red_mushroom";
+
+pub const RED_MUSHROOM_BLOCK: &str = "minecraft:red_mushroom_block";
+
+pub const RED_NETHER_BRICK: &str = "minecraft:red_nether_brick";
+
+pub const RED_NETHER_BRICK_DOUBLE_SLAB: &str = "minecraft:red_nether_brick_double_slab";
+
+pub const RED_NETHER_BRICK_SLAB: &str = "minecraft:red_nether_brick_slab";
+
+pub const RED_NETHER_BRICK_STAIRS: &str = "minecraft:red_nether_brick_stairs";
+
+pub const RED_NETHER_BRICK_WALL: &str = "minecraft:red_nether_brick_wall";
+
+pub const RED_SAND: &str = "minecraft:red_sand";
+
+pub const RED_SANDSTONE: &str = "minecraft:red_sandstone";
+
+pub const RED_SANDSTONE_DOUBLE_SLAB: &str = "minecraft:red_sandstone_double_slab";
+
+pub const RED_SANDSTONE_SLAB: &str = "minecraft:red_sandstone_slab";
+
+pub const RED_SANDSTONE_STAIRS: &str = "minecraft:red_sandstone_stairs";
+
+pub const RED_SANDSTONE_WALL: &str = "minecraft:red_sandstone_wall";
+
+pub const RED_SHULKER_BOX: &str = "minecraft:red_shulker_box";
+
+pub const RED_STAINED_GLASS: &str = "minecraft:red_stained_glass";
+
+pub const RED_STAINED_GLASS_PANE: &str = "minecraft:red_stained_glass_pane";
+
+pub const RED_TERRACOTTA: &str = "minecraft:red_terracotta";
+
+pub const RED_TULIP: &str = "minecraft:red_tulip";
+
+pub const RED_WOOL: &str = "minecraft:red_wool";
+
+pub const REDSTONE_BLOCK: &str = "minecraft:redstone_block";
+
+pub const REDSTONE_LAMP: &str = "minecraft:redstone_lamp";
+
+pub const REDSTONE_ORE: &str = "minecraft:redstone_ore";
+
+pub const REDSTONE_TORCH: &str = "minecraft:redstone_torch";
+
+pub const REDSTONE_WIRE: &str = "minecraft:redstone_wire";
+
+pub const REEDS: &str = "minecraft:reeds";
+
+pub const REINFORCED_DEEPSLATE: &str = "minecraft:reinforced_deepslate";
+
+pub const REPEATING_COMMAND_BLOCK: &str = "minecraft:repeating_command_block";
+
+pub const RESERVED6: &str = "minecraft:reserved6";
+
+pub const RESIN_CLUMP: &str = "minecraft:resin_clump";
+
+pub const RESIN_BRICK_DOUBLE_SLAB: &str = "minecraft:resin_brick_double_slab";
+
+pub const RESIN_BRICK_WALL: &str = "minecraft:resin_brick_wall";
+
+pub const RESIN_BRICK_STAIRS: &str = "minecraft:resin_brick_stairs";
+
+pub const RESIN_BRICK_SLAB: &str = "minecraft:resin_brick_slab";
+
+pub const RESIN_BLOCK: &str = "minecraft:resin_block";
+
+pub const RESIN_BRICKS: &str = "minecraft:resin_bricks";
+
+pub const RESPAWN_ANCHOR: &str = "minecraft:respawn_anchor";
+
+pub const ROSE_BUSH: &str = "minecraft:rose_bush";
+
+pub const SAND: &str = "minecraft:sand";
+
+pub const SANDSTONE: &str = "minecraft:sandstone";
+
+pub const SANDSTONE_DOUBLE_SLAB: &str = "minecraft:sandstone_double_slab";
+
+pub const SANDSTONE_SLAB: &str = "minecraft:sandstone_slab";
+
+pub const SANDSTONE_STAIRS: &str = "minecraft:sandstone_stairs";
+
+pub const SANDSTONE_WALL: &str = "minecraft:sandstone_wall";
+
+pub const SCAFFOLDING: &str = "minecraft:scaffolding";
+
+pub const SCULK: &str = "minecraft:sculk";
+
+pub const SCULK_CATALYST: &str = "minecraft:sculk_catalyst";
+
+pub const SCULK_SENSOR: &str = "minecraft:sculk_sensor";
+
+pub const SCULK_SHRIEKER: &str = "minecraft:sculk_shrieker";
+
+pub const SCULK_VEIN: &str = "minecraft:sculk_vein";
+
+pub const SEA_LANTERN: &str = "minecraft:sea_lantern";
+
+pub const SEA_PICKLE: &str = "minecraft:sea_pickle";
+
+pub const SEAGRASS: &str = "minecraft:seagrass";
+
+pub const SHORT_GRASS: &str = "minecraft:short_grass";
+
+pub const SHROOMLIGHT: &str = "minecraft:shroomlight";
+
+pub const SILVER_GLAZED_TERRACOTTA: &str = "minecraft:silver_glazed_terracotta";
+
+pub const SKELETON_SKULL: &str = "minecraft:skeleton_skull";
+
+pub const SKULL: &str = "minecraft:skull";
+
+pub const SLIME: &str = "minecraft:slime";
+
+pub const SMALL_AMETHYST_BUD: &str = "minecraft:small_amethyst_bud";
+
+pub const SMALL_DRIPLEAF_BLOCK: &str = "minecraft:small_dripleaf_block";
+
+pub const SMITHING_TABLE: &str = "minecraft:smithing_table";
+
+pub const SMOKER: &str = "minecraft:smoker";
+
+pub const SMOOTH_BASALT: &str = "minecraft:smooth_basalt";
+
+pub const SMOOTH_QUARTZ: &str = "minecraft:smooth_quartz";
+
+pub const SMOOTH_QUARTZ_DOUBLE_SLAB: &str = "minecraft:smooth_quartz_double_slab";
+
+pub const SMOOTH_QUARTZ_SLAB: &str = "minecraft:smooth_quartz_slab";
+
+pub const SMOOTH_QUARTZ_STAIRS: &str = "minecraft:smooth_quartz_stairs";
+
+pub const SMOOTH_RED_SANDSTONE: &str = "minecraft:smooth_red_sandstone";
+
+pub const SMOOTH_RED_SANDSTONE_DOUBLE_SLAB: &str = "minecraft:smooth_red_sandstone_double_slab";
+
+pub const SMOOTH_RED_SANDSTONE_SLAB: &str = "minecraft:smooth_red_sandstone_slab";
+
+pub const SMOOTH_RED_SANDSTONE_STAIRS: &str = "minecraft:smooth_red_sandstone_stairs";
+
+pub const SMOOTH_SANDSTONE: &str = "minecraft:smooth_sandstone";
+
+pub const SMOOTH_SANDSTONE_DOUBLE_SLAB: &str = "minecraft:smooth_sandstone_double_slab";
+
+pub const SMOOTH_SANDSTONE_SLAB: &str = "minecraft:smooth_sandstone_slab";
+
+pub const SMOOTH_SANDSTONE_STAIRS: &str = "minecraft:smooth_sandstone_stairs";
+
+pub const SMOOTH_STONE: &str = "minecraft:smooth_stone";
+
+pub const SMOOTH_STONE_DOUBLE_SLAB: &str = "minecraft:smooth_stone_double_slab";
+
+pub const SMOOTH_STONE_SLAB: &str = "minecraft:smooth_stone_slab";
+
+pub const SNIFFER_EGG: &str = "minecraft:sniffer_egg";
+
+pub const SNOW: &str = "minecraft:snow";
+
+pub const SNOW_LAYER: &str = "minecraft:snow_layer";
+
+pub const SOUL_CAMPFIRE: &str = "minecraft:soul_campfire";
+
+pub const SOUL_FIRE: &str = "minecraft:soul_fire";
+
+pub const SOUL_LANTERN: &str = "minecraft:soul_lantern";
+
+pub const SOUL_SAND: &str = "minecraft:soul_sand";
+
+pub const SOUL_SOIL: &str = "minecraft:soul_soil";
+
+pub const SOUL_TORCH: &str = "minecraft:soul_torch";
+
+pub const SPONGE: &str = "minecraft:sponge";
+
+pub const SPORE_BLOSSOM: &str = "minecraft:spore_blossom";
+
+pub const SPRUCE_BUTTON: &str = "minecraft:spruce_button";
+
+pub const SPRUCE_DOOR: &str = "minecraft:spruce_door";
+
+pub const SPRUCE_DOUBLE_SLAB: &str = "minecraft:spruce_double_slab";
+
+pub const SPRUCE_FENCE: &str = "minecraft:spruce_fence";
+
+pub const SPRUCE_FENCE_GATE: &str = "minecraft:spruce_fence_gate";
+
+pub const SPRUCE_HANGING_SIGN: &str = "minecraft:spruce_hanging_sign";
+
+pub const SPRUCE_LEAVES: &str = "minecraft:spruce_leaves";
+
+pub const SPRUCE_LOG: &str = "minecraft:spruce_log";
+
+pub const SPRUCE_PLANKS: &str = "minecraft:spruce_planks";
+
+pub const SPRUCE_PRESSURE_PLATE: &str = "minecraft:spruce_pressure_plate";
+
+pub const SPRUCE_SAPLING: &str = "minecraft:spruce_sapling";
+
+pub const SPRUCE_SLAB: &str = "minecraft:spruce_slab";
+
+pub const SPRUCE_STAIRS: &str = "minecraft:spruce_stairs";
+
+pub const SPRUCE_STANDING_SIGN: &str = "minecraft:spruce_standing_sign";
+
+pub const SPRUCE_TRAPDOOR: &str = "minecraft:spruce_trapdoor";
+
+pub const SPRUCE_WALL_SIGN: &str = "minecraft:spruce_wall_sign";
+
+pub const SPRUCE_WOOD: &str = "minecraft:spruce_wood";
+
+pub const STANDING_BANNER: &str = "minecraft:standing_banner";
+
+pub const STANDING_SIGN: &str = "minecraft:standing_sign";
+
+pub const STICKY_PISTON: &str = "minecraft:sticky_piston";
+
+pub const STICKY_PISTON_ARM_COLLISION: &str = "minecraft:sticky_piston_arm_collision";
+
+pub const STONE: &str = "minecraft:stone";
+
+pub const STONE_BLOCK_SLAB2: &str = "minecraft:stone_block_slab2";
+
+pub const STONE_BLOCK_SLAB3: &str = "minecraft:stone_block_slab3";
+
+pub const STONE_BLOCK_SLAB4: &str = "minecraft:stone_block_slab4";
+
+pub const STONE_BRICKS: &str = "minecraft:stone_bricks";
+
+pub const STONE_BRICK_DOUBLE_SLAB: &str = "minecraft:stone_brick_double_slab";
+
+pub const STONE_BRICK_SLAB: &str = "minecraft:stone_brick_slab";
+
+pub const STONE_BRICK_STAIRS: &str = "minecraft:stone_brick_stairs";
+
+pub const STONE_BRICK_WALL: &str = "minecraft:stone_brick_wall";
+
+pub const STONE_BUTTON: &str = "minecraft:stone_button";
+
+pub const STONE_PRESSURE_PLATE: &str = "minecraft:stone_pressure_plate";
+
+pub const STONE_STAIRS: &str = "minecraft:stone_stairs";
+
+pub const STONECUTTER: &str = "minecraft:stonecutter";
+
+pub const STONECUTTER_BLOCK: &str = "minecraft:stonecutter_block";
+
+pub const STRIPPED_ACACIA_LOG: &str = "minecraft:stripped_acacia_log";
+
+pub const STRIPPED_ACACIA_WOOD: &str = "minecraft:stripped_acacia_wood";
+
+pub const STRIPPED_BAMBOO_BLOCK: &str = "minecraft:stripped_bamboo_block";
+
+pub const STRIPPED_BIRCH_LOG: &str = "minecraft:stripped_birch_log";
+
+pub const STRIPPED_BIRCH_WOOD: &str = "minecraft:stripped_birch_wood";
+
+pub const STRIPPED_CHERRY_LOG: &str = "minecraft:stripped_cherry_log";
+
+pub const STRIPPED_CHERRY_WOOD: &str = "minecraft:stripped_cherry_wood";
+
+pub const STRIPPED_CRIMSON_HYPHAE: &str = "minecraft:stripped_crimson_hyphae";
+
+pub const STRIPPED_CRIMSON_STEM: &str = "minecraft:stripped_crimson_stem";
+
+pub const STRIPPED_DARK_OAK_LOG: &str = "minecraft:stripped_dark_oak_log";
+
+pub const STRIPPED_DARK_OAK_WOOD: &str = "minecraft:stripped_dark_oak_wood";
+
+pub const STRIPPED_JUNGLE_LOG: &str = "minecraft:stripped_jungle_log";
+
+pub const STRIPPED_JUNGLE_WOOD: &str = "minecraft:stripped_jungle_wood";
+
+pub const STRIPPED_MANGROVE_LOG: &str = "minecraft:stripped_mangrove_log";
+
+pub const STRIPPED_MANGROVE_WOOD: &str = "minecraft:stripped_mangrove_wood";
+
+pub const STRIPPED_OAK_LOG: &str = "minecraft:stripped_oak_log";
+
+pub const STRIPPED_OAK_WOOD: &str = "minecraft:stripped_oak_wood";
+
+pub const STRIPPED_PALE_OAK_LOG: &str = "minecraft:stripped_pale_oak_log";
+
+pub const STRIPPED_PALE_OAK_WOOD: &str = "minecraft:stripped_pale_oak_wood";
+
+pub const STRIPPED_SPRUCE_LOG: &str = "minecraft:stripped_spruce_log";
+
+pub const STRIPPED_SPRUCE_WOOD: &str = "minecraft:stripped_spruce_wood";
+
+pub const STRIPPED_WARPED_HYPHAE: &str = "minecraft:stripped_warped_hyphae";
+
+pub const STRIPPED_WARPED_STEM: &str = "minecraft:stripped_warped_stem";
+
+pub const STRUCTURE_BLOCK: &str = "minecraft:structure_block";
+
+pub const STRUCTURE_VOID: &str = "minecraft:structure_void";
+
+pub const SUNFLOWER: &str = "minecraft:sunflower";
+
+pub const SUSPICIOUS_GRAVEL: &str = "minecraft:suspicious_gravel";
+
+pub const SUSPICIOUS_SAND: &str = "minecraft:suspicious_sand";
+
+pub const SWEET_BERRY_BUSH: &str = "minecraft:sweet_berry_bush";
+
+pub const TALL_GRASS: &str = "minecraft:tall_grass";
+
+pub const TARGET: &str = "minecraft:target";
+
+pub const TINTED_GLASS: &str = "minecraft:tinted_glass";
+
+pub const TNT: &str = "minecraft:tnt";
+
+pub const TORCH: &str = "minecraft:torch";
+
+pub const TORCHFLOWER: &str = "minecraft:torchflower";
+
+pub const TORCHFLOWER_CROP: &str = "minecraft:torchflower_crop";
+
+pub const TRAPDOOR: &str = "minecraft:trapdoor";
+
+pub const TRAPPED_CHEST: &str = "minecraft:trapped_chest";
+
+pub const TRIAL_SPAWNER: &str = "minecraft:trial_spawner";
+
+pub const TRIP_WIRE: &str = "minecraft:trip_wire";
+
+pub const TRIPWIRE_HOOK: &str = "minecraft:tripwire_hook";
+
+pub const TUBE_CORAL: &str = "minecraft:tube_coral";
+
+pub const TUBE_CORAL_BLOCK: &str = "minecraft:tube_coral_block";
+
+pub const TUBE_CORAL_FAN: &str = "minecraft:tube_coral_fan";
+
+pub const TUBE_CORAL_WALL_FAN: &str = "minecraft:tube_coral_wall_fan";
+
+pub const TUFF: &str = "minecraft:tuff";
+
+pub const TUFF_BRICK_DOUBLE_SLAB: &str = "minecraft:tuff_brick_double_slab";
+
+pub const TUFF_BRICK_SLAB: &str = "minecraft:tuff_brick_slab";
+
+pub const TUFF_BRICK_STAIRS: &str = "minecraft:tuff_brick_stairs";
+
+pub const TUFF_BRICK_WALL: &str = "minecraft:tuff_brick_wall";
+
+pub const TUFF_BRICKS: &str = "minecraft:tuff_bricks";
+
+pub const TUFF_DOUBLE_SLAB: &str = "minecraft:tuff_double_slab";
+
+pub const TUFF_SLAB: &str = "minecraft:tuff_slab";
+
+pub const TUFF_STAIRS: &str = "minecraft:tuff_stairs";
+
+pub const TUFF_WALL: &str = "minecraft:tuff_wall";
+
+pub const TURTLE_EGG: &str = "minecraft:turtle_egg";
+
+pub const TWISTING_VINES: &str = "minecraft:twisting_vines";
+
+pub const UNDERWATER_TORCH: &str = "minecraft:underwater_torch";
+
+pub const UNDYED_SHULKER_BOX: &str = "minecraft:undyed_shulker_box";
+
+pub const UNKNOWN: &str = "minecraft:unknown";
+
+pub const UNLIT_REDSTONE_TORCH: &str = "minecraft:unlit_redstone_torch";
+
+pub const UNPOWERED_COMPARATOR: &str = "minecraft:unpowered_comparator";
+
+pub const UNPOWERED_REPEATER: &str = "minecraft:unpowered_repeater";
+
+pub const VAULT: &str = "minecraft:vault";
+
+pub const VERDANT_FROGLIGHT: &str = "minecraft:verdant_froglight";
+
+pub const VINE: &str = "minecraft:vine";
+
+pub const WALL_BANNER: &str = "minecraft:wall_banner";
+
+pub const WALL_SIGN: &str = "minecraft:wall_sign";
+
+pub const WARPED_BUTTON: &str = "minecraft:warped_button";
+
+pub const WARPED_DOOR: &str = "minecraft:warped_door";
+
+pub const WARPED_DOUBLE_SLAB: &str = "minecraft:warped_double_slab";
+
+pub const WARPED_FENCE: &str = "minecraft:warped_fence";
+
+pub const WARPED_FENCE_GATE: &str = "minecraft:warped_fence_gate";
+
+pub const WARPED_FUNGUS: &str = "minecraft:warped_fungus";
+
+pub const WARPED_HANGING_SIGN: &str = "minecraft:warped_hanging_sign";
+
+pub const WARPED_HYPHAE: &str = "minecraft:warped_hyphae";
+
+pub const WARPED_NYLIUM: &str = "minecraft:warped_nylium";
+
+pub const WARPED_PLANKS: &str = "minecraft:warped_planks";
+
+pub const WARPED_PRESSURE_PLATE: &str = "minecraft:warped_pressure_plate";
+
+pub const WARPED_ROOTS: &str = "minecraft:warped_roots";
+
+pub const WARPED_SLAB: &str = "minecraft:warped_slab";
+
+pub const WARPED_STAIRS: &str = "minecraft:warped_stairs";
+
+pub const WARPED_STANDING_SIGN: &str = "minecraft:warped_standing_sign";
+
+pub const WARPED_STEM: &str = "minecraft:warped_stem";
+
+pub const WARPED_TRAPDOOR: &str = "minecraft:warped_trapdoor";
+
+pub const WARPED_WALL_SIGN: &str = "minecraft:warped_wall_sign";
+
+pub const WARPED_WART_BLOCK: &str = "minecraft:warped_wart_block";
+
+pub const WATER: &str = "minecraft:water";
+
+pub const WATERLILY: &str = "minecraft:waterlily";
+
+pub const WAXED_CHISELED_COPPER: &str = "minecraft:waxed_chiseled_copper";
+
+pub const WAXED_COPPER: &str = "minecraft:waxed_copper";
+
+pub const WAXED_COPPER_BULB: &str = "minecraft:waxed_copper_bulb";
+
+pub const WAXED_COPPER_DOOR: &str = "minecraft:waxed_copper_door";
+
+pub const WAXED_COPPER_GRATE: &str = "minecraft:waxed_copper_grate";
+
+pub const WAXED_COPPER_TRAPDOOR: &str = "minecraft:waxed_copper_trapdoor";
+
+pub const WAXED_CUT_COPPER: &str = "minecraft:waxed_cut_copper";
+
+pub const WAXED_CUT_COPPER_SLAB: &str = "minecraft:waxed_cut_copper_slab";
+
+pub const WAXED_CUT_COPPER_STAIRS: &str = "minecraft:waxed_cut_copper_stairs";
+
+pub const WAXED_DOUBLE_CUT_COPPER_SLAB: &str = "minecraft:waxed_double_cut_copper_slab";
+
+pub const WAXED_EXPOSED_CHISELED_COPPER: &str = "minecraft:waxed_exposed_chiseled_copper";
+
+pub const WAXED_EXPOSED_COPPER: &str = "minecraft:waxed_exposed_copper";
+
+pub const WAXED_EXPOSED_COPPER_BULB: &str = "minecraft:waxed_exposed_copper_bulb";
+
+pub const WAXED_EXPOSED_COPPER_DOOR: &str = "minecraft:waxed_exposed_copper_door";
+
+pub const WAXED_EXPOSED_COPPER_GRATE: &str = "minecraft:waxed_exposed_copper_grate";
+
+pub const WAXED_EXPOSED_COPPER_TRAPDOOR: &str = "minecraft:waxed_exposed_copper_trapdoor";
+
+pub const WAXED_EXPOSED_CUT_COPPER: &str = "minecraft:waxed_exposed_cut_copper";
+
+pub const WAXED_EXPOSED_CUT_COPPER_SLAB: &str = "minecraft:waxed_exposed_cut_copper_slab";
+
+pub const WAXED_EXPOSED_CUT_COPPER_STAIRS: &str = "minecraft:waxed_exposed_cut_copper_stairs";
+
+pub const WAXED_EXPOSED_DOUBLE_CUT_COPPER_SLAB: &str = "minecraft:waxed_exposed_double_cut_copper_slab";
+
+pub const WAXED_OXIDIZED_CHISELED_COPPER: &str = "minecraft:waxed_oxidized_chiseled_copper";
+
+pub const WAXED_OXIDIZED_COPPER: &str = "minecraft:waxed_oxidized_copper";
+
+pub const WAXED_OXIDIZED_COPPER_BULB: &str = "minecraft:waxed_oxidized_copper_bulb";
+
+pub const WAXED_OXIDIZED_COPPER_DOOR: &str = "minecraft:waxed_oxidized_copper_door";
+
+pub const WAXED_OXIDIZED_COPPER_GRATE: &str = "minecraft:waxed_oxidized_copper_grate";
+
+pub const WAXED_OXIDIZED_COPPER_TRAPDOOR: &str = "minecraft:waxed_oxidized_copper_trapdoor";
+
+pub const WAXED_OXIDIZED_CUT_COPPER: &str = "minecraft:waxed_oxidized_cut_copper";
+
+pub const WAXED_OXIDIZED_CUT_COPPER_SLAB: &str = "minecraft:waxed_oxidized_cut_copper_slab";
+
+pub const WAXED_OXIDIZED_CUT_COPPER_STAIRS: &str = "minecraft:waxed_oxidized_cut_copper_stairs";
+
+pub const WAXED_OXIDIZED_DOUBLE_CUT_COPPER_SLAB: &str = "minecraft:waxed_oxidized_double_cut_copper_slab";
+
+pub const WAXED_WEATHERED_CHISELED_COPPER: &str = "minecraft:waxed_weathered_chiseled_copper";
+
+pub const WAXED_WEATHERED_COPPER: &str = "minecraft:waxed_weathered_copper";
+
+pub const WAXED_WEATHERED_COPPER_BULB: &str = "minecraft:waxed_weathered_copper_bulb";
+
+pub const WAXED_WEATHERED_COPPER_DOOR: &str = "minecraft:waxed_weathered_copper_door";
+
+pub const WAXED_WEATHERED_COPPER_GRATE: &str = "minecraft:waxed_weathered_copper_grate";
+
+pub const WAXED_WEATHERED_COPPER_TRAPDOOR: &str = "minecraft:waxed_weathered_copper_trapdoor";
+
+pub const WAXED_WEATHERED_CUT_COPPER: &str = "minecraft:waxed_weathered_cut_copper";
+
+pub const WAXED_WEATHERED_CUT_COPPER_SLAB: &str = "minecraft:waxed_weathered_cut_copper_slab";
+
+pub const WAXED_WEATHERED_CUT_COPPER_STAIRS: &str = "minecraft:waxed_weathered_cut_copper_stairs";
+
+pub const WAXED_WEATHERED_DOUBLE_CUT_COPPER_SLAB: &str = "minecraft:waxed_weathered_double_cut_copper_slab";
+
+pub const WEATHERED_CHISELED_COPPER: &str = "minecraft:weathered_chiseled_copper";
+
+pub const WEATHERED_COPPER: &str = "minecraft:weathered_copper";
+
+pub const WEATHERED_COPPER_BULB: &str = "minecraft:weathered_copper_bulb";
+
+pub const WEATHERED_COPPER_DOOR: &str = "minecraft:weathered_copper_door";
+
+pub const WEATHERED_COPPER_GRATE: &str = "minecraft:weathered_copper_grate";
+
+pub const WEATHERED_COPPER_TRAPDOOR: &str = "minecraft:weathered_copper_trapdoor";
+
+pub const WEATHERED_CUT_COPPER: &str = "minecraft:weathered_cut_copper";
+
+pub const WEATHERED_CUT_COPPER_SLAB: &str = "minecraft:weathered_cut_copper_slab";
+
+pub const WEATHERED_CUT_COPPER_STAIRS: &str = "minecraft:weathered_cut_copper_stairs";
+
+pub const WEATHERED_DOUBLE_CUT_COPPER_SLAB: &str = "minecraft:weathered_double_cut_copper_slab";
+
+pub const WEB: &str = "minecraft:web";
+
+pub const WEEPING_VINES: &str = "minecraft:weeping_vines";
+
+pub const WET_SPONGE: &str = "minecraft:wet_sponge";
+
+pub const WHEAT: &str = "minecraft:wheat";
+
+pub const WHITE_CANDLE: &str = "minecraft:white_candle";
+
+pub const WHITE_CANDLE_CAKE: &str = "minecraft:white_candle_cake";
+
+pub const WHITE_CARPET: &str = "minecraft:white_carpet";
+
+pub const WHITE_CONCRETE: &str = "minecraft:white_concrete";
+
+pub const WHITE_CONCRETE_POWDER: &str = "minecraft:white_concrete_powder";
+
+pub const WHITE_GLAZED_TERRACOTTA: &str = "minecraft:white_glazed_terracotta";
+
+pub const WHITE_SHULKER_BOX: &str = "minecraft:white_shulker_box";
+
+pub const WHITE_STAINED_GLASS: &str = "minecraft:white_stained_glass";
+
+pub const WHITE_STAINED_GLASS_PANE: &str = "minecraft:white_stained_glass_pane";
+
+pub const WHITE_TERRACOTTA: &str = "minecraft:white_terracotta";
+
+pub const WHITE_TULIP: &str = "minecraft:white_tulip";
+
+pub const WHITE_WOOL: &str = "minecraft:white_wool";
+
+pub const WITHER_ROSE: &str = "minecraft:wither_rose";
+
+pub const WITHER_SKELETON_SKULL: &str = "minecraft:wither_skeleton_skull";
+
+pub const WOODEN_BUTTON: &str = "minecraft:wooden_button";
+
+pub const WOODEN_DOOR: &str = "minecraft:wooden_door";
+
+pub const WOODEN_PRESSURE_PLATE: &str = "minecraft:wooden_pressure_plate";
+
+pub const YELLOW_CANDLE: &str = "minecraft:yellow_candle";
+
+pub const YELLOW_CANDLE_CAKE: &str = "minecraft:yellow_candle_cake";
+
+pub const YELLOW_CARPET: &str = "minecraft:yellow_carpet";
+
+pub const YELLOW_CONCRETE: &str = "minecraft:yellow_concrete";
+
+pub const YELLOW_CONCRETE_POWDER: &str = "minecraft:yellow_concrete_powder";
+
+pub const YELLOW_GLAZED_TERRACOTTA: &str = "minecraft:yellow_glazed_terracotta";
+
+pub const YELLOW_SHULKER_BOX: &str = "minecraft:yellow_shulker_box";
+
+pub const YELLOW_STAINED_GLASS: &str = "minecraft:yellow_stained_glass";
+
+pub const YELLOW_STAINED_GLASS_PANE: &str = "minecraft:yellow_stained_glass_pane";
+
+pub const YELLOW_TERRACOTTA: &str = "minecraft:yellow_terracotta";
+
+pub const YELLOW_WOOL: &str = "minecraft:yellow_wool";
+
+pub const ZOMBIE_HEAD: &str = "minecraft:zombie_head";
