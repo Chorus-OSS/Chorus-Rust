@@ -10,6 +10,7 @@ mod network;
 mod level;
 mod math;
 mod error;
+mod block;
 
 fn main() {
     let config = config::setup_config();

@@ -1,1 +1,2 @@
-pub mod air;
+mod air;
+pub use air::*;

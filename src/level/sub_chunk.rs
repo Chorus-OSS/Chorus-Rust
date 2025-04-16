@@ -1,7 +1,7 @@
 use crate::level::biome::biome_id::BiomeID;
 use crate::level::bit_array::bit_array_version::BitArrayVersion;
 use crate::level::block::block_state::BlockState;
-use crate::level::block::r#impl::state::air;
+use crate::level::block::r#impl::state::AIR;
 use crate::level::palette::palette::Palette;
 use bedrockrs::proto::error::ProtoCodecError;
 use bedrockrs::proto::ProtoCodec;
@@ -27,17 +27,17 @@ impl SubChunk {
             block_layers: block_layers.unwrap_or(
                 vec![
                     Palette::new(
-                        air::PROPERTIES.get_default_state(),
+                        AIR.get_default_state(),
                         Some(vec![
-                            air::PROPERTIES.get_default_state();
+                            AIR.get_default_state();
                             16
                         ]),
                         Some(BitArrayVersion::V2),
                     ),
                     Palette::new(
-                        air::PROPERTIES.get_default_state(),
+                        AIR.get_default_state(),
                         Some(vec![
-                            air::PROPERTIES.get_default_state();
+                            AIR.get_default_state();
                             16
                         ]),
                         Some(BitArrayVersion::V2),
@@ -51,49 +51,49 @@ impl SubChunk {
         }
     }
     
-    pub fn get_block_state(&self, x: usize, y: usize, z: usize, layer: Option<usize>) -> &BlockState {
-        self.block_layers[layer.unwrap_or(0)].get(Self::index(x, y, z))
+    pub fn get_block_state(&self, x: i32, y: i32, z: i32, layer: Option<usize>) -> &BlockState {
+        self.block_layers[layer.unwrap_or(0)].get(Self::index(x, y, z) as usize)
     }
     
-    pub fn set_block_state(&mut self, x: usize, y: usize, z: usize, layer: Option<usize>, block_state: BlockState) {
+    pub fn set_block_state(&mut self, x: i32, y: i32, z: i32, layer: Option<usize>, block_state: BlockState) {
         self.block_changes.fetch_add(1, Ordering::SeqCst);
-        self.block_layers[layer.unwrap_or(0)].set(Self::index(x, y, z), block_state);
+        self.block_layers[layer.unwrap_or(0)].set(Self::index(x, y, z) as usize, block_state);
     }
     
-    pub fn get_biome(&self, x: usize, y: usize, z: usize) -> i32 {
-        *self.biomes.get(Self::index(x, y, z))
+    pub fn get_biome(&self, x: i32, y: i32, z: i32) -> i32 {
+        *self.biomes.get(Self::index(x, y, z) as usize)
     }
     
-    pub fn set_biome(&mut self, x: usize, y: usize, z: usize, biome: i32) {
-        self.biomes.set(Self::index(x, y, z), biome);
+    pub fn set_biome(&mut self, x: i32, y: i32, z: i32, biome: i32) {
+        self.biomes.set(Self::index(x, y, z) as usize, biome);
     }
     
-    pub fn get_block_light(&self, x: usize, y: usize, z: usize) -> u8 {
+    pub fn get_block_light(&self, x: i32, y: i32, z: i32) -> u8 {
         self.block_lights[Self::index(x, y, z)]
     }
     
-    pub fn set_block_light(&mut self, x: usize, y: usize, z: usize, light: u8) {
+    pub fn set_block_light(&mut self, x: i32, y: i32, z: i32, light: u8) {
         self.block_lights[Self::index(x, y, z)] = light;
     }
     
-    pub fn get_sky_light(&self, x: usize, y: usize, z: usize) -> u8 {
+    pub fn get_sky_light(&self, x: i32, y: i32, z: i32) -> u8 {
         self.sky_lights[Self::index(x, y, z)]
     }
     
-    pub fn set_sky_light(&mut self, x: usize, y: usize, z: usize, light: u8) {
+    pub fn set_sky_light(&mut self, x: i32, y: i32, z: i32, light: u8) {
         self.sky_lights[Self::index(x, y, z)] = light;
     }
     
     pub fn is_empty(&self) -> bool {
         for block_layer in self.block_layers.iter() {
-            if !block_layer.is_empty() || *block_layer.get(0) != air::PROPERTIES.get_default_state() {
+            if !block_layer.is_empty() || *block_layer.get(0) != AIR.get_default_state() {
                 return false;
             }
         }
         true
     }
     
-    fn index(x: usize, y: usize, z: usize) -> usize {
+    fn index(x: i32, y: i32, z: i32) -> i32 {
         (x << 8) + (z << 4) + y 
     }
 }
