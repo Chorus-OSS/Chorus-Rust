@@ -20,3 +20,21 @@ pub enum BlockPropertyValue {
     Int(IntPropertyValue),
     Enum(EnumPropertyValue),
 }
+
+impl BlockPropertyValue {
+    pub fn get_index(&self) -> i32 {
+        match self {
+            BlockPropertyValue::Boolean(v) => v.get_index(),
+            BlockPropertyValue::Int(v) => v.get_index(),
+            BlockPropertyValue::Enum(v) => v.get_index(),
+        }
+    }
+    
+    pub fn get_property_type(&self) -> BlockPropertyType {
+        match self {
+            BlockPropertyValue::Boolean(v) => v.get_property_type(),
+            BlockPropertyValue::Int(v) => v.get_property_type(),
+            BlockPropertyValue::Enum(v) => v.get_property_type(),
+        }
+    }
+}
