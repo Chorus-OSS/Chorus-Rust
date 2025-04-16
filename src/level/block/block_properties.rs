@@ -1,9 +1,9 @@
-use std::collections::{HashMap, HashSet};
-use bedrockrs::proto::v662::nbt::Block;
 use crate::level::block::block_state::BlockState;
 use crate::level::block::property::r#type::block_property_type::{BlockPropertyType, BlockPropertyTypeTrait};
 use crate::level::block::property::value::block_property_value::BlockPropertyValue;
 use crate::utils::hash_utils::HashUtils;
+use std::collections::{HashMap, HashSet};
+use std::hash::Hash;
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct BlockProperties {
@@ -150,5 +150,25 @@ impl BlockProperties {
     
     pub fn get_block_state(&self, special_value: i16) -> Option<BlockState> {
         self.special_value_map.get(&special_value).cloned()
+    }
+    
+    pub fn get_block_state_with_value(&self, value: BlockPropertyValue) -> Option<BlockState> {
+        self.default_state.set_property_value(self.clone(), value)
+    }
+    
+    pub fn get_block_state_with_values(&self, values: Vec<BlockPropertyValue>) -> Option<BlockState> {
+        self.default_state.set_property_values(self.clone(), values)
+    }
+    
+    pub fn has_block_state(&self, state: &BlockState) -> bool {
+        self.special_value_map.contains_key(&state.get_special_value())
+    }
+    
+    pub fn has_block_state_special_value(&self, special_value: i16) -> bool {
+        self.special_value_map.contains_key(&special_value)
+    }
+    
+    pub fn has_property(&self, property: BlockPropertyType) -> bool {
+        self.properties.contains(&property)
     }
 }
