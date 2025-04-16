@@ -12,6 +12,15 @@ pub struct IntPropertyType {
 }
 
 impl IntPropertyType {
+    pub fn str_new(name: &str, min: i32, max: i32, default_value: i32) -> Self {
+        Self {
+            name: name.to_string(),
+            min,
+            max,
+            default_value
+        }
+    }
+    
     pub fn new(name: String, min: i32, max: i32, default_value: i32) -> Self {
         Self { name, min, max, default_value }
     }

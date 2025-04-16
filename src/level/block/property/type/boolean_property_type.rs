@@ -9,6 +9,13 @@ pub struct BooleanPropertyType {
 }
 
 impl BooleanPropertyType {
+    pub fn str_new(name: &str, default_value: bool) -> Self {
+        Self {
+            name: name.to_string(),
+            default_value,
+        }
+    }
+    
     pub fn new(name: String, default_value: bool) -> Self {
         Self { name, default_value }
     }
