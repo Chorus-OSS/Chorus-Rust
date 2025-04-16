@@ -8,7 +8,7 @@ pub enum AxisDirection {
 }
 
 impl AxisDirection {
-    pub fn get_offset(&self) -> isize {
+    pub fn get_offset(&self) -> i8 {
         match self {
             AxisDirection::Positive => 1,
             AxisDirection::Negative => -1,

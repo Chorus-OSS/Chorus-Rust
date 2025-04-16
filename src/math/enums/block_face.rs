@@ -88,15 +88,15 @@ impl BlockFace {
         }
     }
     
-    pub fn get_x_offset(&self) -> isize {
+    pub fn get_x_offset(&self) -> i8 {
         if self.get_axis() == Axis::X { self.get_axis_direction().get_offset() } else { 0 }
     }
     
-    pub fn get_y_offset(&self) -> isize {
+    pub fn get_y_offset(&self) -> i8 {
         if self.get_axis() == Axis::Y { self.get_axis_direction().get_offset() } else { 0 }
     }
     
-    pub fn get_z_offset(&self) -> isize {
+    pub fn get_z_offset(&self) -> i8 {
         if self.get_axis() == Axis::Z { self.get_axis_direction().get_offset() } else { 0 }
     }
     
