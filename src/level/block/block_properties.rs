@@ -38,8 +38,8 @@ impl BlockProperties {
                 default_state,
                 special_value_bits,
                 special_value_map: state_map.iter().map(|(_, v)| {
-                    (v.get_special_value(), v)
-                }).collect()
+                    (v.get_special_value(), v.clone())
+                }).collect::<HashMap<i16, BlockState>>(),
             })
         } else { None }
     }
@@ -55,7 +55,7 @@ impl BlockProperties {
         let size = properties.len();
 
         let mut block_states: HashMap<i32, BlockState> = HashMap::new();
-        let mut indices: Vec<i32> = vec![0; size];
+        let mut indices: Vec<usize> = vec![0; size];
         
         loop {
             let mut values: Vec<BlockPropertyValue> = vec![];
@@ -120,7 +120,7 @@ impl BlockProperties {
         );
 
         if let Some(state) = block_states.get(&default_state_hash) {
-            Some((block_states, state))
+            Some((block_states.clone(), state.clone()))
         } else { None }
     }
     

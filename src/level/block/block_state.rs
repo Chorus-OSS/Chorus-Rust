@@ -55,7 +55,7 @@ impl BlockState {
     pub fn set_property_value(&self, properties: BlockProperties, value: BlockPropertyValue) -> Option<BlockState> {
         let mut success = false;
         let mut new_property_values: Vec<BlockPropertyValue> = Vec::new();
-        for v in self.property_values {
+        for v in &self.property_values {
             if (*v == value) {
                 success = true;
                 new_property_values.push(value.clone())
