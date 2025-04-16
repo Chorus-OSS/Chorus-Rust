@@ -18,7 +18,11 @@ impl EnumPropertyValue {
     }
 }
 
-impl BlockPropertyValueTrait<String, EnumPropertyType, String> for EnumPropertyValue {
+impl BlockPropertyValueTrait for EnumPropertyValue {
+    type T = String;
+    type P = EnumPropertyType;
+    type S = String;
+    
     fn get_property_type(&self) -> EnumPropertyType {
         self.property_type.clone()
     }

@@ -1,12 +1,9 @@
-use std::collections::{BTreeMap, HashMap};
-use fern::BTreeMap;
-use linked_hash_map::LinkedHashMap;
-use nbtx::Value;
 use crate::chorus::BLOCK_STATE_VERSION;
 use crate::level::block::property::r#type::block_property_type::BlockPropertyTypeTrait;
 use crate::level::block::property::value::block_property_value::{BlockPropertyValue, BlockPropertyValueTrait};
-use crate::utils::hash_utils;
 use crate::utils::hash_utils::HashUtils;
+use linked_hash_map::LinkedHashMap;
+use std::collections::{BTreeMap, HashMap};
 
 pub struct BlockState {
     identifier: String,
@@ -28,7 +25,7 @@ impl BlockState {
                 Self::compute_special_value(property_values.clone())
             }),
             state_tag: state_tag.unwrap_or_else(|| {
-                
+                Self::build_block_state_tag(identifier.clone(), property_values.clone())
             }),
         }
     }
@@ -56,7 +53,7 @@ impl BlockState {
         special_value
     }
     
-    fn build_block_state_tag(identifier: String, property_values: Vec<BlockPropertyValue>) -> LinkedHashMap<String, Value> {
+    fn build_block_state_tag(identifier: String, property_values: Vec<BlockPropertyValue>) -> HashMap<String, nbtx::Value> {
         let mut states: BTreeMap<String, nbtx::Value> = BTreeMap::new();
         for value in &property_values {
             match value { 
@@ -71,7 +68,7 @@ impl BlockState {
                 }
             }
         }
-        let mut tag: LinkedHashMap<String, nbtx::Value> = LinkedHashMap::new();
+        let mut tag: HashMap<String, nbtx::Value> = HashMap::new();
         tag.insert(String::from("name"), nbtx::Value::String(identifier));
         tag.insert(String::from("states"), nbtx::Value::TreeCompound(states));
         tag.insert(String::from("version"), nbtx::Value::Int(*BLOCK_STATE_VERSION));

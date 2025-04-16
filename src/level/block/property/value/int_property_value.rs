@@ -16,7 +16,11 @@ impl IntPropertyValue {
     }
 }
 
-impl BlockPropertyValueTrait<i32, IntPropertyType, i32> for IntPropertyValue {
+impl BlockPropertyValueTrait for IntPropertyValue {
+    type T = i32;
+    type P = IntPropertyType;
+    type S = i32;
+    
     fn get_property_type(&self) -> IntPropertyType {
         self.property_type.clone()
     }

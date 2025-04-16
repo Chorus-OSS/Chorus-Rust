@@ -16,7 +16,11 @@ impl BooleanPropertyValue {
     }
 }
 
-impl BlockPropertyValueTrait<bool, BooleanPropertyType, i8> for BooleanPropertyValue {
+impl BlockPropertyValueTrait for BooleanPropertyValue {
+    type T = bool;
+    type P = BooleanPropertyType;
+    type S = i8;
+    
     fn get_property_type(&self) -> BooleanPropertyType {
         self.property_type.clone()
     }

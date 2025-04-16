@@ -3,12 +3,16 @@ use crate::level::block::property::value::boolean_property_value::BooleanPropert
 use crate::level::block::property::value::enum_property_value::EnumPropertyValue;
 use crate::level::block::property::value::int_property_value::IntPropertyValue;
 
-pub trait BlockPropertyValueTrait<T, P, S> {
-    fn get_property_type(&self) -> P;
-    fn get_value(&self) -> T;
+pub trait BlockPropertyValueTrait {
+    type T;
+    type P : BlockPropertyTypeTrait<T = Self::T>;
+    type S;
+    
+    fn get_property_type(&self) -> Self::P;
+    fn get_value(&self) -> Self::T;
     
     fn get_index(&self) -> i32;
-    fn get_serialized_value(&self) -> S;
+    fn get_serialized_value(&self) -> Self::S;
 }
 
 #[derive(Clone)]

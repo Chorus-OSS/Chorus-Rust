@@ -7,7 +7,10 @@ pub struct BooleanPropertyType {
     default_value: bool,
 }
 
-impl BlockPropertyTypeTrait<bool, BooleanPropertyValue> for BooleanPropertyType {
+impl BlockPropertyTypeTrait for BooleanPropertyType {
+    type T = bool;
+    type V = BooleanPropertyValue;
+    
     fn get_name(&self) -> String {
         self.name.clone()
     }

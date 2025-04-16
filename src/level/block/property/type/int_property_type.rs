@@ -20,7 +20,10 @@ impl IntPropertyType {
     }
 }
 
-impl BlockPropertyTypeTrait<i32, IntPropertyValue> for IntPropertyType {
+impl BlockPropertyTypeTrait for IntPropertyType {
+    type T = i32;
+    type V = IntPropertyValue;
+    
     fn get_name(&self) -> String {
         self.name.clone()
     }

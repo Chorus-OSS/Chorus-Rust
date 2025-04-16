@@ -10,7 +10,10 @@ pub struct EnumPropertyType {
     default_value: String,
 }
 
-impl BlockPropertyTypeTrait<String, EnumPropertyValue> for EnumPropertyType {
+impl BlockPropertyTypeTrait for EnumPropertyType {
+    type T = String;
+    type V = EnumPropertyValue;
+    
     fn get_name(&self) -> String {
         self.name.clone()
     }
