@@ -20,4 +20,7 @@ pub trait Block {
     
     fn get_properties() -> BlockProperties;
     fn get_default_state() -> BlockState;
+    
+    fn is_solid(&self) -> bool { true }
+    fn is_transparent(&self) -> bool { false }
 }
