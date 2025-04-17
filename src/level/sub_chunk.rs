@@ -1,7 +1,8 @@
+use crate::block::block::Block;
+use crate::block::r#impl::air::Air;
 use crate::level::biome::biome_id::BiomeID;
 use crate::level::bit_array::bit_array_version::BitArrayVersion;
 use crate::level::block::block_state::BlockState;
-use crate::level::block::r#impl::state::AIR;
 use crate::level::palette::palette::Palette;
 use bedrockrs::proto::error::ProtoCodecError;
 use bedrockrs::proto::ProtoCodec;
@@ -27,17 +28,17 @@ impl SubChunk {
             block_layers: block_layers.unwrap_or(
                 vec![
                     Palette::new(
-                        AIR.get_default_state(),
+                        Air::get_default_state(),
                         Some(vec![
-                            AIR.get_default_state();
+                            Air::get_default_state();
                             16
                         ]),
                         Some(BitArrayVersion::V2),
                     ),
                     Palette::new(
-                        AIR.get_default_state(),
+                        Air::get_default_state(),
                         Some(vec![
-                            AIR.get_default_state();
+                            Air::get_default_state();
                             16
                         ]),
                         Some(BitArrayVersion::V2),
@@ -69,24 +70,24 @@ impl SubChunk {
     }
     
     pub fn get_block_light(&self, x: i32, y: i32, z: i32) -> u8 {
-        self.block_lights[Self::index(x, y, z)]
+        self.block_lights[Self::index(x, y, z) as usize]
     }
     
     pub fn set_block_light(&mut self, x: i32, y: i32, z: i32, light: u8) {
-        self.block_lights[Self::index(x, y, z)] = light;
+        self.block_lights[Self::index(x, y, z) as usize] = light;
     }
     
     pub fn get_sky_light(&self, x: i32, y: i32, z: i32) -> u8 {
-        self.sky_lights[Self::index(x, y, z)]
+        self.sky_lights[Self::index(x, y, z) as usize]
     }
     
     pub fn set_sky_light(&mut self, x: i32, y: i32, z: i32, light: u8) {
-        self.sky_lights[Self::index(x, y, z)] = light;
+        self.sky_lights[Self::index(x, y, z) as usize] = light;
     }
     
     pub fn is_empty(&self) -> bool {
         for block_layer in self.block_layers.iter() {
-            if !block_layer.is_empty() || *block_layer.get(0) != AIR.get_default_state() {
+            if !block_layer.is_empty() || *block_layer.get(0) != Air::get_default_state() {
                 return false;
             }
         }

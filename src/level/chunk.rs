@@ -1,9 +1,10 @@
-use std::collections::HashMap;
-use std::sync::atomic::AtomicI64;
+use crate::block::block::Block;
+use crate::block::r#impl::air::Air;
 use crate::level::block::block_state::BlockState;
-use crate::level::block::r#impl::state::AIR;
 use crate::level::chunk_state::ChunkState;
 use crate::level::sub_chunk::SubChunk;
+use std::collections::HashMap;
+use std::sync::atomic::AtomicI64;
 
 pub struct Chunk {
     x: i32,
@@ -47,21 +48,21 @@ impl Chunk {
     }
     
     pub fn get_sub_chunk(&self, chunk_y: i32) -> Option<&SubChunk> {
-        self.sub_chunks.get(chunk_y)
+        self.sub_chunks.get(chunk_y as usize)
     }
     
     pub fn get_mut_sub_chunk(&mut self, chunk_y: i32) -> Option<&mut SubChunk> {
-        self.sub_chunks.get_mut(chunk_y)
+        self.sub_chunks.get_mut(chunk_y as usize)
     }
     
     pub fn set_sub_chunk(&mut self, chunk_y: i32, sub: SubChunk) {
-        self.sub_chunks[chunk_y] = sub;
+        self.sub_chunks[chunk_y as usize] = sub;
     }
     
-    pub fn get_block_state(&self, x: i32, y: i32, z: i32, layer: Option<usize>) -> &BlockState {
+    pub fn get_block_state(&self, x: i32, y: i32, z: i32, layer: Option<usize>) -> BlockState {
         if let Some(sub_chunk) = self.get_sub_chunk(y << 4) {
-            sub_chunk.get_block_state(x, y, z, layer)
-        } else { &AIR.get_default_state() }
+            sub_chunk.get_block_state(x, y, z, layer).clone()
+        } else { Air::get_default_state() }
     }
     
     pub fn set_block_state(&mut self, x: i32, y: i32, z: i32, layer: Option<usize>, state: BlockState) {
@@ -70,10 +71,10 @@ impl Chunk {
         }
     }
     
-    pub fn get_sky_light(&self, x: i32, y: i32, z: i32) -> &u8 {
+    pub fn get_sky_light(&self, x: i32, y: i32, z: i32) -> u8 {
         if let Some(sub_chunk) = self.get_sub_chunk(y << 4) {
-            &sub_chunk.get_sky_light(x, y, z)
-        } else { &0 }
+            sub_chunk.get_sky_light(x, y, z)
+        } else { 0 }
     }
     
     pub fn set_sky_light(&mut self, x: i32, y: i32, z: i32, light: u8) {
@@ -82,10 +83,10 @@ impl Chunk {
         }
     }
     
-    pub fn get_block_light(&self, x: i32, y: i32, z: i32) -> &u8 {
+    pub fn get_block_light(&self, x: i32, y: i32, z: i32) -> u8 {
         if let Some(sub_chunk) = self.get_sub_chunk(y << 4) {
-            &sub_chunk.get_block_light(x, y, z)
-        } else { &0 }
+            sub_chunk.get_block_light(x, y, z)
+        } else { 0 }
     }
     
     pub fn set_block_light(&mut self, x: i32, y: i32, z: i32, light: u8) {
@@ -116,9 +117,9 @@ impl Chunk {
     }
     
     pub fn get_highest_at(&self, x: i32, z: i32) -> i32 {
-        let air_state = AIR.get_default_state();
+        let air_state = Air::get_default_state();
         for y in (self.min_height ..= self.max_height).rev() {
-            if *self.get_block_state(x, y, z, None) != air_state {
+            if self.get_block_state(x, y, z, None) != air_state {
                 return y
             }
         }

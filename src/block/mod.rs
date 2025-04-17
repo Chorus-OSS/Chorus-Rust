@@ -1,2 +1,2 @@
-mod block_trait;
-mod r#impl;
+pub mod block;
+pub mod r#impl;
