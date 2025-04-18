@@ -27,7 +27,9 @@ pub struct Air {
     level: Level,
 }
 
-impl TBlockTransparent for Air {
+impl TBlockTransparent for Air {}
+
+impl TBlock for Air {
     fn get_state(&self) -> &BlockState {
         &self.state
     }
