@@ -1,5 +1,5 @@
 use vek::Vec3;
-use crate::block::transparent::block_transparent::TBlockTransparent;
+use crate::block::transparent::block_transparent::{AsTBlockTransparent, TBlockTransparent};
 use crate::level::block::block_properties::TBlockProperties;
 use crate::level::block::block_states::BlockStates;
 use crate::level::block::block_state::BlockState;
@@ -23,8 +23,4 @@ pub trait TBlock: AsTBlockTransparent {
     fn as_transparent_block(&self) -> Option<&dyn TBlockTransparent> {
         None
     }
-}
-
-pub trait AsTBlockTransparent {
-    fn as_block_transparent(&self) -> Option<&dyn TBlockTransparent>;
 }
