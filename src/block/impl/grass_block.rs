@@ -1,6 +1,6 @@
 use crate::block::block::TBlock;
+use crate::block::block_attributes::BlockAttributes;
 use crate::block::block_id;
-use crate::block::block_attributes::{BlockAttributes, TBlockAttributes};
 use crate::block::block_state::BlockState;
 use crate::block::block_states::BlockStates;
 use crate::level::level::Level;
@@ -15,9 +15,14 @@ static DEFAULT_STATE: Lazy<BlockState> = Lazy::new(||
     STATES.get_default_state()
 );
 
-static ATTRIBUTES: Lazy<BlockAttributes> = Lazy::new(||
-    BlockAttributes::default(block_id::GRASS_BLOCK)
-);
+static ATTRIBUTES: Lazy<BlockAttributes> = Lazy::new(|| {
+    let mut attributes = BlockAttributes::default(block_id::GRASS_BLOCK);
+    attributes.is_solid = true;
+    attributes.is_transparent = false;
+    attributes.resistance = 0.6;
+    attributes.hardness = 0.6;
+    attributes
+});
 
 pub struct GrassBlock {
     state: BlockState,

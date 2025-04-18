@@ -18,6 +18,9 @@ static DEFAULT_STATE: Lazy<BlockState> = Lazy::new(||
 static PROPERTIES: Lazy<BlockAttributes> = Lazy::new(|| {
     let mut attributes = BlockAttributes::default(block_id::AIR);
     attributes.is_solid = false;
+    attributes.is_transparent = true;
+    attributes.hardness = 0.0;
+    attributes.resistance = 0.0;
     attributes
 });
 
