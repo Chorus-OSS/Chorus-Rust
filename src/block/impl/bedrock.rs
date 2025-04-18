@@ -7,7 +7,7 @@ use crate::block::block_permutation::BlockPermutation;
 pub struct Bedrock;
 
 impl Bedrock {
-    pub(crate) const PERMUTATION: Lazy<BlockPermutation> = Lazy::new(||
+    pub const PERMUTATION: Lazy<BlockPermutation> = Lazy::new(||
         BlockPermutation::create(
             block_id::BEDROCK,
             Vec::new(),

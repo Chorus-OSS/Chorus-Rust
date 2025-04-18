@@ -7,7 +7,7 @@ use std::collections::HashSet;
 pub struct Dirt;
 
 impl Dirt {
-    pub(crate) const PERMUTATION: Lazy<BlockPermutation> = Lazy::new(||
+    pub const PERMUTATION: Lazy<BlockPermutation> = Lazy::new(||
         BlockPermutation::create(
             block_id::DIRT,
             Vec::new(),
