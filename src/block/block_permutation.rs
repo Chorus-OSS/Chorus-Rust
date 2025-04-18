@@ -1,15 +1,24 @@
 use crate::block::block_state::BlockState;
-use crate::block::property::r#type::block_property_type::{BlockPropertyType, BlockPropertyTypeTrait};
+use crate::block::property::r#type::block_property_type::BlockProperty;
 use crate::block::property::value::block_property_value::BlockPropertyValue;
 use crate::utils::hash_utils::HashUtils;
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use std::hash::Hash;
 use crate::error::block_states_create::BlockStatesCreateError;
 
 #[derive(Clone, Debug, PartialEq)]
-pub struct BlockStates {
+pub struct BlockPermutation {
     identifier: String,
-    properties: Vec<BlockPropertyType>,
+    properties: Vec<BlockProperty>,
+
+    tags: HashSet<String>,
+    friction_factor: f32,
+    is_solid: bool,
+    is_transparent: bool,
+    hardness: f32,
+    resistance: f32,
+    burn_chance: i32,
+    burn_ability: i32,
 
     special_value_map: HashMap<i16, BlockState>,
     special_value_bits: u8,
@@ -17,8 +26,19 @@ pub struct BlockStates {
     default_state: BlockState,
 }
 
-impl BlockStates {
-    pub fn create(identifier: &str, properties: Vec<BlockPropertyType>) -> Result<Self, BlockStatesCreateError> {
+impl BlockPermutation {
+    pub fn create(
+        identifier: &str,
+        properties: Vec<BlockProperty>,
+        tags: HashSet<String>,
+        friction_factor: f32,
+        is_solid: bool,
+        is_transparent: bool,
+        hardness: f32,
+        resistance: f32,
+        burn_chance: i32,
+        burn_ability: i32,
+    ) -> Result<Self, BlockStatesCreateError> {
         let identifier = identifier.to_string();
         
         let mut special_value_bits: u8 = 0;
@@ -38,6 +58,15 @@ impl BlockStates {
                 identifier,
                 properties,
                 
+                tags,
+                friction_factor,
+                is_solid,
+                is_transparent,
+                hardness,
+                resistance,
+                burn_chance,
+                burn_ability,
+                
                 special_value_map: state_map.iter().map(|(_, v)| {
                     (v.get_special_value(), v.clone())
                 }).collect::<HashMap<i16, BlockState>>(),
@@ -53,7 +82,7 @@ impl BlockStates {
         }
     }
     
-    fn init_states(identifier: String, properties: Vec<BlockPropertyType>) -> Option<(HashMap<i32, BlockState>, BlockState)> {
+    fn init_states(identifier: String, properties: Vec<BlockProperty>) -> Option<(HashMap<i32, BlockState>, BlockState)> {
         if properties.is_empty() {
             let block_state = BlockState::new(identifier.clone(), vec![], None, None, None);
             let mut special_value_map = HashMap::new();
@@ -71,14 +100,14 @@ impl BlockStates {
             for i in 0..size {
                 let r#type = &properties[i];
                 let val = match r#type {
-                    BlockPropertyType::Boolean(v) => {
-                        v.create_value(v.get_valid_values()[indices[i]].clone())
+                    BlockProperty::Boolean { valid_values, .. } => {
+                        BlockPropertyValue::create_boolean(r#type.clone(), valid_values[indices[i]].clone()).unwrap()
                     }
-                    BlockPropertyType::Int(v) => {
-                        v.create_value(v.get_valid_values()[indices[i]].clone())
+                    BlockProperty::Int { valid_values, .. } => {
+                        BlockPropertyValue::create_int(r#type.clone(), valid_values[indices[i]].clone()).unwrap()
                     }
-                    BlockPropertyType::Enum(v) => {
-                        v.create_value(v.get_valid_values()[indices[i]].clone())
+                    BlockProperty::Enum { valid_values, .. } => {
+                        BlockPropertyValue::create_enum(r#type.clone(), valid_values[indices[i]].clone()).unwrap()
                     }
                 };
                 values.push(val)
@@ -89,14 +118,14 @@ impl BlockStates {
             
             let mut next = size - 1;
             while next >= 0 && (indices[next] + 1 >= match (&properties[next]) {
-                BlockPropertyType::Boolean(v) => {
-                    v.get_valid_values().len()
+                BlockProperty::Boolean { valid_values, .. } => {
+                    valid_values.len()
                 }
-                BlockPropertyType::Int(v) => {
-                    v.get_valid_values().len()
+                BlockProperty::Int { valid_values, .. } => {
+                    valid_values.len()
                 }
-                BlockPropertyType::Enum(v) => {
-                    v.get_valid_values().len()
+                BlockProperty::Enum { valid_values, .. } => {
+                    valid_values.len()
                 }
             }) {
                 next -= 1;
@@ -114,17 +143,7 @@ impl BlockStates {
         let default_state_hash = HashUtils::compute_block_state_hash(
             identifier.clone(),
             properties.iter().map(|v| {
-                match v {
-                    BlockPropertyType::Boolean(v) => {
-                        v.create_value(v.get_default_value())
-                    }
-                    BlockPropertyType::Int(v) => {
-                        v.create_value(v.get_default_value())
-                    }
-                    BlockPropertyType::Enum(v) => {
-                        v.create_value(v.get_default_value())
-                    }
-                }
+                v.create_default()
             }).collect::<Vec<_>>(),
         );
 
@@ -137,7 +156,7 @@ impl BlockStates {
         self.identifier.clone()
     }
     
-    pub fn get_properties(&self) -> Vec<BlockPropertyType> {
+    pub fn get_properties(&self) -> Vec<BlockProperty> {
         self.properties.clone()
     }
     
@@ -149,8 +168,8 @@ impl BlockStates {
         self.special_value_bits.clone()
     }
 
-    pub fn get_default_state(&self) -> BlockState {
-        self.default_state.clone()
+    pub fn get_default_state(&self) -> &BlockState {
+        &self.default_state
     }
     
     pub fn get_block_state(&self, special_value: i16) -> Option<BlockState> {
@@ -173,7 +192,7 @@ impl BlockStates {
         self.special_value_map.contains_key(&special_value)
     }
     
-    pub fn has_property(&self, property: BlockPropertyType) -> bool {
+    pub fn has_property(&self, property: BlockProperty) -> bool {
         self.properties.contains(&property)
     }
 }

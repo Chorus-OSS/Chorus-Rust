@@ -1,41 +1,79 @@
-use std::any::Any;
-use crate::block::property::r#type::boolean_property_type::BooleanPropertyType;
-use crate::block::property::r#type::enum_property_type::EnumPropertyType;
-use crate::block::property::r#type::int_property_type::IntPropertyType;
-use crate::block::property::value::block_property_value::{BlockPropertyValue, BlockPropertyValueTrait};
-
-pub trait BlockPropertyTypeTrait {
-    type T;
-    fn get_name(&self) -> String;
-    fn get_default_value(&self) -> Self::T;
-    fn get_valid_values(&self) -> Vec<Self::T>;
-    
-    fn get_bit_size(&self) -> u8;
-    
-    fn create_value(&self, value: Self::T) -> BlockPropertyValue;
-}
+use crate::block::property::value::block_property_value::BlockPropertyValue;
+use crate::utils::utils;
 
 #[derive(Clone, Debug, PartialEq)]
-pub enum BlockPropertyType {
-    Boolean(BooleanPropertyType),
-    Int(IntPropertyType),
-    Enum(EnumPropertyType),
+pub enum BlockProperty {
+    Boolean {
+        name: String,
+        default_value: bool,
+        valid_values: Vec<bool>,
+    },
+    Int {
+        name: String,
+        min: i32,
+        max: i32,
+        default_value: i32,
+        valid_values: Vec<i32>,
+        bit_size: u8,
+    },
+    Enum {
+        name: String,
+        default_value: String,
+        valid_values: Vec<String>,
+        bit_size: u8,
+    },
 }
 
-impl BlockPropertyType {
-    pub fn get_bit_size(&self) -> u8 {
-        match self {
-            BlockPropertyType::Boolean(v) => v.get_bit_size(),
-            BlockPropertyType::Int(v) => v.get_bit_size(),
-            BlockPropertyType::Enum(v) => v.get_bit_size()
+impl BlockProperty {
+    pub fn create_boolean(name: &str, default_value: bool) -> BlockProperty {
+        Self::Boolean {
+            name: name.to_string(),
+            default_value,
+            valid_values: vec![true, false],
+        }
+    }
+
+    pub fn create_int(name: &str, min: i32, max: i32, default_value: i32) -> Self {
+        Self::Int {
+            name: name.to_string(),
+            min,
+            max,
+            default_value,
+            valid_values: (min..=max).collect(),
+            bit_size: utils::compute_required_bits(min, max),
         }
     }
     
-    pub fn get_name(&self) -> String {
+    pub fn create_enum(name: &str, variants: &[&str], default_value: &str) -> Self {
+        Self::Enum {
+            name: name.to_string(),
+            default_value: default_value.to_string(),
+            valid_values: variants.iter().map(|s| s.to_string()).collect::<Vec<_>>(),
+            bit_size: utils::compute_required_bits(0, (variants.len() - 1) as i32),
+        }
+    }
+    
+    pub fn get_bit_size(&self) -> &u8 {
         match self {
-            BlockPropertyType::Boolean(v) => v.get_name(),
-            BlockPropertyType::Int(v) => v.get_name(),
-            BlockPropertyType::Enum(v) => v.get_name(),
+            BlockProperty::Boolean { .. } => &1,
+            BlockProperty::Int { bit_size, .. } => bit_size,
+            BlockProperty::Enum { bit_size, .. } => bit_size,
+        }
+    }
+    
+    pub fn get_name(&self) -> &String {
+        match self {
+            BlockProperty::Boolean { name, .. } => name,
+            BlockProperty::Int { name, .. } => name,
+            BlockProperty::Enum { name, .. } => name,
+        }
+    }
+    
+    pub fn create_default(&self) -> BlockPropertyValue {
+        match self {
+            BlockProperty::Boolean { default_value, .. } => BlockPropertyValue::create_boolean(self.clone(), default_value.clone()).unwrap(),
+            BlockProperty::Int { default_value, .. } => BlockPropertyValue::create_int(self.clone(), default_value.clone()).unwrap(),
+            BlockProperty::Enum { default_value, .. } => BlockPropertyValue::create_enum(self.clone(), default_value.clone()).unwrap(),
         }
     }
 }

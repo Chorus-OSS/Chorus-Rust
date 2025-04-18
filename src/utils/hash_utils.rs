@@ -1,7 +1,6 @@
 #[allow(non_snake_case)]
 pub mod HashUtils {
-    use crate::block::property::r#type::block_property_type::BlockPropertyTypeTrait;
-    use crate::block::property::value::block_property_value::{BlockPropertyValue, BlockPropertyValueTrait};
+    use crate::block::property::value::block_property_value::BlockPropertyValue;
     use std::collections::HashMap;
 
     pub fn compute_block_state_hash(identifier: String, property_values: Vec<BlockPropertyValue>) -> i32 {
@@ -10,14 +9,14 @@ pub mod HashUtils {
         let mut states: HashMap<String, nbtx::Value> = HashMap::new();
         for val in property_values {
             match val {
-                BlockPropertyValue::Boolean(value) => {
-                    states.insert(value.get_property_type().get_name(), nbtx::Value::Byte(value.get_serialized_value()));
+                BlockPropertyValue::Boolean { property_type, serialized_value, .. } => {
+                    states.insert(property_type.get_name().clone(), nbtx::Value::Byte(serialized_value as i8));
                 }
-                BlockPropertyValue::Int(value) => {
-                    states.insert(value.get_property_type().get_name(), nbtx::Value::Int(value.get_serialized_value()));
+                BlockPropertyValue::Int { property_type, serialized_value, .. } => {
+                    states.insert(property_type.get_name().clone(), nbtx::Value::Int(serialized_value));
                 }
-                BlockPropertyValue::Enum(value) => {
-                    states.insert(value.get_property_type().get_name(), nbtx::Value::String(value.get_serialized_value()));
+                BlockPropertyValue::Enum { property_type, serialized_value, .. } => {
+                    states.insert(property_type.get_name().clone(), nbtx::Value::String(serialized_value));
                 }
             }
         }
