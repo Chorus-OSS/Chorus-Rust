@@ -16,9 +16,9 @@ pub trait TBlock {
     fn get_tick_rate(&self) -> i32 { 10 }
 
 
-    fn get_states() -> BlockStates where Self: Sized;
-    fn get_default_state() -> BlockState where Self: Sized;
-    fn get_properties() -> Box<dyn TBlockProperties> where Self: Sized;
+    fn get_states() -> &'static BlockStates where Self: Sized;
+    fn get_default_state() -> &'static BlockState where Self: Sized;
+    fn get_properties() -> &'static dyn TBlockProperties where Self: Sized;
     
     fn as_transparent_block(&self) -> Option<&dyn TBlockTransparent> {
         None

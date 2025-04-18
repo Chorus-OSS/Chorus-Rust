@@ -1,33 +1,19 @@
-use std::collections::HashSet;
 use crate::block::block::TBlock;
-use crate::level::block::block_id;
-use crate::level::block::block_states::BlockStates;
-use crate::level::block::block_state::BlockState;
-use once_cell::sync::Lazy;
-use vek::Vec3;
 use crate::block::transparent::block_transparent::TBlockTransparent;
+use crate::level::block::block_id;
 use crate::level::block::block_properties::{BlockProperties, TBlockProperties};
+use crate::level::block::block_state::BlockState;
+use crate::level::block::block_states::BlockStates;
 use crate::level::level::Level;
+use once_cell::sync::Lazy;
+use std::ops::Deref;
+use vek::Vec3;
 
 pub struct Air {
     state: BlockState,
     position: Vec3<i32>,
     layer: i32,
     level: Level,
-}
-
-impl Air {
-    pub const STATES: Lazy<BlockStates> = Lazy::new(||
-        BlockStates::create(block_id::AIR, vec![]).unwrap()
-    );
-    
-    pub const DEFAULT_STATE: Lazy<BlockState> = Lazy::new(||
-        Self::STATES.get_default_state()
-    );
-    
-    pub const PROPERTIES: Lazy<BlockProperties> = Lazy::new(||
-        BlockProperties::new(block_id::AIR, None)
-    );
 }
 
 impl TBlockTransparent for Air {
@@ -47,15 +33,24 @@ impl TBlockTransparent for Air {
         &self.level
     }
 
-    fn get_states() -> BlockStates {
-        Self::STATES.clone()
+    fn get_states() ->  &'static BlockStates {
+        static STATES: Lazy<BlockStates> = Lazy::new(||
+            BlockStates::create(block_id::AIR, vec![]).unwrap()
+        );
+        &STATES
     }
 
-    fn get_default_state() -> BlockState {
-        Self::DEFAULT_STATE.clone()
+    fn get_default_state() ->  &'static BlockState {
+        static DEFAULT_STATE: Lazy<BlockState> = Lazy::new(||
+            <Air as TBlockTransparent>::get_states().get_default_state()
+        );
+        &DEFAULT_STATE
     }
 
-    fn get_properties() -> Box<dyn TBlockProperties> {
-        Box::new(Self::PROPERTIES.clone())
+    fn get_properties() -> &'static dyn TBlockProperties {
+        static PROPERTIES: Lazy<BlockProperties> = Lazy::new(||
+            BlockProperties::new(block_id::AIR, None)
+        );
+        &*PROPERTIES
     }
 }

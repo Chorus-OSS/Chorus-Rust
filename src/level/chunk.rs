@@ -59,9 +59,9 @@ impl Chunk {
         self.sub_chunks[chunk_y as usize] = sub;
     }
     
-    pub fn get_block_state(&self, x: i32, y: i32, z: i32, layer: Option<usize>) -> BlockState {
+    pub fn get_block_state(&self, x: i32, y: i32, z: i32, layer: Option<usize>) -> &BlockState {
         if let Some(sub_chunk) = self.get_sub_chunk(y << 4) {
-            sub_chunk.get_block_state(x, y, z, layer).clone()
+            sub_chunk.get_block_state(x, y, z, layer)
         } else { Air::get_default_state() }
     }
     

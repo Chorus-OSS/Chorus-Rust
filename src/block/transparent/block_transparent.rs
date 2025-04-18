@@ -10,10 +10,10 @@ pub trait TBlockTransparent: TBlock {
     fn get_position(&self) -> &Vec3<i32>;
     fn get_layer(&self) -> &i32;
     fn get_level(&self) -> &Level;
-    
-    fn get_states() -> BlockStates where Self: Sized;
-    fn get_default_state() -> BlockState where Self: Sized;
-    fn get_properties() -> Box<dyn TBlockProperties> where Self: Sized;
+
+    fn get_states() -> &'static BlockStates where Self: Sized;
+    fn get_default_state() -> &'static BlockState where Self: Sized;
+    fn get_properties() -> &'static dyn TBlockProperties where Self: Sized;
 }
 
 impl<T: TBlockTransparent> TBlock for T {
@@ -33,15 +33,15 @@ impl<T: TBlockTransparent> TBlock for T {
         TBlockTransparent::get_level(self)
     }
 
-    fn get_states() -> BlockStates where Self: Sized {
+    fn get_states() -> &'static BlockStates where Self: Sized {
         <T as TBlockTransparent>::get_states()
     }
 
-    fn get_default_state() -> BlockState where Self: Sized {
+    fn get_default_state() -> &'static BlockState where Self: Sized {
         <T as TBlockTransparent>::get_default_state()
     }
 
-    fn get_properties() -> Box<dyn TBlockProperties> where Self: Sized {
+    fn get_properties() -> &'static dyn TBlockProperties where Self: Sized {
         <T as TBlockTransparent>::get_properties()
     }
 
