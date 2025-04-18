@@ -40,7 +40,7 @@ use crate::block::property::r#impl::enums::vault_state::VaultState;
 use crate::block::property::r#impl::enums::wall_block_type::WallBlockType;
 use crate::block::property::r#impl::enums::wall_connection_type::WallConnectionType;
 use crate::block::property::r#impl::enums::wood_type::WoodType;
-use crate::block::property::r#type::block_property_type::BlockProperty;
+use crate::block::property::block_property_type::BlockProperty;
 use crate::math::enums::axis::Axis;
 use crate::math::enums::block_face::BlockFace;
 use once_cell::sync::Lazy;

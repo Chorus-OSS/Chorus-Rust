@@ -1,4 +1,4 @@
-use crate::block::property::r#type::block_property_type::BlockProperty;
+use crate::block::property::block_property_type::BlockProperty;
 use crate::error::mismatched_block_property::MismatchedBlockPropertyError;
 
 #[derive(Clone, Debug, PartialEq)]

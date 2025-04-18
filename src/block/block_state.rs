@@ -1,6 +1,6 @@
 use crate::chorus::BLOCK_STATE_VERSION;
-use crate::block::property::r#type::block_property_type::BlockProperty;
-use crate::block::property::value::block_property_value::BlockPropertyValue;
+use crate::block::property::block_property_type::BlockProperty;
+use crate::block::property::block_property_value::BlockPropertyValue;
 use crate::utils::hash_utils::HashUtils;
 use std::collections::HashMap;
 use crate::block::block_permutation::BlockPermutation;

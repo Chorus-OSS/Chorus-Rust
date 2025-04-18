@@ -1,10 +1,10 @@
-use crate::block::property::r#type::block_property_type::BlockPropertyType;
+use crate::block::property::block_property_type::BlockProperty;
 use std::fmt::Display;
 
 #[derive(Debug)]
 pub struct BlockStatesCreateError {
     pub identifier: String,
-    pub properties: Vec<BlockPropertyType>
+    pub properties: Vec<BlockProperty>
 }
 
 impl Display for BlockStatesCreateError {

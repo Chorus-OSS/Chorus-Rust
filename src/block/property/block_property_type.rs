@@ -1,4 +1,4 @@
-use crate::block::property::value::block_property_value::BlockPropertyValue;
+use crate::block::property::block_property_value::BlockPropertyValue;
 use crate::utils::utils;
 
 #[derive(Clone, Debug, PartialEq)]
