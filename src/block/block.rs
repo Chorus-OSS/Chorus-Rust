@@ -26,5 +26,5 @@ pub trait TBlock: AsTBlockTransparent {
 }
 
 pub trait AsTBlockTransparent {
-    fn as_transparent_block(&self) -> Option<&dyn TBlockTransparent>;
+    fn as_block_transparent(&self) -> Option<&dyn TBlockTransparent>;
 }
