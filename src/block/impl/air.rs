@@ -6,8 +6,19 @@ use crate::level::block::block_state::BlockState;
 use crate::level::block::block_states::BlockStates;
 use crate::level::level::Level;
 use once_cell::sync::Lazy;
-use std::ops::Deref;
 use vek::Vec3;
+
+static STATES: Lazy<BlockStates> = Lazy::new(||
+    BlockStates::create(block_id::AIR, vec![]).unwrap()
+);
+
+static DEFAULT_STATE: Lazy<BlockState> = Lazy::new(||
+    STATES.get_default_state()
+);
+
+static PROPERTIES: Lazy<BlockProperties> = Lazy::new(||
+    BlockProperties::new(block_id::AIR, None)
+);
 
 pub struct Air {
     state: BlockState,
@@ -34,23 +45,14 @@ impl TBlockTransparent for Air {
     }
 
     fn get_states() ->  &'static BlockStates {
-        static STATES: Lazy<BlockStates> = Lazy::new(||
-            BlockStates::create(block_id::AIR, vec![]).unwrap()
-        );
         &STATES
     }
 
     fn get_default_state() ->  &'static BlockState {
-        static DEFAULT_STATE: Lazy<BlockState> = Lazy::new(||
-            <Air as TBlockTransparent>::get_states().get_default_state()
-        );
         &DEFAULT_STATE
     }
 
     fn get_properties() -> &'static dyn TBlockProperties {
-        static PROPERTIES: Lazy<BlockProperties> = Lazy::new(||
-            BlockProperties::new(block_id::AIR, None)
-        );
         &*PROPERTIES
     }
 }
