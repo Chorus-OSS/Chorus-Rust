@@ -11,9 +11,6 @@ pub trait TBlock {
     fn get_layer(&self) -> &i32;
     
     fn get_level(&self) -> &Level;
-    
-    fn get_tick_rate(&self) -> i32 { 10 }
-
 
     fn get_states() -> &'static BlockStates 
     where Self: Sized;
