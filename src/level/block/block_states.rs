@@ -4,6 +4,7 @@ use crate::level::block::property::value::block_property_value::BlockPropertyVal
 use crate::utils::hash_utils::HashUtils;
 use std::collections::HashMap;
 use std::hash::Hash;
+use crate::error::block_states_create::BlockStatesCreateError;
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct BlockStates {
@@ -17,7 +18,7 @@ pub struct BlockStates {
 }
 
 impl BlockStates {
-    pub fn create(identifier: &str, properties: Vec<BlockPropertyType>) -> Option<Self> {
+    pub fn create(identifier: &str, properties: Vec<BlockPropertyType>) -> Result<Self, BlockStatesCreateError> {
         let identifier = identifier.to_string();
         
         let mut special_value_bits: u8 = 0;
@@ -26,11 +27,14 @@ impl BlockStates {
         }
         
         if special_value_bits > 16 {
-            return None;
+            return Err(BlockStatesCreateError { 
+                identifier: String::from(identifier), 
+                properties: properties.clone(),
+            });
         }
         
         if let Some((state_map, default_state)) = Self::init_states(identifier.clone(), properties.clone()) {
-            Some(Self {
+            Ok(Self {
                 identifier,
                 properties,
                 
@@ -41,7 +45,12 @@ impl BlockStates {
                 
                 default_state
             })
-        } else { None }
+        } else {
+            Err(BlockStatesCreateError {
+                identifier: String::from(identifier),
+                properties: properties.clone()
+            })
+        }
     }
     
     fn init_states(identifier: String, properties: Vec<BlockPropertyType>) -> Option<(HashMap<i32, BlockState>, BlockState)> {

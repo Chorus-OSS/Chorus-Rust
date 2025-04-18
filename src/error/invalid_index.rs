@@ -5,7 +5,7 @@ pub struct InvalidIndexError(pub usize);
 
 impl Display for InvalidIndexError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "invalid index: {}", self.0)
+        write!(f, "InvalidIndexError {{ index: {:?} }}", self.0)
     }
 }
 
