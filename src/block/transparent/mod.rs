@@ -1,1 +1,1 @@
-mod block_transparent;
+pub mod block_transparent;

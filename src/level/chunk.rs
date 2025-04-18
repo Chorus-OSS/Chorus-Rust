@@ -1,4 +1,4 @@
-use crate::block::block::Block;
+use crate::block::block::TBlock;
 use crate::block::r#impl::air::Air;
 use crate::level::block::block_state::BlockState;
 use crate::level::chunk_state::ChunkState;

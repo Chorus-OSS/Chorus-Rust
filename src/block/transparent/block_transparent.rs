@@ -1,36 +1,51 @@
-use vek::Vec3;
-use crate::block::block::Block;
-use crate::level::block::block_properties::BlockProperties;
+use crate::block::block::TBlock;
+use crate::level::block::block_properties::TBlockProperties;
 use crate::level::block::block_state::BlockState;
+use crate::level::block::block_states::BlockStates;
+use crate::level::level::Level;
+use vek::Vec3;
 
-trait BlockTransparent : Block {
+pub trait TBlockTransparent: TBlock {
     fn get_state(&self) -> &BlockState;
     fn get_position(&self) -> &Vec3<i32>;
-    fn get_level(&self) -> &todo!("Level");
-
-
-    fn get_properties() -> BlockProperties;
-    fn get_default_state() -> BlockState;
+    fn get_layer(&self) -> &i32;
+    fn get_level(&self) -> &Level;
+    
+    fn get_states() -> BlockStates where Self: Sized;
+    fn get_default_state() -> BlockState where Self: Sized;
+    fn get_properties() -> Box<dyn TBlockProperties> where Self: Sized;
 }
 
-impl<T> Block for T where T : BlockTransparent {
+impl<T: TBlockTransparent> TBlock for T {
     fn get_state(&self) -> &BlockState {
-        BlockTransparent::get_state(self)
+        TBlockTransparent::get_state(self)
     }
 
     fn get_position(&self) -> &Vec3<i32> {
-        BlockTransparent::get_position(self)
+        TBlockTransparent::get_position(self)
     }
 
-    fn get_level(&self) -> &todo!("Level") {
-        BlockTransparent::get_level(self)
+    fn get_layer(&self) -> &i32 {
+        TBlockTransparent::get_layer(self)
     }
 
-    fn get_properties() -> BlockProperties {
-        BlockTransparent::get_properties()
+    fn get_level(&self) -> &Level {
+        TBlockTransparent::get_level(self)
     }
 
-    fn get_default_state() -> BlockState {
-        BlockTransparent::get_default_state()
+    fn get_states() -> BlockStates where Self: Sized {
+        <T as TBlockTransparent>::get_states()
+    }
+
+    fn get_default_state() -> BlockState where Self: Sized {
+        <T as TBlockTransparent>::get_default_state()
+    }
+
+    fn get_properties() -> Box<dyn TBlockProperties> where Self: Sized {
+        <T as TBlockTransparent>::get_properties()
+    }
+
+    fn as_transparent_block(&self) -> Option<&dyn TBlockTransparent> {
+        Some(self)
     }
 }

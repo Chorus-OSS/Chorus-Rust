@@ -1,3 +1,3 @@
 pub mod block;
 pub mod r#impl;
-mod transparent;
+pub mod transparent;
