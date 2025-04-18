@@ -1,3 +1,4 @@
+use std::collections::HashSet;
 use crate::block::block::TBlock;
 use crate::block::block_attributes::BlockAttributes;
 use crate::block::block_id;
@@ -15,14 +16,18 @@ static DEFAULT_STATE: Lazy<BlockState> = Lazy::new(||
     STATES.get_default_state()
 );
 
-static PROPERTIES: Lazy<BlockAttributes> = Lazy::new(|| {
-    let mut attributes = BlockAttributes::default(block_id::AIR);
-    attributes.is_solid = false;
-    attributes.is_transparent = true;
-    attributes.hardness = 0.0;
-    attributes.resistance = 0.0;
-    attributes
-});
+static PROPERTIES: Lazy<BlockAttributes> = Lazy::new(|| 
+    BlockAttributes {
+        tags: HashSet::new(),
+        friction_factor: 0.6,
+        is_solid: false,
+        is_transparent: true,
+        hardness: 0.0,
+        resistance: 0.0,
+        burn_chance: 0,
+        burn_ability: 0
+    }
+);
 
 pub struct Air {
     state: BlockState,

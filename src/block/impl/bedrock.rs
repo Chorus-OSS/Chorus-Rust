@@ -1,3 +1,4 @@
+use std::collections::HashSet;
 use crate::block::block::TBlock;
 use crate::block::block_attributes::BlockAttributes;
 use crate::block::block_id;
@@ -15,15 +16,18 @@ static DEFAULT_STATE: Lazy<BlockState> = Lazy::new(||
     STATES.get_default_state()
 );
 
-static ATTRIBUTES: Lazy<BlockAttributes> = Lazy::new(|| {
-    let mut attributes = BlockAttributes::default(block_id::GRASS_BLOCK);
-    attributes.unbreakable = true;
-    attributes.is_solid = true;
-    attributes.is_transparent = false;
-    attributes.resistance = 3_600_000.0;
-    attributes.hardness = -1.0;
-    attributes
-});
+static ATTRIBUTES: Lazy<BlockAttributes> = Lazy::new(||
+    BlockAttributes {
+        tags: HashSet::new(),
+        friction_factor: 0.6,
+        is_solid: true,
+        is_transparent: false,
+        hardness: -1.0,
+        resistance: 3_600_000.0,
+        burn_chance: 0,
+        burn_ability: 0
+    }
+);
 
 pub struct Bedrock {
     state: BlockState,
