@@ -2,7 +2,7 @@ use std::collections::HashSet;
 
 pub trait TBlockAttributes {}
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct BlockAttributes {
     pub tags: HashSet<String>,
     pub friction_factor: f32,

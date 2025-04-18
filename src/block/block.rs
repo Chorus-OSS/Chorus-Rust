@@ -1,8 +1,14 @@
-use crate::block::block_attributes::BlockAttributes;
+use crate::block::block_permutation::BlockPermutation;
 use crate::block::block_state::BlockState;
-use crate::block::block_states::BlockStates;
 use crate::level::level::Level;
 use vek::Vec3;
+
+pub struct Block  {
+    state: BlockState,
+    position: Vec3<i32>,
+    layer: i32,
+    level: Level,
+}
 
 pub trait TBlock {
     fn get_state(&self) -> &BlockState;
@@ -12,10 +18,8 @@ pub trait TBlock {
     
     fn get_level(&self) -> &Level;
 
-    fn get_states() -> &'static BlockStates 
+    fn get_permutation() -> &'static BlockPermutation 
     where Self: Sized;
     fn get_default_state() -> &'static BlockState 
-    where Self: Sized;
-    fn get_attributes() -> &'static BlockAttributes
     where Self: Sized;
 }

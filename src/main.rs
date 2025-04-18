@@ -11,6 +11,8 @@ mod level;
 mod math;
 mod error;
 mod block;
+mod entity;
+mod registry;
 
 fn main() {
     let config = config::setup_config();

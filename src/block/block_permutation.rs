@@ -4,6 +4,7 @@ use crate::block::property::block_property_value::BlockPropertyValue;
 use crate::utils::hash_utils::HashUtils;
 use std::collections::{HashMap, HashSet};
 use std::hash::Hash;
+use crate::block::block_attributes::BlockAttributes;
 use crate::error::block_states_create::BlockStatesCreateError;
 
 #[derive(Clone, Debug, PartialEq)]
@@ -11,14 +12,7 @@ pub struct BlockPermutation {
     identifier: String,
     properties: Vec<BlockProperty>,
 
-    tags: HashSet<String>,
-    friction_factor: f32,
-    is_solid: bool,
-    is_transparent: bool,
-    hardness: f32,
-    resistance: f32,
-    burn_chance: i32,
-    burn_ability: i32,
+    attributes: BlockAttributes,
 
     special_value_map: HashMap<i16, BlockState>,
     special_value_bits: u8,
@@ -30,14 +24,7 @@ impl BlockPermutation {
     pub fn create(
         identifier: &str,
         properties: Vec<BlockProperty>,
-        tags: HashSet<String>,
-        friction_factor: f32,
-        is_solid: bool,
-        is_transparent: bool,
-        hardness: f32,
-        resistance: f32,
-        burn_chance: i32,
-        burn_ability: i32,
+        attributes: BlockAttributes,
     ) -> Result<Self, BlockStatesCreateError> {
         let identifier = identifier.to_string();
         
@@ -58,14 +45,7 @@ impl BlockPermutation {
                 identifier,
                 properties,
                 
-                tags,
-                friction_factor,
-                is_solid,
-                is_transparent,
-                hardness,
-                resistance,
-                burn_chance,
-                burn_ability,
+                attributes,
                 
                 special_value_map: state_map.iter().map(|(_, v)| {
                     (v.get_special_value(), v.clone())

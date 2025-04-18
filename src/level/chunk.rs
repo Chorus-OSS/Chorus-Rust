@@ -1,10 +1,11 @@
 use crate::block::block::TBlock;
-use crate::block::r#impl::air::Air;
 use crate::block::block_state::BlockState;
 use crate::level::chunk_state::ChunkState;
 use crate::level::sub_chunk::SubChunk;
 use std::collections::HashMap;
 use std::sync::atomic::AtomicI64;
+use crate::block::r#impl::air;
+use crate::block::r#impl::air::Air;
 
 pub struct Chunk {
     x: i32,
@@ -59,10 +60,10 @@ impl Chunk {
         self.sub_chunks[chunk_y as usize] = sub;
     }
     
-    pub fn get_block_state(&self, x: i32, y: i32, z: i32, layer: Option<usize>) -> &BlockState {
+    pub fn get_block_state(&self, x: i32, y: i32, z: i32, layer: Option<usize>) -> BlockState {
         if let Some(sub_chunk) = self.get_sub_chunk(y << 4) {
-            sub_chunk.get_block_state(x, y, z, layer)
-        } else { Air::get_default_state() }
+            sub_chunk.get_block_state(x, y, z, layer).clone()
+        } else { Air::PERMUTATION.get_default_state().clone() }
     }
     
     pub fn set_block_state(&mut self, x: i32, y: i32, z: i32, layer: Option<usize>, state: BlockState) {
@@ -117,7 +118,7 @@ impl Chunk {
     }
     
     pub fn get_highest_at(&self, x: i32, z: i32) -> i32 {
-        let air_state = Air::get_default_state();
+        let air_state = Air::PERMUTATION.get_default_state().clone();
         for y in (self.min_height ..= self.max_height).rev() {
             if self.get_block_state(x, y, z, None) != air_state {
                 return y

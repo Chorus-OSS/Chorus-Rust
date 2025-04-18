@@ -1,5 +1,4 @@
 use crate::block::block::TBlock;
-use crate::block::r#impl::air::Air;
 use crate::level::biome::biome_id::BiomeID;
 use crate::level::bit_array::bit_array_version::BitArrayVersion;
 use crate::block::block_state::BlockState;
@@ -8,6 +7,8 @@ use bedrockrs::proto::error::ProtoCodecError;
 use bedrockrs::proto::ProtoCodec;
 use std::io::Cursor;
 use std::sync::atomic::{AtomicI64, Ordering};
+use crate::block::r#impl::air;
+use crate::block::r#impl::air::Air;
 
 pub struct SubChunk {
     index: u8,
@@ -28,17 +29,17 @@ impl SubChunk {
             block_layers: block_layers.unwrap_or(
                 vec![
                     Palette::new(
-                        Air::get_default_state().clone(),
+                        Air::PERMUTATION.get_default_state().clone(),
                         Some(vec![
-                            Air::get_default_state().clone();
+                            Air::PERMUTATION.get_default_state().clone();
                             16
                         ]),
                         Some(BitArrayVersion::V2),
                     ),
                     Palette::new(
-                        Air::get_default_state().clone(),
+                        Air::PERMUTATION.get_default_state().clone(),
                         Some(vec![
-                            Air::get_default_state().clone();
+                            Air::PERMUTATION.get_default_state().clone();
                             16
                         ]),
                         Some(BitArrayVersion::V2),
@@ -87,7 +88,7 @@ impl SubChunk {
     
     pub fn is_empty(&self) -> bool {
         for block_layer in self.block_layers.iter() {
-            if !block_layer.is_empty() || *block_layer.get(0) != *Air::get_default_state() {
+            if !block_layer.is_empty() || block_layer.get(0) != Air::PERMUTATION.get_default_state() {
                 return false;
             }
         }
