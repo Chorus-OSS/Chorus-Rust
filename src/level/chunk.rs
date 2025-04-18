@@ -1,6 +1,6 @@
 use crate::block::block::TBlock;
 use crate::block::r#impl::air::Air;
-use crate::level::block::block_state::BlockState;
+use crate::block::block_state::BlockState;
 use crate::level::chunk_state::ChunkState;
 use crate::level::sub_chunk::SubChunk;
 use std::collections::HashMap;

@@ -1,8 +1,8 @@
-use crate::level::block::property::r#type::block_property_type::BlockPropertyTypeTrait;
-use crate::level::block::property::value::enum_property_value::EnumPropertyValue;
+use crate::block::property::r#type::block_property_type::BlockPropertyTypeTrait;
+use crate::block::property::value::enum_property_value::EnumPropertyValue;
 use crate::utils::utils;
 use std::fmt::{Debug, Display};
-use crate::level::block::property::value::block_property_value::BlockPropertyValue;
+use crate::block::property::value::block_property_value::BlockPropertyValue;
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct EnumPropertyType {

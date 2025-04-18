@@ -1,9 +1,9 @@
 use crate::chorus::BLOCK_STATE_VERSION;
-use crate::level::block::property::r#type::block_property_type::{BlockPropertyType, BlockPropertyTypeTrait};
-use crate::level::block::property::value::block_property_value::{BlockPropertyValue, BlockPropertyValueTrait};
+use crate::block::property::r#type::block_property_type::{BlockPropertyType, BlockPropertyTypeTrait};
+use crate::block::property::value::block_property_value::{BlockPropertyValue, BlockPropertyValueTrait};
 use crate::utils::hash_utils::HashUtils;
 use std::collections::HashMap;
-use crate::level::block::block_states::BlockStates;
+use crate::block::block_states::BlockStates;
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct BlockState {

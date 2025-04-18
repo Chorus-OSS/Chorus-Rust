@@ -1,6 +1,6 @@
-use crate::level::block::property::r#type::block_property_type::BlockPropertyType;
-use crate::level::block::property::r#type::boolean_property_type::BooleanPropertyType;
-use crate::level::block::property::value::block_property_value::{BlockPropertyValue, BlockPropertyValueTrait};
+use crate::block::property::r#type::block_property_type::BlockPropertyType;
+use crate::block::property::r#type::boolean_property_type::BooleanPropertyType;
+use crate::block::property::value::block_property_value::{BlockPropertyValue, BlockPropertyValueTrait};
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct BooleanPropertyValue {

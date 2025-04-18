@@ -1,6 +1,6 @@
-use crate::level::block::property::r#type::block_property_type::BlockPropertyType;
-use crate::level::block::property::r#type::int_property_type::IntPropertyType;
-use crate::level::block::property::value::block_property_value::BlockPropertyValueTrait;
+use crate::block::property::r#type::block_property_type::BlockPropertyType;
+use crate::block::property::r#type::int_property_type::IntPropertyType;
+use crate::block::property::value::block_property_value::BlockPropertyValueTrait;
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct IntPropertyValue {

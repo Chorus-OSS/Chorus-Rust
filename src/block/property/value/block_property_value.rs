@@ -1,7 +1,7 @@
-use crate::level::block::property::r#type::block_property_type::{BlockPropertyType, BlockPropertyTypeTrait};
-use crate::level::block::property::value::boolean_property_value::BooleanPropertyValue;
-use crate::level::block::property::value::enum_property_value::EnumPropertyValue;
-use crate::level::block::property::value::int_property_value::IntPropertyValue;
+use crate::block::property::r#type::block_property_type::{BlockPropertyType, BlockPropertyTypeTrait};
+use crate::block::property::value::boolean_property_value::BooleanPropertyValue;
+use crate::block::property::value::enum_property_value::EnumPropertyValue;
+use crate::block::property::value::int_property_value::IntPropertyValue;
 
 pub trait BlockPropertyValueTrait {
     type T;

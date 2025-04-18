@@ -1,7 +1,7 @@
 #[allow(non_snake_case)]
 pub mod HashUtils {
-    use crate::level::block::property::r#type::block_property_type::BlockPropertyTypeTrait;
-    use crate::level::block::property::value::block_property_value::{BlockPropertyValue, BlockPropertyValueTrait};
+    use crate::block::property::r#type::block_property_type::BlockPropertyTypeTrait;
+    use crate::block::property::value::block_property_value::{BlockPropertyValue, BlockPropertyValueTrait};
     use std::collections::HashMap;
 
     pub fn compute_block_state_hash(identifier: String, property_values: Vec<BlockPropertyValue>) -> i32 {

@@ -2,7 +2,7 @@ use crate::block::block::TBlock;
 use crate::block::r#impl::air::Air;
 use crate::level::biome::biome_id::BiomeID;
 use crate::level::bit_array::bit_array_version::BitArrayVersion;
-use crate::level::block::block_state::BlockState;
+use crate::block::block_state::BlockState;
 use crate::level::palette::palette::Palette;
 use bedrockrs::proto::error::ProtoCodecError;
 use bedrockrs::proto::ProtoCodec;

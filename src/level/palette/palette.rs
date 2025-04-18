@@ -3,7 +3,7 @@ use bedrockrs::proto::error::ProtoCodecError;
 use bedrockrs::proto::{ProtoCodec, ProtoCodecLE, ProtoCodecVAR};
 use crate::level::bit_array::bit_array::{BitArray, BitArrayTrait};
 use crate::level::bit_array::bit_array_version::BitArrayVersion;
-use crate::level::block::block_state::BlockState;
+use crate::block::block_state::BlockState;
 use crate::level::sub_chunk::SubChunk;
 
 pub struct Palette<V : PartialEq> {

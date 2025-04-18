@@ -1,8 +1,8 @@
 use std::any::Any;
-use crate::level::block::property::r#type::boolean_property_type::BooleanPropertyType;
-use crate::level::block::property::r#type::enum_property_type::EnumPropertyType;
-use crate::level::block::property::r#type::int_property_type::IntPropertyType;
-use crate::level::block::property::value::block_property_value::{BlockPropertyValue, BlockPropertyValueTrait};
+use crate::block::property::r#type::boolean_property_type::BooleanPropertyType;
+use crate::block::property::r#type::enum_property_type::EnumPropertyType;
+use crate::block::property::r#type::int_property_type::IntPropertyType;
+use crate::block::property::value::block_property_value::{BlockPropertyValue, BlockPropertyValueTrait};
 
 pub trait BlockPropertyTypeTrait {
     type T;

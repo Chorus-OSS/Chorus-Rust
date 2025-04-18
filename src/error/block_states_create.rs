@@ -1,4 +1,4 @@
-use crate::level::block::property::r#type::block_property_type::BlockPropertyType;
+use crate::block::property::r#type::block_property_type::BlockPropertyType;
 use std::fmt::Display;
 
 #[derive(Debug)]

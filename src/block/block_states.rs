@@ -1,6 +1,6 @@
-use crate::level::block::block_state::BlockState;
-use crate::level::block::property::r#type::block_property_type::{BlockPropertyType, BlockPropertyTypeTrait};
-use crate::level::block::property::value::block_property_value::BlockPropertyValue;
+use crate::block::block_state::BlockState;
+use crate::block::property::r#type::block_property_type::{BlockPropertyType, BlockPropertyTypeTrait};
+use crate::block::property::value::block_property_value::BlockPropertyValue;
 use crate::utils::hash_utils::HashUtils;
 use std::collections::HashMap;
 use std::hash::Hash;

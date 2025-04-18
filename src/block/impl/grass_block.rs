@@ -1,6 +1,6 @@
 use crate::block::block::TBlock;
-use crate::block::block_attributes::BlockAttributes;
 use crate::block::block_id;
+use crate::block::block_attributes::{BlockAttributes, TBlockAttributes};
 use crate::block::block_state::BlockState;
 use crate::block::block_states::BlockStates;
 use crate::level::level::Level;
@@ -8,27 +8,25 @@ use once_cell::sync::Lazy;
 use vek::Vec3;
 
 static STATES: Lazy<BlockStates> = Lazy::new(||
-    BlockStates::create(block_id::AIR, vec![]).unwrap()
+    BlockStates::create(block_id::GRASS_BLOCK, vec![]).unwrap()
 );
 
 static DEFAULT_STATE: Lazy<BlockState> = Lazy::new(||
     STATES.get_default_state()
 );
 
-static PROPERTIES: Lazy<BlockAttributes> = Lazy::new(|| {
-    let mut attributes = BlockAttributes::default(block_id::AIR);
-    attributes.is_solid = false;
-    attributes
-});
+static ATTRIBUTES: Lazy<BlockAttributes> = Lazy::new(||
+    BlockAttributes::default(block_id::GRASS_BLOCK)
+);
 
-pub struct Air {
+pub struct GrassBlock {
     state: BlockState,
     position: Vec3<i32>,
     layer: i32,
     level: Level,
 }
 
-impl TBlock for Air {
+impl TBlock for GrassBlock {
     fn get_state(&self) -> &BlockState {
         &self.state
     }
@@ -37,7 +35,7 @@ impl TBlock for Air {
         &self.position
     }
 
-    fn get_layer(&self) -> &i32 { 
+    fn get_layer(&self) -> &i32 {
         &self.layer
     }
 
@@ -53,7 +51,7 @@ impl TBlock for Air {
         &DEFAULT_STATE
     }
 
-    fn get_attributes() -> &'static BlockAttributes {
-        &PROPERTIES
+    fn get_attributes() -> &'static BlockAttributes { 
+        &ATTRIBUTES 
     }
 }

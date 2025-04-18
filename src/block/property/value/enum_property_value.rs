@@ -1,7 +1,7 @@
 use std::fmt::Debug;
-use crate::level::block::property::r#type::block_property_type::{BlockPropertyType, BlockPropertyTypeTrait};
-use crate::level::block::property::r#type::enum_property_type::EnumPropertyType;
-use crate::level::block::property::value::block_property_value::{BlockPropertyValue, BlockPropertyValueTrait};
+use crate::block::property::r#type::block_property_type::{BlockPropertyType, BlockPropertyTypeTrait};
+use crate::block::property::r#type::enum_property_type::EnumPropertyType;
+use crate::block::property::value::block_property_value::{BlockPropertyValue, BlockPropertyValueTrait};
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct EnumPropertyValue {
