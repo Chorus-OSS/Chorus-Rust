@@ -5,7 +5,7 @@ use crate::level::block::block_states::BlockStates;
 use crate::level::block::block_state::BlockState;
 use crate::level::level::Level;
 
-pub trait TBlock: AsTBlockTransparent {
+pub trait TBlock {
     fn get_state(&self) -> &BlockState;
     
     fn get_position(&self) -> &Vec3<i32>;
@@ -23,8 +23,4 @@ pub trait TBlock: AsTBlockTransparent {
     fn as_transparent_block(&self) -> Option<&dyn TBlockTransparent> {
         None
     }
-}
-
-pub trait AsTBlockTransparent {
-    fn as_transparent_block(&self) -> Option<&dyn TBlockTransparent>;
 }
