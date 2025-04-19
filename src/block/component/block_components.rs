@@ -4,12 +4,12 @@ use std::collections::HashMap;
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct BlockComponents {
-    components: HashMap<String, Box<dyn BlockComponent>>
+    components: HashMap<String, BlockComponent>
 }
 
 impl BlockComponents {
-    pub fn create(components: Vec<Box<dyn BlockComponent>>) -> Self {
-        let mut map: HashMap<String, Box<dyn BlockComponent>> = HashMap::new();
+    pub fn create(components: Vec<BlockComponent>) -> Self {
+        let mut map: HashMap<String, BlockComponent> = HashMap::new();
         
         let mut defaults = vec![
             CollisionBox::default(),
