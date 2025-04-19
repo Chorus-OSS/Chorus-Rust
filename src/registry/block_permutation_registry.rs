@@ -48,8 +48,6 @@ impl BlockPermutationRegistry {
     }
 
     pub fn get(&self, identifier: &str) -> Option<&BlockPermutation> {
-        if let Some(lazy) = self.registry.get(identifier) {
-            Some(&lazy)
-        } else { None }
+        self.registry.get(identifier).map(|v| v.deref())
     }
 }
