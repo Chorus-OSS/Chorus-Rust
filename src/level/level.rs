@@ -1,3 +1,3 @@
 pub struct Level {
-    ecs: shipyard::World,
+    ecs: bevy_ecs::prelude::World,
 }

@@ -1,5 +1,5 @@
 use std::collections::HashMap;
-use shipyard::Component;
+use bevy_ecs::prelude::Component;
 
 #[derive(Component)]
 pub struct EntityMob {
