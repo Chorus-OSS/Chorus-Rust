@@ -1,178 +1,137 @@
-use crate::block::block_state::BlockState;
-use crate::block::property::block_property_type::BlockProperty;
-use crate::block::property::block_property_value::BlockPropertyValue;
+use crate::chorus::BLOCK_STATE_VERSION;
+use crate::block::state::block_state_type::BlockStateType;
+use crate::block::state::block_state_value::BlockStateValue;
 use crate::utils::hash_utils::HashUtils;
-use std::collections::{HashMap, HashSet};
-use std::hash::Hash;
-use crate::block::block_attributes::BlockAttributes;
-use crate::error::block_states_create::BlockStatesCreateError;
+use std::collections::HashMap;
+use crate::block::block_type::BlockType;
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct BlockPermutation {
     identifier: String,
-    properties: Vec<BlockProperty>,
-
-    attributes: BlockAttributes,
-
-    special_value_map: HashMap<i16, BlockState>,
-    special_value_bits: u8,
-    
-    default_state: BlockState,
+    hash: i32,
+    special_value: i16,
+    state_values: Vec<BlockStateValue>,
+    state_tag: HashMap<String, nbtx::Value>
 }
 
 impl BlockPermutation {
-    pub fn create(
-        identifier: &str,
-        properties: Vec<BlockProperty>,
-        attributes: BlockAttributes,
-    ) -> Result<Self, BlockStatesCreateError> {
-        let identifier = identifier.to_string();
-        
-        let mut special_value_bits: u8 = 0;
-        for val in &properties {
-            special_value_bits += val.get_bit_size();
-        }
-        
-        if special_value_bits > 16 {
-            return Err(BlockStatesCreateError { 
-                identifier: String::from(identifier), 
-                properties: properties.clone(),
-            });
-        }
-        
-        if let Some((state_map, default_state)) = Self::init_states(identifier.clone(), properties.clone()) {
-            Ok(Self {
-                identifier,
-                properties,
-                
-                attributes,
-                
-                special_value_map: state_map.iter().map(|(_, v)| {
-                    (v.get_special_value(), v.clone())
-                }).collect::<HashMap<i16, BlockState>>(),
-                special_value_bits,
-                
-                default_state
-            })
-        } else {
-            Err(BlockStatesCreateError {
-                identifier: String::from(identifier),
-                properties: properties.clone()
-            })
+    pub fn new(identifier: String, property_values: Vec<BlockStateValue>, hash: Option<i32>, special_value: Option<i16>, state_tag: Option<HashMap<String, nbtx::Value>>) -> Self {
+        Self {
+            identifier: identifier.clone(),
+            state_values: property_values.clone(),
+            hash: hash.unwrap_or_else(|| {
+                HashUtils::compute_block_permutation_hash(identifier.clone(), property_values.clone())
+            }),
+            special_value: special_value.unwrap_or_else(|| {
+                Self::compute_special_value(property_values.clone(), None)
+            }),
+            state_tag: state_tag.unwrap_or_else(|| {
+                Self::build_block_state_tag(identifier.clone(), property_values.clone())
+            }),
         }
     }
     
-    fn init_states(identifier: String, properties: Vec<BlockProperty>) -> Option<(HashMap<i32, BlockState>, BlockState)> {
-        if properties.is_empty() {
-            let block_state = BlockState::new(identifier.clone(), vec![], None, None, None);
-            let mut special_value_map = HashMap::new();
-            special_value_map.insert(block_state.get_hash(), block_state.clone());
-            return Some((special_value_map, block_state));
-        }
-        
-        let size = properties.len();
-
-        let mut block_states: HashMap<i32, BlockState> = HashMap::new();
-        let mut indices: Vec<usize> = vec![0; size];
-        
-        loop {
-            let mut values: Vec<BlockPropertyValue> = vec![];
-            for i in 0..size {
-                let r#type = &properties[i];
-                let val = match r#type {
-                    BlockProperty::Boolean { valid_values, .. } => {
-                        BlockPropertyValue::create_boolean(r#type.clone(), valid_values[indices[i]].clone()).unwrap()
-                    }
-                    BlockProperty::Int { valid_values, .. } => {
-                        BlockPropertyValue::create_int(r#type.clone(), valid_values[indices[i]].clone()).unwrap()
-                    }
-                    BlockProperty::Enum { valid_values, .. } => {
-                        BlockPropertyValue::create_enum(r#type.clone(), valid_values[indices[i]].clone()).unwrap()
-                    }
-                };
-                values.push(val)
-            }
-            let state = BlockState::new(identifier.clone(), values, None, None, None);
-            
-            block_states.insert(state.get_hash(), state);
-            
-            let mut next = size - 1;
-            while next >= 0 && (indices[next] + 1 >= match (&properties[next]) {
-                BlockProperty::Boolean { valid_values, .. } => {
-                    valid_values.len()
-                }
-                BlockProperty::Int { valid_values, .. } => {
-                    valid_values.len()
-                }
-                BlockProperty::Enum { valid_values, .. } => {
-                    valid_values.len()
-                }
-            }) {
-                next -= 1;
-            }
-            
-            if next < 0 { break; }
-            
-            indices[next] += 1;
-            
-            for i in next + 1 .. size {
-                indices[i] = 0
+    pub fn get_hash(&self) -> i32 {
+        self.hash
+    }
+    
+    pub fn get_special_value(&self) -> i16 {
+        self.special_value
+    }
+    
+    pub fn get_property_value(&self, property: BlockStateType) -> Option<BlockStateValue> {
+        for val in &self.state_values {
+            if val.get_property_type() == &property {
+                return Some(val.clone());
             }
         }
+        None
+    }
+    
+    pub fn set_property_value(&self, properties: BlockType, value: BlockStateValue) -> Option<BlockPermutation> {
+        let mut success = false;
+        let mut new_property_values: Vec<BlockStateValue> = Vec::new();
+        for v in &self.state_values {
+            if (*v == value) {
+                success = true;
+                new_property_values.push(value.clone())
+            } else { new_property_values.push(v.clone()) }
+        }
         
-        let default_state_hash = HashUtils::compute_block_state_hash(
-            identifier.clone(),
-            properties.iter().map(|v| {
-                v.create_default()
-            }).collect::<Vec<_>>(),
-        );
-
-        if let Some(state) = block_states.get(&default_state_hash) {
-            Some((block_states.clone(), state.clone()))
-        } else { None }
+        match success {
+            true => self.get_new_block_state(properties, new_property_values),
+            false => None
+        }
     }
     
-    pub fn get_identifier(&self) -> String { 
-        self.identifier.clone()
+    pub fn set_property_values(&self, properties: BlockType, values: Vec<BlockStateValue>) -> Option<BlockPermutation> {
+        let mut success_count: usize = 0;
+        
+        let mut new_property_values: Vec<BlockStateValue> = Vec::new();
+        'f: for v in &self.state_values {
+            for j in &values {
+                if (*v == *j) {
+                    success_count += 1;
+                    new_property_values.push(j.clone());
+                    continue 'f
+                }
+            }
+            new_property_values.push(v.clone());
+        }
+        
+        match success_count == values.len() {
+            true => self.get_new_block_state(properties, new_property_values),
+            false => None
+        }
     }
     
-    pub fn get_properties(&self) -> Vec<BlockProperty> {
-        self.properties.clone()
+    pub fn compute_special_value(property_values: Vec<BlockStateValue>, special_value_bits: Option<u8>) -> i16 {
+        let mut special_value_bits = special_value_bits.unwrap_or_else(|| {
+            let mut bits: u8 = 0;
+            for value in &property_values {
+                bits += value.get_property_type().get_bit_size();
+            }
+            bits
+        });
+        
+        let mut special_value: i16 = 0;
+        for value in &property_values {
+            let bit_size = value.get_property_type().get_bit_size();
+            let index = value.get_index();
+            
+            special_value = (special_value as i32 | (index << (special_value_bits - bit_size))) as i16;
+            special_value_bits = special_value_bits - bit_size;
+        }
+        special_value
     }
     
-    pub fn get_special_value_map(&self) -> HashMap<i16, BlockState> {
-        self.special_value_map.clone()
-    }
-
-    pub fn get_special_value_bits(&self) -> u8 {
-        self.special_value_bits.clone()
-    }
-
-    pub fn get_default_state(&self) -> &BlockState {
-        &self.default_state
-    }
-    
-    pub fn get_block_state(&self, special_value: i16) -> Option<BlockState> {
-        self.special_value_map.get(&special_value).cloned()
-    }
-    
-    pub fn get_block_state_with_value(&self, value: BlockPropertyValue) -> Option<BlockState> {
-        self.default_state.set_property_value(self.clone(), value)
-    }
-    
-    pub fn get_block_state_with_values(&self, values: Vec<BlockPropertyValue>) -> Option<BlockState> {
-        self.default_state.set_property_values(self.clone(), values)
+    fn build_block_state_tag(identifier: String, property_values: Vec<BlockStateValue>) -> HashMap<String, nbtx::Value> {
+        let mut states: HashMap<String, nbtx::Value> = HashMap::new();
+        for value in &property_values {
+            match value {
+                BlockStateValue::Boolean { property_type, serialized_value, .. } => {
+                    states.insert(property_type.get_name().clone(), nbtx::Value::Byte(serialized_value.clone() as i8));
+                }
+                BlockStateValue::Int { property_type, serialized_value, .. } => {
+                    states.insert(property_type.get_name().clone(), nbtx::Value::Int(serialized_value.clone()));
+                }
+                BlockStateValue::Enum { property_type, serialized_value, .. } => {
+                    states.insert(property_type.get_name().clone(), nbtx::Value::String(serialized_value.clone()));
+                }
+            }
+        }
+        let mut tag: HashMap<String, nbtx::Value> = HashMap::new();
+        tag.insert(String::from("name"), nbtx::Value::String(identifier));
+        tag.insert(String::from("states"), nbtx::Value::Compound(states));
+        tag.insert(String::from("version"), nbtx::Value::Int(*BLOCK_STATE_VERSION));
+        tag
     }
     
-    pub fn has_block_state(&self, state: &BlockState) -> bool {
-        self.special_value_map.contains_key(&state.get_special_value())
-    }
-    
-    pub fn has_block_state_special_value(&self, special_value: i16) -> bool {
-        self.special_value_map.contains_key(&special_value)
-    }
-    
-    pub fn has_property(&self, property: BlockProperty) -> bool {
-        self.properties.contains(&property)
+    fn get_new_block_state(&self, properties: BlockType, values: Vec<BlockStateValue>) -> Option<BlockPermutation> {
+        let bits: u8 = properties.get_special_value_bits();
+        match (bits <= 16) {
+            true => properties.get_block_permutation(Self::compute_special_value(values, Some(bits))),
+            false => None
+        }
     }
 }

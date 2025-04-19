@@ -1,8 +1,8 @@
-use crate::block::property::block_property_value::BlockPropertyValue;
+use crate::block::state::block_state_value::BlockStateValue;
 use crate::utils::utils;
 
 #[derive(Clone, Debug, PartialEq)]
-pub enum BlockProperty {
+pub enum BlockStateType {
     Boolean {
         name: String,
         default_value: bool,
@@ -24,8 +24,8 @@ pub enum BlockProperty {
     },
 }
 
-impl BlockProperty {
-    pub fn create_boolean(name: &str, default_value: bool) -> BlockProperty {
+impl BlockStateType {
+    pub fn create_boolean(name: &str, default_value: bool) -> BlockStateType {
         Self::Boolean {
             name: name.to_string(),
             default_value,
@@ -55,25 +55,25 @@ impl BlockProperty {
     
     pub fn get_bit_size(&self) -> &u8 {
         match self {
-            BlockProperty::Boolean { .. } => &1,
-            BlockProperty::Int { bit_size, .. } => bit_size,
-            BlockProperty::Enum { bit_size, .. } => bit_size,
+            BlockStateType::Boolean { .. } => &1,
+            BlockStateType::Int { bit_size, .. } => bit_size,
+            BlockStateType::Enum { bit_size, .. } => bit_size,
         }
     }
     
     pub fn get_name(&self) -> &String {
         match self {
-            BlockProperty::Boolean { name, .. } => name,
-            BlockProperty::Int { name, .. } => name,
-            BlockProperty::Enum { name, .. } => name,
+            BlockStateType::Boolean { name, .. } => name,
+            BlockStateType::Int { name, .. } => name,
+            BlockStateType::Enum { name, .. } => name,
         }
     }
     
-    pub fn create_default(&self) -> BlockPropertyValue {
+    pub fn create_default(&self) -> BlockStateValue {
         match self {
-            BlockProperty::Boolean { default_value, .. } => BlockPropertyValue::create_boolean(self.clone(), default_value.clone()).unwrap(),
-            BlockProperty::Int { default_value, .. } => BlockPropertyValue::create_int(self.clone(), default_value.clone()).unwrap(),
-            BlockProperty::Enum { default_value, .. } => BlockPropertyValue::create_enum(self.clone(), default_value.clone()).unwrap(),
+            BlockStateType::Boolean { default_value, .. } => BlockStateValue::create_boolean(self.clone(), default_value.clone()).unwrap(),
+            BlockStateType::Int { default_value, .. } => BlockStateValue::create_int(self.clone(), default_value.clone()).unwrap(),
+            BlockStateType::Enum { default_value, .. } => BlockStateValue::create_enum(self.clone(), default_value.clone()).unwrap(),
         }
     }
 }

@@ -1,21 +1,21 @@
 #[allow(non_snake_case)]
 pub mod HashUtils {
-    use crate::block::property::block_property_value::BlockPropertyValue;
+    use crate::block::state::block_state_value::BlockStateValue;
     use std::collections::HashMap;
 
-    pub fn compute_block_state_hash(identifier: String, property_values: Vec<BlockPropertyValue>) -> i32 {
+    pub fn compute_block_permutation_hash(identifier: String, property_values: Vec<BlockStateValue>) -> i32 {
         if (identifier == "minecraft:unknown") { return -2; }
         
         let mut states: HashMap<String, nbtx::Value> = HashMap::new();
         for val in property_values {
             match val {
-                BlockPropertyValue::Boolean { property_type, serialized_value, .. } => {
+                BlockStateValue::Boolean { property_type, serialized_value, .. } => {
                     states.insert(property_type.get_name().clone(), nbtx::Value::Byte(serialized_value as i8));
                 }
-                BlockPropertyValue::Int { property_type, serialized_value, .. } => {
+                BlockStateValue::Int { property_type, serialized_value, .. } => {
                     states.insert(property_type.get_name().clone(), nbtx::Value::Int(serialized_value));
                 }
-                BlockPropertyValue::Enum { property_type, serialized_value, .. } => {
+                BlockStateValue::Enum { property_type, serialized_value, .. } => {
                     states.insert(property_type.get_name().clone(), nbtx::Value::String(serialized_value));
                 }
             }

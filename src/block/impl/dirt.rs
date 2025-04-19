@@ -1,14 +1,14 @@
 use crate::block::block_attributes::BlockAttributes;
 use crate::block::block_id;
-use crate::block::block_permutation::BlockPermutation;
+use crate::block::block_type::BlockType;
 use once_cell::sync::Lazy;
 use std::collections::HashSet;
 
 pub struct Dirt;
 
 impl Dirt {
-    pub const PERMUTATION: Lazy<BlockPermutation> = Lazy::new(||
-        BlockPermutation::create(
+    pub const TYPE: Lazy<BlockType> = Lazy::new(||
+        BlockType::create(
             block_id::DIRT,
             Vec::new(),
             BlockAttributes {

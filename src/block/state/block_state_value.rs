@@ -1,32 +1,32 @@
-use crate::block::property::block_property_type::BlockProperty;
-use crate::error::mismatched_block_property::MismatchedBlockPropertyError;
+use crate::block::state::block_state_type::BlockStateType;
+use crate::error::mismatched_block_state_type::MismatchedBlockStateTypeError;
 
 #[derive(Clone, Debug, PartialEq)]
-pub enum BlockPropertyValue {
+pub enum BlockStateValue {
     Boolean {
-        property_type: BlockProperty,
+        property_type: BlockStateType,
         value: bool,
         index: i32,
         serialized_value: u8,
     },
     Int {
-        property_type: BlockProperty,
+        property_type: BlockStateType,
         value: i32,
         index: i32,
         serialized_value: i32,
     },
     Enum {
-        property_type: BlockProperty,
+        property_type: BlockStateType,
         value: String,
         index: i32,
         serialized_value: String,
     },
 }
 
-impl BlockPropertyValue {
-    pub fn create_boolean(property_type: BlockProperty, value: bool) -> Result<Self, MismatchedBlockPropertyError> {
+impl BlockStateValue {
+    pub fn create_boolean(property_type: BlockStateType, value: bool) -> Result<Self, MismatchedBlockStateTypeError> {
         match &property_type {
-            BlockProperty::Boolean { .. } => Ok(
+            BlockStateType::Boolean { .. } => Ok(
                 Self::Boolean {
                     property_type: property_type.clone(),
                     value,
@@ -35,7 +35,7 @@ impl BlockPropertyValue {
                 }
             ),
             _ => Err(
-                MismatchedBlockPropertyError {
+                MismatchedBlockStateTypeError {
                     found: property_type,
                     expected: String::from("BlockProperty::Boolean"),
                 }
@@ -43,9 +43,9 @@ impl BlockPropertyValue {
         }
     }
     
-    pub fn create_int(property_type: BlockProperty, value: i32) -> Result<Self, MismatchedBlockPropertyError> {
+    pub fn create_int(property_type: BlockStateType, value: i32) -> Result<Self, MismatchedBlockStateTypeError> {
         match &property_type {
-            BlockProperty::Int { min, .. } => Ok(
+            BlockStateType::Int { min, .. } => Ok(
                 Self::Int {
                     property_type: property_type.clone(),
                     value,
@@ -54,7 +54,7 @@ impl BlockPropertyValue {
                 }
             ),
             _ => Err(
-                MismatchedBlockPropertyError {
+                MismatchedBlockStateTypeError {
                     found: property_type,
                     expected: String::from("BlockProperty::Int"),
                 }
@@ -62,9 +62,9 @@ impl BlockPropertyValue {
         }
     }
     
-    pub fn create_enum(property_type: BlockProperty, value: String) -> Result<Self, MismatchedBlockPropertyError> {
+    pub fn create_enum(property_type: BlockStateType, value: String) -> Result<Self, MismatchedBlockStateTypeError> {
         match &property_type {
-            BlockProperty::Enum { valid_values, .. } => Ok(
+            BlockStateType::Enum { valid_values, .. } => Ok(
                 Self::Enum {
                     property_type: property_type.clone(),
                     value: value.clone(),
@@ -73,7 +73,7 @@ impl BlockPropertyValue {
                 }
             ),
             _ => Err(
-                MismatchedBlockPropertyError {
+                MismatchedBlockStateTypeError {
                     found: property_type,
                     expected: String::from("BlockProperty::Enum"),
                 }
@@ -83,17 +83,17 @@ impl BlockPropertyValue {
     
     pub fn get_index(&self) -> &i32 {
         match self {
-            BlockPropertyValue::Boolean { index, .. } => index,
-            BlockPropertyValue::Int { index, .. } => index,
-            BlockPropertyValue::Enum { index, .. } => index,
+            BlockStateValue::Boolean { index, .. } => index,
+            BlockStateValue::Int { index, .. } => index,
+            BlockStateValue::Enum { index, .. } => index,
         }
     }
     
-    pub fn get_property_type(&self) -> &BlockProperty {
+    pub fn get_property_type(&self) -> &BlockStateType {
         match self {
-            BlockPropertyValue::Boolean { property_type, .. } => property_type,
-            BlockPropertyValue::Int { property_type, .. } => property_type,
-            BlockPropertyValue::Enum { property_type, .. } => property_type,
+            BlockStateValue::Boolean { property_type, .. } => property_type,
+            BlockStateValue::Int { property_type, .. } => property_type,
+            BlockStateValue::Enum { property_type, .. } => property_type,
         }
     }
 }

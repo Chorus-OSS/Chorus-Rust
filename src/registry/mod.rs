@@ -1,1 +1,1 @@
-pub mod block_permutation_registry;
+pub mod block_type_registry;

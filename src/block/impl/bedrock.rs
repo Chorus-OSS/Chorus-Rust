@@ -2,13 +2,13 @@ use std::collections::HashSet;
 use once_cell::sync::Lazy;
 use crate::block::block_attributes::BlockAttributes;
 use crate::block::block_id;
-use crate::block::block_permutation::BlockPermutation;
+use crate::block::block_type::BlockType;
 
 pub struct Bedrock;
 
 impl Bedrock {
-    pub const PERMUTATION: Lazy<BlockPermutation> = Lazy::new(||
-        BlockPermutation::create(
+    pub const TYPE: Lazy<BlockType> = Lazy::new(||
+        BlockType::create(
             block_id::BEDROCK,
             Vec::new(),
             BlockAttributes {
