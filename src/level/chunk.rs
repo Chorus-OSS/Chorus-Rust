@@ -1,11 +1,9 @@
-use crate::block::block::TBlock;
 use crate::block::block_state::BlockState;
+use crate::block::r#impl::air::Air;
 use crate::level::chunk_state::ChunkState;
 use crate::level::sub_chunk::SubChunk;
 use std::collections::HashMap;
 use std::sync::atomic::AtomicI64;
-use crate::block::r#impl::air;
-use crate::block::r#impl::air::Air;
 
 pub struct Chunk {
     x: i32,
