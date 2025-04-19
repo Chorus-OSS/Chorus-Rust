@@ -15,8 +15,8 @@ pub struct Chunk {
     
     changes: AtomicI64,
     
-    entities: HashMap<i64, todo!("Entity")>,
-    block_entities: HashMap<i64, todo!("BlockEntity")>,
+    entities: HashMap<i64, shipyard::EntityId>,
+    block_entities: HashMap<i64, shipyard::EntityId>,
     
     min_height: i32,
     max_height: i32,

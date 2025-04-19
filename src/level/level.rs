@@ -1,1 +1,3 @@
-pub type Level = todo!("Level");
+pub struct Level {
+    ecs: shipyard::World,
+}
