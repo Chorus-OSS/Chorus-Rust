@@ -32,4 +32,41 @@ pub struct EntityMob {
     trade_experience: Option<i32>,
     trade_tier: Option<i32>,
     wants_to_be_jockey: Option<bool>,
+    exp_drop_enabled: bool,
+}
+
+impl EntityMob {
+    pub fn default() -> Self {
+        Self {
+            active_effects: None,
+            air: 0,
+            armor: [HashMap::new(); 5], // TODO: Air::ITEM
+            attack_time: 0,
+            attributes: vec![],
+            body_rot: None,
+            bound_x: 0,
+            bound_y: 0,
+            bound_z: 0,
+            can_pickup_items: true,
+            dead: false,
+            death_time: 0,
+            has_bound_origin: false,
+            has_set_can_pickup_items: true,
+            hurt_time: 0,
+            leasher_id: -1,
+            limited_life: 0,
+            mainhand: [HashMap::new(); 1], // TODO: Air::ITEM
+            natural_spawn: false,
+            offhand: [HashMap::new(); 1], // TODO: Air::ITEM
+            persisting_offers: None,
+            persisting_riches: None,
+            surface: false,
+            target_captain_id: None,
+            target_id: -1,
+            trade_experience: None,
+            trade_tier: None,
+            wants_to_be_jockey: None,
+            exp_drop_enabled: true,
+        }
+    }
 }

@@ -1,1 +1,2 @@
-mod player;
+pub mod player;
+pub mod pig;
