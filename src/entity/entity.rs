@@ -11,7 +11,7 @@ pub struct Entity {
 
     level: Level,
     
-    // NBT-specific fields
+    // NBT fields
     chested: bool,
     color: u8,
     color2: u8,

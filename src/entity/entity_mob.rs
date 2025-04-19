@@ -3,7 +3,7 @@ use shipyard::Component;
 
 #[derive(Component)]
 pub struct EntityMob {
-    // NBT-specific fields
+    // NBT fields
     active_effects: Option<Vec<HashMap<String, nbtx::Value>>>,
     air: i16,
     armor: [HashMap<String, nbtx::Value>; 5],
