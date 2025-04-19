@@ -6,12 +6,14 @@ use crate::error::block_permutation_create::BlockPermutationCreateError;
 use crate::utils::hash_utils::HashUtils;
 use std::collections::HashMap;
 use std::hash::Hash;
+use crate::block::component::block_components::BlockComponents;
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct BlockType {
     identifier: String,
     states: Vec<BlockStateType>,
 
+    components: BlockComponents,
     attributes: BlockAttributes,
 
     special_value_map: HashMap<i16, BlockPermutation>,
@@ -23,28 +25,30 @@ pub struct BlockType {
 impl BlockType {
     pub fn create(
         identifier: &str,
-        properties: Vec<BlockStateType>,
+        states: Vec<BlockStateType>,
+        components: BlockComponents,
         attributes: BlockAttributes,
     ) -> Result<Self, BlockPermutationCreateError> {
         let identifier = identifier.to_string();
         
         let mut special_value_bits: u8 = 0;
-        for val in &properties {
+        for val in &states {
             special_value_bits += val.get_bit_size();
         }
         
         if special_value_bits > 16 {
             return Err(BlockPermutationCreateError { 
                 identifier: String::from(identifier), 
-                states: properties.clone(),
+                states: states.clone(),
             });
         }
         
-        if let Some((state_map, default_state)) = Self::init_states(identifier.clone(), properties.clone()) {
+        if let Some((state_map, default_state)) = Self::init_states(identifier.clone(), states.clone()) {
             Ok(Self {
                 identifier,
-                states: properties,
+                states,
                 
+                components,
                 attributes,
                 
                 special_value_map: state_map.iter().map(|(_, v)| {
@@ -57,7 +61,7 @@ impl BlockType {
         } else {
             Err(BlockPermutationCreateError {
                 identifier: String::from(identifier),
-                states: properties.clone()
+                states: states.clone()
             })
         }
     }

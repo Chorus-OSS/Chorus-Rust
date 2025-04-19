@@ -3,6 +3,7 @@ use crate::block::block_type::BlockType;
 use once_cell::sync::Lazy;
 use std::collections::HashSet;
 use crate::block::block_attributes::BlockAttributes;
+use crate::block::component::block_components::BlockComponents;
 
 pub struct Air;
 
@@ -11,6 +12,7 @@ impl Air {
         BlockType::create(
             block_id::AIR,
             Vec::new(),
+            BlockComponents::create(vec![]),
             BlockAttributes {
                 tags: HashSet::new(),
                 friction_factor: 0.6,

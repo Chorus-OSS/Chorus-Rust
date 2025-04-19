@@ -2,6 +2,7 @@ use crate::block::component::block_component::BlockComponent;
 use crate::block::component::r#impl::collision_box::CollisionBox;
 use std::collections::HashMap;
 
+#[derive(Clone, Debug, PartialEq)]
 pub struct BlockComponents {
     components: HashMap<String, Box<dyn BlockComponent>>
 }

@@ -3,6 +3,7 @@ use once_cell::sync::Lazy;
 use crate::block::block_attributes::BlockAttributes;
 use crate::block::block_id;
 use crate::block::block_type::BlockType;
+use crate::block::component::block_components::BlockComponents;
 
 pub struct Bedrock;
 
@@ -11,6 +12,7 @@ impl Bedrock {
         BlockType::create(
             block_id::BEDROCK,
             Vec::new(),
+            BlockComponents::create(vec![]),
             BlockAttributes {
                 tags: HashSet::new(),
                 friction_factor: 0.6,
