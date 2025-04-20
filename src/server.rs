@@ -1,19 +1,26 @@
 use std::cmp::{max, min};
 use std::error::Error;
+use std::net::{IpAddr, Ipv4Addr, SocketAddr};
+use std::str::FromStr;
+use std::sync::Arc;
+use bedrockrs::proto::listener::Listener;
 use chrono::Utc;
 use log::{error, info};
 use once_cell::sync::Lazy;
 use tokio::sync::{Mutex, OnceCell, RwLock, RwLockReadGuard, RwLockWriteGuard};
 use tokio::time;
 use tokio::time::{sleep, Duration, Instant};
+use crate::chorus;
 use crate::config::server_properties;
 use crate::config::server_properties::ServerProperties;
+use crate::network::network::Network;
 use crate::utils::rolling_float_average::RollingFloatAverage;
 
 static INSTANCE: OnceCell<RwLock<Server>> = OnceCell::const_new();
 
 pub struct Server {
     pub properties: ServerProperties,
+    network: Network,
     
     is_running: bool,
     
@@ -27,10 +34,13 @@ pub struct Server {
     usage_avg: RollingFloatAverage,
 }
 
-impl Default for Server {
-    fn default() -> Self {
+impl Server {
+    async fn default() -> Self {
+        let properties = server_properties::setup_properties();
+
         Self {
-            properties: server_properties::setup_properties(),
+            properties: properties.clone(),
+            network: Network::default(&properties).await,
 
             is_running: true,
 
@@ -44,12 +54,10 @@ impl Default for Server {
             usage_avg: RollingFloatAverage::new(20),
         }
     }
-}
-
-impl Server {
+    
     pub async fn get() -> RwLockReadGuard<'static, Server> {
         INSTANCE.get_or_init(|| async {
-            RwLock::new(Self::default())
+            RwLock::new(Self::default().await)
         })
             .await
             .read()
@@ -58,7 +66,7 @@ impl Server {
 
     pub async fn get_mut() -> RwLockWriteGuard<'static, Server> {
         INSTANCE.get_or_init(|| async {
-            RwLock::new(Self::default())
+            RwLock::new(Self::default().await)
         })
             .await
             .write()
@@ -66,15 +74,14 @@ impl Server {
     }
 
     pub async fn start(&mut self) -> Result<(), Box<dyn Error>> {
-        info!("Started.");
+        self.network.start().await?;
+        
+        info!("Started on {}:{}.", self.properties.server_ip, self.properties.server_port);
         
         while self.is_running {
-            match (self.tick().await) {
-                Ok(_) => {}
-                Err(err) => {
-                    error!("{}", err);
-                    return Ok(())
-                }
+            if let Err(err) = self.tick().await {
+                error!("{}", err);
+                return Ok(())
             }
             
             let next_ms = self.next_tick_ms * 1000;
@@ -117,9 +124,9 @@ impl Server {
             self.next_tick_ms = tick_start
         } else { self.next_tick_ms += 50 }
         
-        if self.tick % 20 == 0 {
-            info!("T: {}, TM: {:.2}, UM: {:.2}, TA: {:.2}, UA: {:.2}", self.tick, self.tick_min, self.usage_max, self.tick_avg.get_avg(), self.usage_avg.get_avg());
-        }
+        // if self.tick % 20 == 0 {
+        //     info!("T: {}, TM: {:.2}, UM: {:.2}, TA: {:.2}, UA: {:.2}", self.tick, self.tick_min, self.usage_max, self.tick_avg.get_avg(), self.usage_avg.get_avg());
+        // }
         
         Ok(())
     }

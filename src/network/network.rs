@@ -2,39 +2,62 @@ use crate::server::Server;
 use bedrockrs::proto::connection::Connection;
 use bedrockrs::proto::error::ListenerError;
 use bedrockrs::proto::listener::Listener;
-use std::net::{Ipv4Addr, SocketAddr, SocketAddrV4};
+use std::net::{IpAddr, Ipv4Addr, SocketAddr, SocketAddrV4};
 use std::str::FromStr;
+use std::sync::Arc;
+use log::{error, info};
+use tokio::sync::Mutex;
+use crate::chorus;
+use crate::config::server_properties::ServerProperties;
 
-struct Network {
-    listener: Listener
+pub struct Network {
+    listener: Arc<Mutex<Listener>>
 }
 
 impl Network {
-    async fn default() -> Self {
-        let server = Server::get().await;
+    pub async fn default(properties: &ServerProperties) -> Self {
         Self {
-            listener: Listener::new_raknet(
-                server.properties.motd.clone(),
-                server.properties.sub_motd.clone(),
-                "1.21.60".to_string(),
-                server.properties.max_players.clone(),
-                0,
-                SocketAddr::V4(SocketAddrV4::new(
-                    Ipv4Addr::from_str(server.properties.server_ip.as_str()).unwrap(),
-                    server.properties.server_port,
-                )),
-                false,
-            ).await.unwrap()
+            listener: Arc::new(
+                Mutex::new(
+                    Listener::new_raknet(
+                        properties.motd.clone(),
+                        properties.sub_motd.clone(),
+                        String::from(chorus::GAME_VERSION),
+                        properties.max_players.clone(),
+                        0,
+                        SocketAddr::new(
+                            IpAddr::V4(
+                                Ipv4Addr::from_str(
+                                    properties.server_ip.as_str()
+                                ).unwrap_or_else(|err| {
+                                    error!("{}: {}", err, properties.server_ip);
+                                    
+                                    Ipv4Addr::UNSPECIFIED
+                                })
+                            ),
+                            properties.server_port.clone()
+                        ),
+                        false
+                    ).await.unwrap()
+                )
+            )
         }
     }
-    
-    async fn start(&mut self) -> Result<(), ListenerError> {
-        self.listener.start().await
-    }
-    
-    async fn update(&mut self) {
-        let conn: Connection = self.listener.accept().await.unwrap();
+
+    pub async fn start(&mut self) -> Result<(), ListenerError> {
+        self.listener.lock().await.start().await?;
         
-        // tokio::spawn(|| async {});
+        tokio::spawn({
+            let mut listener = self.listener.clone();
+            async move {
+                loop {
+                    let conn = listener.lock().await.accept().await.unwrap();
+
+                    info!("Connected: {}", conn.get_socket_addr().ip().to_string());
+                }
+            }
+        });
+        
+        Ok(())
     }
 }

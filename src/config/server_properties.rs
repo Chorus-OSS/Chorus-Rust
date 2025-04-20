@@ -6,7 +6,7 @@ use serde::{Deserialize, Serialize};
 
 const SERVER_PROPERTIES_PATH: &str = "server.properties";
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(deny_unknown_fields)]
 pub struct ServerProperties {
     pub motd: String,
@@ -113,7 +113,7 @@ pub fn setup_properties() -> ServerProperties {
     } else {
         let properties = ServerProperties::default();
 
-        let text = toml::to_string(&properties).unwrap_or_else(|err| {
+        let text = serde_java_properties::to_string(&properties).unwrap_or_else(|err| {
             error!("Failed to serialize {properties:?}, Err: {err}");
             exit(1);
         });
