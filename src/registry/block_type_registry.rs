@@ -24,14 +24,14 @@ pub struct BlockTypeRegistry {
 
 impl BlockTypeRegistry {
     fn create() -> Self {
-        let mut val = Self { registry: HashMap::new() };
+        let mut registry = Self { registry: HashMap::new() };
 
-        val.register(block_id::AIR, Lazy::new(|| Air::TYPE.clone() )).unwrap();
-        val.register(block_id::DIRT, Lazy::new(|| Dirt::TYPE.clone() )).unwrap();
-        val.register(block_id::GRASS_BLOCK, Lazy::new(|| GrassBlock::TYPE.clone() )).unwrap();
-        val.register(block_id::BEDROCK, Lazy::new(|| Bedrock::TYPE.clone() )).unwrap();
+        registry.register(block_id::AIR, Lazy::new(|| Air::TYPE.clone() )).unwrap();
+        registry.register(block_id::DIRT, Lazy::new(|| Dirt::TYPE.clone() )).unwrap();
+        registry.register(block_id::GRASS_BLOCK, Lazy::new(|| GrassBlock::TYPE.clone() )).unwrap();
+        registry.register(block_id::BEDROCK, Lazy::new(|| Bedrock::TYPE.clone() )).unwrap();
 
-        val
+        registry
     }
 
     pub fn instance() -> &'static RwLock<BlockTypeRegistry> {
