@@ -1,5 +1,5 @@
 use std::sync::Arc;
-use bevy_ecs::prelude::Component;
+use shipyard::Component;
 use crate::entity::entity::Entity;
 use crate::entity::{entity_id, entity_mob};
 use crate::entity::entity_mob::EntityMob;

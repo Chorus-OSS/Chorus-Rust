@@ -1,5 +1,5 @@
 use std::collections::HashMap;
-use bevy_ecs::prelude::Component;
+use shipyard::Component;
 
 #[derive(Component)]
 pub struct EntityMinecart {

@@ -1,5 +1,5 @@
 use std::sync::Arc;
-use bevy_ecs::prelude::Component;
+use shipyard::Component;
 use crate::entity::components::ageable::Ageable;
 use crate::entity::components::breedable::Breedable;
 use crate::entity::entity::Entity;

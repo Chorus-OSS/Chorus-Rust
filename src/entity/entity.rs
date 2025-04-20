@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 use std::sync::Arc;
-use bevy_ecs::prelude::Component;
+use shipyard::Component;
 use vek::{Vec2, Vec3};
 use crate::level::level::Level;
 

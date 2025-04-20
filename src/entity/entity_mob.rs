@@ -1,5 +1,6 @@
+use std::array::from_fn;
 use std::collections::HashMap;
-use bevy_ecs::prelude::Component;
+use shipyard::Component;
 
 #[derive(Component)]
 pub struct EntityMob {
@@ -40,7 +41,7 @@ impl EntityMob {
         Self {
             active_effects: None,
             air: 0,
-            armor: [HashMap::new(); 5], // TODO: Air::ITEM
+            armor: from_fn(|_| HashMap::new()), // TODO: Air::ITEM
             attack_time: 0,
             attributes: vec![],
             body_rot: None,
@@ -55,9 +56,9 @@ impl EntityMob {
             hurt_time: 0,
             leasher_id: -1,
             limited_life: 0,
-            mainhand: [HashMap::new(); 1], // TODO: Air::ITEM
+            mainhand: from_fn(|_| HashMap::new()), // TODO: Air::ITEM
             natural_spawn: false,
-            offhand: [HashMap::new(); 1], // TODO: Air::ITEM
+            offhand: from_fn(|_| HashMap::new()), // TODO: Air::ITEM
             persisting_offers: None,
             persisting_riches: None,
             surface: false,
