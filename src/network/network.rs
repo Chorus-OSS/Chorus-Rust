@@ -5,7 +5,7 @@ use bedrockrs::proto::listener::Listener;
 use std::net::{IpAddr, Ipv4Addr, SocketAddr, SocketAddrV4};
 use std::str::FromStr;
 use std::sync::Arc;
-use bedrockrs::proto::v766;
+use bedrockrs::proto::v786;
 use log::{error, info};
 use tokio::sync::Mutex;
 use crate::chorus;
@@ -24,7 +24,7 @@ impl Network {
                         properties.motd.clone(),
                         properties.sub_motd.clone(),
                         String::from(chorus::GAME_VERSION),
-                        v766::info::PROTOCOL_VERSION,
+                        v786::info::PROTOCOL_VERSION,
                         properties.max_players.clone(),
                         0,
                         SocketAddr::new(
