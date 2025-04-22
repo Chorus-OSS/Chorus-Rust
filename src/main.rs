@@ -1,24 +1,24 @@
-use std::process::exit;
 use log::{error, info};
+use std::process::exit;
 
+mod block;
 mod chorus;
-mod logger;
 mod config;
+mod entity;
+mod error;
+mod level;
+mod logger;
+mod math;
+mod network;
+mod registry;
 mod server;
 mod utils;
-mod network;
-mod level;
-mod math;
-mod error;
-mod block;
-mod entity;
-mod registry;
 
 fn main() {
     let config = config::setup_config();
-    
+
     logger::setup_logger(config.log_to_file, &config.logs_directory);
-    
+
     let runtime = tokio::runtime::Builder::new_multi_thread()
         .worker_threads(config.threads)
         .enable_all()
@@ -27,8 +27,6 @@ fn main() {
             error!("Failed to create Tokio-Runtime, Err: {err:?}");
             exit(1)
         });
-    
-    runtime.block_on(async {
-        chorus::main(std::env::args()).await
-    })
+
+    runtime.block_on(async { chorus::main(std::env::args()).await })
 }

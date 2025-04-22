@@ -18,5 +18,5 @@ pub enum Color {
     Red,
     Silver,
     White,
-    Yellow
+    Yellow,
 }

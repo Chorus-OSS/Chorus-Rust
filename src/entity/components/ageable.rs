@@ -7,8 +7,6 @@ pub struct Ageable {
 
 impl Ageable {
     pub fn default() -> Self {
-        Self {
-            age: 0,
-        }
+        Self { age: 0 }
     }
 }

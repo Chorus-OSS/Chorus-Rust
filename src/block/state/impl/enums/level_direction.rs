@@ -1,5 +1,5 @@
-use strum_macros::{Display, EnumString, VariantNames};
 use crate::math::enums::block_face::BlockFace;
+use strum_macros::{Display, EnumString, VariantNames};
 
 #[derive(EnumString, VariantNames, Display)]
 #[strum(serialize_all = "snake_case")]
@@ -31,17 +31,15 @@ impl LeverDirection {
             LeverDirection::DownNorthSouth => 7,
         }
     }
-    
+
     pub fn get_face(&self) -> BlockFace {
         match self {
             LeverDirection::North => BlockFace::North,
             LeverDirection::East => BlockFace::East,
             LeverDirection::South => BlockFace::South,
             LeverDirection::West => BlockFace::West,
-            LeverDirection::DownEastWest
-            | LeverDirection::DownNorthSouth => BlockFace::Down,
-            LeverDirection::UpEastWest
-            | LeverDirection::UpNorthSouth => BlockFace::Up,
+            LeverDirection::DownEastWest | LeverDirection::DownNorthSouth => BlockFace::Down,
+            LeverDirection::UpEastWest | LeverDirection::UpNorthSouth => BlockFace::Up,
         }
     }
 }

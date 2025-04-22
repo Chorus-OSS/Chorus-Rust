@@ -1,8 +1,8 @@
-use std::error::Error;
-use strum_macros::{Display, EnumString, VariantNames};
 use crate::error::invalid_index::InvalidIndexError;
 use crate::math::enums::axis_direction::AxisDirection;
 use crate::math::enums::block_face::BlockFace;
+use std::error::Error;
+use strum_macros::{Display, EnumString, VariantNames};
 
 #[derive(Clone, Debug, PartialEq, Eq, Hash, EnumString, VariantNames, Display)]
 #[strum(serialize_all = "snake_case")]
@@ -46,7 +46,7 @@ impl CompassRoseDirection {
             CompassRoseDirection::WestSouthWest => -2,
         }
     }
-    
+
     pub fn get_mod_z(&self) -> i8 {
         match self {
             CompassRoseDirection::North => -1,
@@ -67,7 +67,7 @@ impl CompassRoseDirection {
             CompassRoseDirection::WestSouthWest => 1,
         }
     }
-    
+
     pub fn get_closest_face(&self) -> BlockFace {
         match self {
             CompassRoseDirection::North => BlockFace::North,
@@ -88,7 +88,7 @@ impl CompassRoseDirection {
             CompassRoseDirection::WestSouthWest => BlockFace::West,
         }
     }
-    
+
     pub fn get_yaw(&self) -> f32 {
         match self {
             CompassRoseDirection::North => 0.0,
@@ -109,7 +109,7 @@ impl CompassRoseDirection {
             CompassRoseDirection::WestSouthWest => 247.5,
         }
     }
-    
+
     pub fn get_index(&self) -> usize {
         match self {
             CompassRoseDirection::North => 8,
@@ -130,7 +130,7 @@ impl CompassRoseDirection {
             CompassRoseDirection::WestSouthWest => 3,
         }
     }
-    
+
     pub fn get_opposite_face(&self) -> CompassRoseDirection {
         match self {
             CompassRoseDirection::North => CompassRoseDirection::South,
@@ -149,9 +149,9 @@ impl CompassRoseDirection {
             CompassRoseDirection::SouthSouthEast => CompassRoseDirection::NorthNorthWest,
             CompassRoseDirection::SouthSouthWest => CompassRoseDirection::NorthNorthEast,
             CompassRoseDirection::WestSouthWest => CompassRoseDirection::EastNorthEast,
-        }    
+        }
     }
-    
+
     fn from_index(index: usize) -> Result<CompassRoseDirection, InvalidIndexError> {
         match index {
             8 => Ok(CompassRoseDirection::North),
@@ -173,10 +173,16 @@ impl CompassRoseDirection {
             _ => Err(InvalidIndexError(index)),
         }
     }
-    
-    fn from_closest_yaw(yaw: f32, precision: Option<Precision>) -> Result<CompassRoseDirection, InvalidIndexError> {
+
+    fn from_closest_yaw(
+        yaw: f32,
+        precision: Option<Precision>,
+    ) -> Result<CompassRoseDirection, InvalidIndexError> {
         let precision = precision.unwrap_or(Precision::SecondaryInterCardinal);
-        let index = (f32::round(f32::round(yaw + 180.0) * precision.get_directions() as f32 / 360.0) * (16.0 / precision.get_directions() as f32)) as usize & 0x0F;
+        let index =
+            (f32::round(f32::round(yaw + 180.0) * precision.get_directions() as f32 / 360.0)
+                * (16.0 / precision.get_directions() as f32)) as usize
+                & 0x0F;
         Self::from_index(index)
     }
 }

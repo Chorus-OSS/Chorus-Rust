@@ -14,7 +14,7 @@ impl AxisDirection {
             AxisDirection::Negative => -1,
         }
     }
-    
+
     pub fn get_description(&self) -> &'static str {
         match self {
             AxisDirection::Positive => "Towards positive",

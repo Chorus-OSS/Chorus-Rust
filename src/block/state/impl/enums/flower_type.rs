@@ -13,5 +13,5 @@ pub enum FlowerType {
     TulipPink,
     Oxeye,
     Cornflower,
-    LilyOfTheValley
+    LilyOfTheValley,
 }

@@ -43,7 +43,7 @@ impl BlockStateType {
             bit_size: utils::compute_required_bits(min, max),
         }
     }
-    
+
     pub fn create_enum(name: &str, variants: &[&str], default_value: &str) -> Self {
         Self::Enum {
             name: name.to_string(),
@@ -52,7 +52,7 @@ impl BlockStateType {
             bit_size: utils::compute_required_bits(0, (variants.len() - 1) as i32),
         }
     }
-    
+
     pub fn get_bit_size(&self) -> &u8 {
         match self {
             BlockStateType::Boolean { .. } => &1,
@@ -60,7 +60,7 @@ impl BlockStateType {
             BlockStateType::Enum { bit_size, .. } => bit_size,
         }
     }
-    
+
     pub fn get_name(&self) -> &String {
         match self {
             BlockStateType::Boolean { name, .. } => name,
@@ -68,12 +68,18 @@ impl BlockStateType {
             BlockStateType::Enum { name, .. } => name,
         }
     }
-    
+
     pub fn create_default(&self) -> BlockStateValue {
         match self {
-            BlockStateType::Boolean { default_value, .. } => BlockStateValue::create_boolean(self.clone(), default_value.clone()).unwrap(),
-            BlockStateType::Int { default_value, .. } => BlockStateValue::create_int(self.clone(), default_value.clone()).unwrap(),
-            BlockStateType::Enum { default_value, .. } => BlockStateValue::create_enum(self.clone(), default_value.clone()).unwrap(),
+            BlockStateType::Boolean { default_value, .. } => {
+                BlockStateValue::create_boolean(self.clone(), default_value.clone()).unwrap()
+            }
+            BlockStateType::Int { default_value, .. } => {
+                BlockStateValue::create_int(self.clone(), default_value.clone()).unwrap()
+            }
+            BlockStateType::Enum { default_value, .. } => {
+                BlockStateValue::create_enum(self.clone(), default_value.clone()).unwrap()
+            }
         }
     }
 }

@@ -1,8 +1,8 @@
+use log::{debug, error};
+use serde::{Deserialize, Serialize};
 use std::fs;
 use std::path::PathBuf;
 use std::process::exit;
-use log::{debug, error};
-use serde::{Deserialize, Serialize};
 
 const SERVER_PROPERTIES_PATH: &str = "server.properties";
 
@@ -124,6 +124,6 @@ pub fn setup_properties() -> ServerProperties {
 
         properties
     };
-    
+
     properties
 }

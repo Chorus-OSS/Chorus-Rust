@@ -1,5 +1,5 @@
-use std::fmt::{Display, Formatter};
 use crate::block::state::block_state_type::BlockStateType;
+use std::fmt::{Display, Formatter};
 
 #[derive(Debug)]
 pub struct MismatchedBlockStateTypeError {
@@ -9,7 +9,11 @@ pub struct MismatchedBlockStateTypeError {
 
 impl Display for MismatchedBlockStateTypeError {
     fn fmt(&self, f: &mut Formatter) -> std::fmt::Result {
-        write!(f, "MismatchedBlockStateTypeError: {{ found: {:?}, expected: {:?} }}", self.found, self.expected)
+        write!(
+            f,
+            "MismatchedBlockStateTypeError: {{ found: {:?}, expected: {:?} }}",
+            self.found, self.expected
+        )
     }
 }
 

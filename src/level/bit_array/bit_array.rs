@@ -6,7 +6,7 @@ use crate::level::bit_array::singleton_bit_array::SingletonBitArray;
 pub trait BitArrayTrait {
     fn set(&mut self, index: usize, value: i32);
     fn get(&self, index: usize) -> i32;
-    
+
     fn get_size(&self) -> usize;
     fn get_words(&self) -> Vec<i32>;
     fn get_version(&self) -> &BitArrayVersion;

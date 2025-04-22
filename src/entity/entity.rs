@@ -1,17 +1,17 @@
+use crate::level::level::Level;
+use shipyard::Component;
 use std::collections::HashMap;
 use std::sync::Arc;
-use shipyard::Component;
 use vek::{Vec2, Vec3};
-use crate::level::level::Level;
 
 #[derive(Component)]
 pub struct Entity {
     pub level: Arc<Level>,
-    
+
     pub position: Vec3<f32>,
     pub rotation: Vec2<f32>,
     pub velocity: Vec3<f32>,
-    
+
     // NBT fields
     pub chested: bool,
     pub color: u8,

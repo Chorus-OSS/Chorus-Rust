@@ -4,5 +4,5 @@ use strum_macros::{Display, EnumString, VariantNames};
 #[strum(serialize_all = "snake_case")]
 pub enum BambooStalkThickness {
     Thick,
-    Thin
+    Thin,
 }

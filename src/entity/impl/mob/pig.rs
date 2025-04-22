@@ -1,11 +1,11 @@
-use std::sync::Arc;
-use shipyard::Component;
 use crate::entity::components::ageable::Ageable;
 use crate::entity::components::breedable::Breedable;
 use crate::entity::entity::Entity;
 use crate::entity::entity_id;
 use crate::entity::entity_mob::EntityMob;
 use crate::level::level::Level;
+use shipyard::Component;
+use std::sync::Arc;
 
 #[derive(Component)]
 pub struct Pig;

@@ -7,5 +7,5 @@ pub enum DripstoneThickness {
     Frustum,
     Merge,
     Middle,
-    Tip
+    Tip,
 }

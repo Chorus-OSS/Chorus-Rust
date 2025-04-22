@@ -6,5 +6,5 @@ pub enum ChemistryTableType {
     CompoundCreator,
     ElementConstructor,
     LabTable,
-    MaterialReducer
+    MaterialReducer,
 }

@@ -5,5 +5,5 @@ use strum_macros::{Display, EnumString, VariantNames};
 pub enum BambooLeafSize {
     NoLeaves,
     SmallLeaves,
-    LargeLeaves
+    LargeLeaves,
 }

@@ -6,5 +6,5 @@ pub enum BigDripleafTilt {
     FullTilt,
     None,
     PartialTilt,
-    Unstable
+    Unstable,
 }

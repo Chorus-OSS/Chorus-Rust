@@ -17,18 +17,18 @@ impl RollingFloatAverage {
     pub fn add(&mut self, value: f64) {
         self.queue.push_back(value);
         self.sum += value;
-        
+
         if (self.queue.len() > self.max_size) {
             if let Some(removed) = self.queue.pop_front() {
                 self.sum -= removed;
             }
         }
     }
-    
+
     pub fn get_avg(&self) -> f64 {
         match self.queue.is_empty() {
             false => self.sum / self.queue.len() as f64,
-            true => 0.0
+            true => 0.0,
         }
     }
 }

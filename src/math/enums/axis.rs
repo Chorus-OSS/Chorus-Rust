@@ -1,5 +1,5 @@
-use strum_macros::{Display, EnumString, VariantNames};
 use crate::math::enums::plane::Plane;
+use strum_macros::{Display, EnumString, VariantNames};
 
 #[derive(Clone, Debug, PartialEq, EnumString, VariantNames, Display)]
 #[strum(serialize_all = "snake_case")]
@@ -17,11 +17,11 @@ impl Axis {
             Axis::X => Plane::Horizontal,
         }
     }
-    
+
     pub fn is_vertical(&self) -> bool {
         self.get_plane() == Plane::Vertical
     }
-    
+
     pub fn is_horizontal(&self) -> bool {
         self.get_plane() == Plane::Horizontal
     }

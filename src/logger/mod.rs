@@ -9,7 +9,7 @@ pub fn setup_logger(log_to_file: bool, log_path: &Path) {
         .info(Color::Blue)
         .warn(Color::Yellow)
         .error(Color::Red);
-    
+
     let console_log = fern::Dispatch::new()
         .format(move |out, message, record| {
             out.finish(format_args!(
@@ -22,24 +22,21 @@ pub fn setup_logger(log_to_file: bool, log_path: &Path) {
         })
         .chain(std::io::stdout());
 
+    let mut dispatch = fern::Dispatch::new().chain(console_log);
 
-    let mut dispatch = fern::Dispatch::new()
-        .chain(console_log);
-    
     if log_to_file {
-        let file_log= fern::Dispatch::new()
-            .format(move |out, message, record| {
-                out.finish(format_args!(
-                    "{} [{}] [{}] {}",
-                    Local::now().format("%H:%M:%S"),
-                    record.target(),
-                    record.level(),
-                    message
-                ))
-            });
+        let file_log = fern::Dispatch::new().format(move |out, message, record| {
+            out.finish(format_args!(
+                "{} [{}] [{}] {}",
+                Local::now().format("%H:%M:%S"),
+                record.target(),
+                record.level(),
+                message
+            ))
+        });
 
         let mut file_log = file_log.level(log::LevelFilter::Info);
-        
+
         let log_file = format!(
             "{}/{}.log",
             log_path.display(),
@@ -50,7 +47,7 @@ pub fn setup_logger(log_to_file: bool, log_path: &Path) {
             eprintln!("An unexpected Error occurred while trying to add a log file at {log_file:?} to the logger, Err: {err}");
             exit(1)
         }));
-        
+
         dispatch = dispatch.chain(file_log);
     }
 

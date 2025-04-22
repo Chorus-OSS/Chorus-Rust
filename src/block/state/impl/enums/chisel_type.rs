@@ -6,5 +6,5 @@ pub enum ChiselType {
     Default,
     Chiseled,
     Lines,
-    Smooth
+    Smooth,
 }

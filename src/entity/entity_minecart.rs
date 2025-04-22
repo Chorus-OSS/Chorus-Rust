@@ -1,5 +1,5 @@
-use std::collections::HashMap;
 use shipyard::Component;
+use std::collections::HashMap;
 
 #[derive(Component)]
 pub struct EntityMinecart {

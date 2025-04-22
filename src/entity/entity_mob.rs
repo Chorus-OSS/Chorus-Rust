@@ -1,6 +1,6 @@
+use shipyard::Component;
 use std::array::from_fn;
 use std::collections::HashMap;
-use shipyard::Component;
 
 #[derive(Component)]
 pub struct EntityMob {

@@ -7,5 +7,5 @@ pub enum CoralColor {
     Pink,
     Purple,
     Red,
-    Yellow
+    Yellow,
 }
