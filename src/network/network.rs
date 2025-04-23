@@ -1,3 +1,4 @@
+use std::error::Error;
 use crate::chorus;
 use crate::config::server_properties::ServerProperties;
 use crate::server::Server;
@@ -9,10 +10,13 @@ use log::{error, info};
 use std::net::{IpAddr, Ipv4Addr, SocketAddr, SocketAddrV4};
 use std::str::FromStr;
 use std::sync::Arc;
+use bedrockrs::proto::connection::shard::arc::{shard, ConnectionShared};
 use tokio::sync::Mutex;
+use crate::network::session::Session;
 
 pub struct Network {
     listener: Arc<Mutex<Listener>>,
+    sessions: Arc<Mutex<Vec<Session>>>,
 }
 
 impl Network {
@@ -43,6 +47,7 @@ impl Network {
                 .await
                 .unwrap(),
             )),
+            sessions: Arc::new(Mutex::new(Vec::new()))
         }
     }
 
@@ -51,15 +56,26 @@ impl Network {
 
         tokio::spawn({
             let mut listener = self.listener.clone();
+            let mut sessions = self.sessions.clone();
             async move {
                 loop {
                     let conn = listener.lock().await.accept().await.unwrap();
-
+                    
                     info!("Connected: {}", conn.get_socket_addr().ip().to_string());
+                    
+                    sessions.lock().await.push(Session::new(conn));
                 }
             }
         });
 
+        Ok(())
+    }
+    
+    pub async fn tick(&mut self) -> Result<(), Box<dyn Error>> {
+        for session in self.sessions.lock().await.iter_mut() {
+            session.tick().await?;
+        }
+        
         Ok(())
     }
 }

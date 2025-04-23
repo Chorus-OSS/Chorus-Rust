@@ -105,6 +105,8 @@ impl Server {
         let tick_start_nano = Instant::now();
 
         self.tick += 1;
+        
+        self.network.tick().await?;
 
         let tick_elapsed_nano = tick_start_nano.elapsed().as_nanos();
         let tick = f64::min(
