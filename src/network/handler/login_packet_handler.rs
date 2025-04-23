@@ -4,8 +4,7 @@ use crate::network::handler::packet_handler::PacketHandler;
 pub struct LoginPacketHandler;
 
 impl PacketHandler for LoginPacketHandler {
-    fn handle(packet: GamePackets) {
+    fn handle(&self, packet: GamePackets) {
         let GamePackets::Login(packet) = packet else { return; };
-        
     }
 }

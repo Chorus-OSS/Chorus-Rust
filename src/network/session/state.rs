@@ -15,11 +15,10 @@ pub enum SessionState {
     Death
 }
 
-#[derive(Default)]
 pub struct SessionStateMachine<'a>(&'a mut Session);
 
 #[state_machine(initial = "State::start()")]
-impl SessionStateMachine {
+impl SessionStateMachine<'_> {
     #[state(exit_action = "exit_start")]
     async fn start(event: &SessionState) -> Response<State> {
         match event {
@@ -66,7 +65,7 @@ impl SessionStateMachine {
     }
     
     #[action]
-    async fn exit_login(&self) {
+    async fn exit_login(&mut self) {
         debug!("Login completed.");
         self.0.on_login_success().await;
     }
