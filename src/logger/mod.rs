@@ -22,7 +22,9 @@ pub fn setup_logger(log_to_file: bool, log_path: &Path) {
         })
         .chain(std::io::stdout());
 
-    let mut dispatch = fern::Dispatch::new().chain(console_log);
+    let mut dispatch = fern::Dispatch::new()
+        .level(log::LevelFilter::Trace)
+        .chain(console_log);
 
     if log_to_file {
         let file_log = fern::Dispatch::new().format(move |out, message, record| {

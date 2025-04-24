@@ -5,7 +5,7 @@ use crate::server::Server;
 use bedrockrs::proto::connection::Connection;
 use bedrockrs::proto::error::ListenerError;
 use bedrockrs::proto::listener::Listener;
-use bedrockrs::proto::v786;
+use crate::network::protocol;
 use log::{error, info};
 use std::net::{IpAddr, Ipv4Addr, SocketAddr, SocketAddrV4};
 use std::str::FromStr;
@@ -16,7 +16,7 @@ use crate::network::session::Session;
 
 pub struct Network {
     listener: Arc<Mutex<Listener>>,
-    sessions: Arc<Mutex<Vec<Session>>>,
+    sessions: Arc<Mutex<Vec<Arc<Mutex<Session>>>>>,
 }
 
 impl Network {
@@ -27,7 +27,7 @@ impl Network {
                     properties.motd.clone(),
                     properties.sub_motd.clone(),
                     String::from(chorus::GAME_VERSION),
-                    v786::info::PROTOCOL_VERSION,
+                    protocol::info::PROTOCOL_VERSION,
                     properties.max_players.clone(),
                     0,
                     SocketAddr::new(
@@ -63,7 +63,7 @@ impl Network {
                     
                     info!("Connected: {}", conn.get_socket_addr().ip().to_string());
                     
-                    sessions.lock().await.push(Session::new(conn));
+                    sessions.lock().await.push(Session::new(conn).await);
                 }
             }
         });
@@ -73,6 +73,12 @@ impl Network {
     
     pub async fn tick(&mut self) -> Result<(), Box<dyn Error>> {
         for session in self.sessions.lock().await.iter_mut() {
+            let mut session = session.lock().await;
+            
+            if session.get_connection_shard().is_closed().await {
+                continue;
+            }
+            
             session.tick().await?;
         }
         

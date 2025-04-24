@@ -1,5 +1,5 @@
-use bedrockrs::proto::{v786, GamePacket};
+use crate::network::protocol::GamePackets;
 
-pub trait PacketHandler : Send {
-    fn handle(&self, packet: v786::GamePackets); 
+pub trait PacketHandler : Send + Sync + 'static {
+    fn handle(&mut self, packet: GamePackets); 
 }
