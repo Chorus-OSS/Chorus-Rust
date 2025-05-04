@@ -19,7 +19,6 @@ use statig::awaitable::{IntoStateMachineExt, StateMachine, Super, Transition};
 use statig::{state_machine, Response};
 use tokio::sync::Mutex;
 use crate::network::handler::packet_handler::PacketHandler;
-use crate::network::handler::start_session_handler::StartSessionHandler;
 use crate::network::protocol::enums::ConnectionFailReason;
 use crate::network::protocol::packets::{DisconnectMessage, DisconnectPacket};
 use crate::network::session::state::SessionStateMachine;
@@ -27,43 +26,19 @@ use crate::server::Server;
 
 pub struct Session {
     connection_shard: ConnectionShared<ProtoHelperV786>,
-    pub packet_handler: Option<Box<dyn PacketHandler>>,
+    pub packet_handler: PacketHandler,
     closed: AtomicBool,
-    state: Option<StateMachine<SessionStateMachine>>
+    state: StateMachine<SessionStateMachine>
 }
 
 impl Session {
-    pub async fn new(conn: Connection) -> Arc<Mutex<Self>> {
-        let shard = shard::<ProtoHelperV786>(conn);
-
-        let mut val = Arc::new(
-            Mutex::new(
-                Self {
-                    connection_shard: shard,
-                    packet_handler: None,
-                    closed: AtomicBool::new(false),
-                    state: None,
-                }
-            )
-        );
-        
-        let mut locked_val = val.lock().await;
-        
-        locked_val.packet_handler = Some(
-            Box::new(
-                StartSessionHandler::new(
-                    Arc::downgrade(&val),
-                )
-            )
-        );
-        
-        locked_val.state = Some(
-            SessionStateMachine::new(
-                Arc::downgrade(&val),
-            ).state_machine()
-        );
-        
-        val.clone()
+    pub fn new(conn: Connection) -> Self {
+        Self {
+            connection_shard: shard::<ProtoHelperV786>(conn),
+            packet_handler: PacketHandler::StartSession,
+            closed: AtomicBool::new(false),
+            state: SessionStateMachine::new().state_machine(),
+        }
     }
 
     pub async fn tick(&mut self) -> Result<(), Box<dyn Error>> {
@@ -73,19 +48,19 @@ impl Session {
         while let Some(packet) = self.connection_shard.read().await {
             info!("Packet: {:?}", packet.id());
             
-            if let Some(packet_handler) = self.packet_handler.as_mut() {
-                packet_handler.handle(packet);
-            }
+            self.packet_handler.clone().handle(self, packet).await;
         }
-
+        
         Ok(())
     }
 
     pub async fn on_login_success(&mut self) {
-        self.send_play_status(PlayStatus::LoginSuccess).await;
+        self.send_play_status(PlayStatus::LoginSuccess, false).await;
     }
 
-    pub async fn send_play_status(&mut self, status: PlayStatus) {
+    pub async fn send_play_status(&mut self, status: PlayStatus, immediate: bool) {
+        info!("Sending play status: {:?}", status);
+        
         self.connection_shard.write(
             GamePackets::PlayStatus(
                 PlayStatusPacket {
@@ -93,6 +68,8 @@ impl Session {
                 }
             )
         ).await.unwrap();
+        
+        if (immediate) { self.connection_shard.send().await.unwrap() }
     }
 
     pub fn get_connection_shard(&self) -> &ConnectionShared<ProtoHelperV786> {
@@ -104,11 +81,11 @@ impl Session {
     }
     
     pub fn get_state(&self) -> &StateMachine<SessionStateMachine> {
-        self.state.as_ref().unwrap()
+        &self.state
     }
     
     pub fn get_mut_state(&mut self) -> &mut StateMachine<SessionStateMachine> {
-        self.state.as_mut().unwrap()
+        &mut self.state
     }
 
     pub async fn close(&mut self, reason: Option<&str>) {

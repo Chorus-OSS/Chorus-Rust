@@ -63,7 +63,13 @@ impl Network {
                     
                     info!("Connected: {}", conn.get_socket_addr().ip().to_string());
                     
-                    sessions.lock().await.push(Session::new(conn).await);
+                    sessions.lock().await.push(
+                        Arc::new(
+                            Mutex::new(
+                                Session::new(conn)
+                            )
+                        )
+                    );
                 }
             }
         });
@@ -79,7 +85,13 @@ impl Network {
                 continue;
             }
             
-            session.tick().await?;
+            match session.tick().await {
+                Ok(_) => {}
+                Err(err) => { 
+                    error!("Closing session! Cause: {:?}", err);
+                    session.close(None).await;
+                }
+            }
         }
         
         Ok(())
